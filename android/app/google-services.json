@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "299148420415",
+    "project_id": "kandc-1abbc",
+    "storage_bucket": "kandc-1abbc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299148420415:android:619934c622465f50badf8a",
+        "android_client_info": {
+          "package_name": "com.kandc.homeowner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPWf6D-PK-vEyZLYorfVHS-Ve5Y5CjQ8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299148420415:android:0232513d54c45e0fbadf8a",
+        "android_client_info": {
+          "package_name": "com.kandc.trade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPWf6D-PK-vEyZLYorfVHS-Ve5Y5CjQ8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
