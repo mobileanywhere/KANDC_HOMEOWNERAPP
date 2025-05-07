@@ -17,6 +17,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../services/notification_handler.dart';
+
 class SignInScreen extends StatefulWidget {
   final bool? isFromDashboard;
   final bool? isFromServiceBooking;
@@ -479,6 +481,19 @@ class _SignInScreenState extends State<SignInScreen> {
                 _buildTopWidget(),
                 _buildFormWidget(),
                 _buildRememberWidget(),
+                TextButton(
+                      onPressed: () async {
+                        Clipboard.setData(
+                          ClipboardData(text: deviceToken ?? ''),
+                        );
+                        toastLong('Copied to clipboard!');
+                        toastLong(deviceToken);
+                        await checkPushNotification({
+                          'device_token': deviceToken,
+                        });
+                      },
+                      child: Text('copy device token'),
+                    ),
                 // if (!getBoolAsync(HAS_IN_REVIEW)) _buildSocialWidget(),
                 30.height,
               ],

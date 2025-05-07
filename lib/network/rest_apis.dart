@@ -1426,3 +1426,15 @@ Future<BaseResponseModel> paymentForInvoice(Map request) async {
       await buildHttpResponse('save-payment',
           request: request, method: HttpMethodType.POST)));
 }
+
+Future<BaseResponseModel> checkPushNotification(Map request) async {
+  return BaseResponseModel.fromJson(
+    await handleResponse(
+      await buildHttpResponse(
+        'check-push-notification',
+        request: request,
+        method: HttpMethodType.POST,
+      ),
+    ),
+  );
+}
