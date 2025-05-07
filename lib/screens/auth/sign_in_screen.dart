@@ -25,11 +25,12 @@ class SignInScreen extends StatefulWidget {
   final bool returnExpected;
   final bool isRegeneratingToken;
 
-  SignInScreen(
-      {this.isFromDashboard,
-      this.isFromServiceBooking,
-      this.returnExpected = false,
-      this.isRegeneratingToken = false});
+  SignInScreen({
+    this.isFromDashboard,
+    this.isFromServiceBooking,
+    this.returnExpected = false,
+    this.isRegeneratingToken = false,
+  });
 
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -61,8 +62,10 @@ class _SignInScreenState extends State<SignInScreen> {
     isRemember = getBoolAsync(IS_REMEMBERED, defaultValue: true);
     if (isRemember) {
       emailCont.text = getStringAsync(USER_EMAIL, defaultValue: DEFAULT_EMAIL);
-      passwordCont.text =
-          getStringAsync(USER_PASSWORD, defaultValue: DEFAULT_PASS);
+      passwordCont.text = getStringAsync(
+        USER_PASSWORD,
+        defaultValue: DEFAULT_PASS,
+      );
     }
 
     if (widget.isRegeneratingToken) {
@@ -77,11 +80,13 @@ class _SignInScreenState extends State<SignInScreen> {
         // appleSign();
       } else if (isLoginTypeOTP) {
         toast(language.lblLoginAgain);
-        logoutApi().then((value) async {
-          //
-        }).catchError((e) {
-          log(e.toString());
-        });
+        logoutApi()
+            .then((value) async {
+              //
+            })
+            .catchError((e) {
+              log(e.toString());
+            });
 
         await clearPreferences();
       }
@@ -108,26 +113,32 @@ class _SignInScreenState extends State<SignInScreen> {
       'email': emailCont.text.trim(),
       'password': passwordCont.text.trim(),
       'player_id': getStringAsync(PLAYERID),
+      'device_token': deviceToken,
     };
 
     log(request);
 
-    await loginCurrentUsers(context, req: request).then((value) async {
-      if (isRemember) {
-        setValue(USER_EMAIL, emailCont.text);
-        setValue(USER_PASSWORD, passwordCont.text);
-        await setValue(IS_REMEMBERED, isRemember);
-      }
+    await loginCurrentUsers(context, req: request)
+        .then((value) async {
+          if (isRemember) {
+            setValue(USER_EMAIL, emailCont.text);
+            setValue(USER_PASSWORD, passwordCont.text);
+            await setValue(IS_REMEMBERED, isRemember);
+          }
 
-      saveDataToPreference(context, userData: value.userData!,
-          onRedirectionClick: () async {
-        await saveUserData(value.userData!);
-        onLoginSuccessRedirection();
-      });
-    }).catchError((e) {
-      appStore.setLoading(false);
-      toast(e.toString());
-    });
+          saveDataToPreference(
+            context,
+            userData: value.userData!,
+            onRedirectionClick: () async {
+              await saveUserData(value.userData!);
+              onLoginSuccessRedirection();
+            },
+          );
+        })
+        .catchError((e) {
+          appStore.setLoading(false);
+          toast(e.toString());
+        });
   }
 
   // void googleSignIn() async {
@@ -155,8 +166,11 @@ class _SignInScreenState extends State<SignInScreen> {
   void onLoginSuccessRedirection() async {
     if (appStore.userId != null) {
       setState(() {});
-      await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PropertyScreen(isFromLogin: true)));
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => PropertyScreen(isFromLogin: true),
+        ),
+      );
     }
     TextInput.finishAutofillContext();
     if (widget.isFromServiceBooking.validate() ||
@@ -168,8 +182,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
       finish(context, true);
     } else {
-      DashboardScreen().launch(context,
-          isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade);
+      DashboardScreen().launch(
+        context,
+        isNewTask: true,
+        pageRouteAnimation: PageRouteAnimation.Fade,
+      );
     }
 
     appStore.setLoading(false);
@@ -188,21 +205,23 @@ class _SignInScreenState extends State<SignInScreen> {
   //   });
   // }
 
-//endregion
+  //endregion
 
-//region Widgets
+  //region Widgets
   Widget _buildTopWidget() {
     return Container(
       child: Column(
         children: [
-          Text("${language.lblLoginTitle}!", style: boldTextStyle(size: 20))
-              .center(),
+          Text(
+            "${language.lblLoginTitle}!",
+            style: boldTextStyle(size: 20),
+          ).center(),
           16.height,
-          Text(language.lblLoginSubTitle,
-                  style: primaryTextStyle(size: 14),
-                  textAlign: TextAlign.center)
-              .center()
-              .paddingSymmetric(horizontal: 32),
+          Text(
+            language.lblLoginSubTitle,
+            style: primaryTextStyle(size: 14),
+            textAlign: TextAlign.center,
+          ).center().paddingSymmetric(horizontal: 32),
           32.height,
         ],
       ),
@@ -219,8 +238,10 @@ class _SignInScreenState extends State<SignInScreen> {
             focus: emailFocus,
             nextFocus: passwordFocus,
             errorThisFieldRequired: language.requiredText,
-            decoration:
-                inputDecoration(context, labelText: language.hintEmailTxt),
+            decoration: inputDecoration(
+              context,
+              labelText: language.hintEmailTxt,
+            ),
             suffix: ic_message.iconImage(size: 10).paddingAll(14),
             autoFillHints: [AutofillHints.email],
           ),
@@ -229,12 +250,16 @@ class _SignInScreenState extends State<SignInScreen> {
             textFieldType: TextFieldType.PASSWORD,
             controller: passwordCont,
             focus: passwordFocus,
-            suffixPasswordVisibleWidget:
-                ic_show.iconImage(size: 10).paddingAll(14),
-            suffixPasswordInvisibleWidget:
-                ic_hide.iconImage(size: 10).paddingAll(14),
-            decoration:
-                inputDecoration(context, labelText: language.hintPasswordTxt),
+            suffixPasswordVisibleWidget: ic_show
+                .iconImage(size: 10)
+                .paddingAll(14),
+            suffixPasswordInvisibleWidget: ic_hide
+                .iconImage(size: 10)
+                .paddingAll(14),
+            decoration: inputDecoration(
+              context,
+              labelText: language.hintPasswordTxt,
+            ),
             autoFillHints: [AutofillHints.password],
             onFieldSubmitted: (s) {
               _handleLogin();
@@ -277,7 +302,9 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Text(
                 language.forgotPassword,
                 style: boldTextStyle(
-                    color: primaryColor, fontStyle: FontStyle.italic),
+                  color: primaryColor,
+                  fontStyle: FontStyle.italic,
+                ),
                 textAlign: TextAlign.right,
               ),
             ).flexible(),
@@ -366,10 +393,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 child: GoogleLogoWidget(size: 16),
               ),
-              Text(language.lblSignInWithGoogle,
-                      style: boldTextStyle(size: 12),
-                      textAlign: TextAlign.center)
-                  .expand(),
+              Text(
+                language.lblSignInWithGoogle,
+                style: boldTextStyle(size: 12),
+                textAlign: TextAlign.center,
+              ).expand(),
             ],
           ),
           // onTap: googleSignIn,
@@ -393,10 +421,11 @@ class _SignInScreenState extends State<SignInScreen> {
                     .iconImage(size: 18, color: primaryColor)
                     .paddingAll(4),
               ),
-              Text(language.lblSignInWithOTP,
-                      style: boldTextStyle(size: 12),
-                      textAlign: TextAlign.center)
-                  .expand(),
+              Text(
+                language.lblSignInWithOTP,
+                style: boldTextStyle(size: 12),
+                textAlign: TextAlign.center,
+              ).expand(),
             ],
           ),
           onTap: otpSignIn,
@@ -419,10 +448,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   child: Icon(Icons.apple),
                 ),
-                Text(language.lblSignInWithApple,
-                        style: boldTextStyle(size: 12),
-                        textAlign: TextAlign.center)
-                    .expand(),
+                Text(
+                  language.lblSignInWithApple,
+                  style: boldTextStyle(size: 12),
+                  textAlign: TextAlign.center,
+                ).expand(),
               ],
             ),
             // onTap: appleSign,
@@ -431,7 +461,7 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-//endregion
+  //endregion
 
   @override
   void setState(fn) {
@@ -441,14 +471,20 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   void dispose() {
     if (widget.isFromServiceBooking.validate()) {
-      setStatusBarColor(Colors.transparent,
-          statusBarIconBrightness: Brightness.dark);
+      setStatusBarColor(
+        Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      );
     } else if (widget.isFromDashboard.validate()) {
-      setStatusBarColor(Colors.transparent,
-          statusBarIconBrightness: Brightness.light);
+      setStatusBarColor(
+        Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+      );
     } else {
-      setStatusBarColor(primaryColor,
-          statusBarIconBrightness: Brightness.light);
+      setStatusBarColor(
+        primaryColor,
+        statusBarIconBrightness: Brightness.light,
+      );
     }
     super.dispose();
   }
@@ -459,14 +495,16 @@ class _SignInScreenState extends State<SignInScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: context.scaffoldBackgroundColor,
-        leading: Navigator.of(context).canPop()
-            ? BackWidget(iconColor: context.iconColor)
-            : null,
+        leading:
+            Navigator.of(context).canPop()
+                ? BackWidget(iconColor: context.iconColor)
+                : null,
         scrolledUnderElevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarIconBrightness:
-                appStore.isDarkMode ? Brightness.light : Brightness.dark,
-            statusBarColor: context.scaffoldBackgroundColor),
+          statusBarIconBrightness:
+              appStore.isDarkMode ? Brightness.light : Brightness.dark,
+          statusBarColor: context.scaffoldBackgroundColor,
+        ),
       ),
       body: Body(
         child: Form(
@@ -481,19 +519,6 @@ class _SignInScreenState extends State<SignInScreen> {
                 _buildTopWidget(),
                 _buildFormWidget(),
                 _buildRememberWidget(),
-                TextButton(
-                      onPressed: () async {
-                        Clipboard.setData(
-                          ClipboardData(text: deviceToken ?? ''),
-                        );
-                        toastLong('Copied to clipboard!');
-                        toastLong(deviceToken);
-                        await checkPushNotification({
-                          'device_token': deviceToken,
-                        });
-                      },
-                      child: Text('copy device token'),
-                    ),
                 // if (!getBoolAsync(HAS_IN_REVIEW)) _buildSocialWidget(),
                 30.height,
               ],

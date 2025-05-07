@@ -10,6 +10,9 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../network/rest_apis.dart';
+import '../screens/dashboard/dashboard_screen.dart';
+
 // Assume this is your encrypted preferences implementation
 // Replace with your actual package if different
 
@@ -68,11 +71,10 @@ String? deviceToken = '';
 
 @pragma('vm:entry-point')
 class NotificationHandler {
-  final GlobalKey<NavigatorState> navigatorKey;
 
   static late NotificationHandler _instance;
 
-  NotificationHandler({required this.navigatorKey}) {
+  NotificationHandler() {
     _instance = this;
   }
 
@@ -82,8 +84,11 @@ class NotificationHandler {
   static late NotificationSettings notificationSettings;
 
   static final channel = AndroidNotificationChannel(
-      'high_importance_channel', 'High Importance Notifications',
-      importance: Importance.high, playSound: true);
+    'high_importance_channel',
+    'High Importance Notifications',
+    importance: Importance.high,
+    playSound: true,
+  );
   static var flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
@@ -98,19 +103,22 @@ class NotificationHandler {
     await _messaging
         .subscribeToTopic('Flutter_Library_Firebase_Messaging')
         .catchError((error) {
-      log('Failed to subscribe to topic: $error');
-    });
+          log('Failed to subscribe to topic: $error');
+        });
 
     notificationSettings = await _messaging.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        carPlay: true,
-        criticalAlert: false,
-        provisional: false,
-        sound: true);
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: true,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
 
-    log('Firebase Permission Status: ${notificationSettings.authorizationStatus}');
+    log(
+      'Firebase Permission Status: ${notificationSettings.authorizationStatus}',
+    );
 
     if (notificationSettings.authorizationStatus ==
             AuthorizationStatus.denied ||
@@ -130,19 +138,22 @@ class NotificationHandler {
 
     if (deviceToken == null) {
       log('Firebase FCM token is null');
-      toast('Firebase FCM token is not generated');
+      // toast('Firebase FCM token is not generated');
     } else {
-      Clipboard.setData(ClipboardData(text: deviceToken??''));
-            toastLong('Copied to clipboard!');
-      toastLong(deviceToken);
+      // Clipboard.setData(ClipboardData(text: deviceToken ?? ''));
+      // toastLong('Copied to clipboard!');
+      // toastLong(deviceToken);
     }
 
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
-            alert: true, badge: true, sound: true);
+          alert: true,
+          badge: true,
+          sound: true,
+        );
 
     // Listen for token refresh event
-    FirebaseMessaging.instance.onTokenRefresh.listen((newToken) {
+    FirebaseMessaging.instance.onTokenRefresh.listen((newToken) async {
       log('Firebase FCM token refreshed $newToken');
       deviceToken = newToken;
 
@@ -165,8 +176,9 @@ class NotificationHandler {
       }
     });
 
-    FirebaseMessaging.onMessageOpenedApp
-        .listen((RemoteMessage remoteMessage) async {
+    FirebaseMessaging.onMessageOpenedApp.listen((
+      RemoteMessage remoteMessage,
+    ) async {
       final slug = remoteMessage.data['slug'] ?? '/';
       if (slug != null && slug != 'login') {
         await FileService.writeSlug(slug);
@@ -180,27 +192,35 @@ class NotificationHandler {
   static Future<void> createNotificationChannel() async {
     final flutterLocalNotificationPlugin = FlutterLocalNotificationsPlugin();
     const androidNotificationChannel = AndroidNotificationChannel(
-        'high_importance_channel', 'High Importance Notification',
-        importance: Importance.high);
-    var initializationSettingsAndroid =
-        const AndroidInitializationSettings('@mipmap/ic_launcher');
+      'high_importance_channel',
+      'High Importance Notification',
+      importance: Importance.high,
+    );
+    var initializationSettingsAndroid = const AndroidInitializationSettings(
+      '@mipmap/ic_launcher',
+    );
     var initializationSettingsDarwin = DarwinInitializationSettings(
-        requestAlertPermission: true,
-        requestSoundPermission: true,
-        requestBadgePermission: true,
-        requestCriticalPermission: true);
+      requestAlertPermission: true,
+      requestSoundPermission: true,
+      requestBadgePermission: true,
+      requestCriticalPermission: true,
+    );
     var initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid,
-        iOS: initializationSettingsDarwin);
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsDarwin,
+    );
 
-    await flutterLocalNotificationPlugin.initialize(initializationSettings,
-        onDidReceiveNotificationResponse: onNotificationResponse,
-        onDidReceiveBackgroundNotificationResponse:
-            onBackgroundNotificationResponse);
+    await flutterLocalNotificationPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: onNotificationResponse,
+      onDidReceiveBackgroundNotificationResponse:
+          onBackgroundNotificationResponse,
+    );
 
     await flutterLocalNotificationPlugin
         .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
+          AndroidFlutterLocalNotificationsPlugin
+        >()
         ?.createNotificationChannel(androidNotificationChannel);
   }
 
@@ -209,18 +229,23 @@ class NotificationHandler {
     log('Firebase Notification tapped: ${response.payload}');
     final messageData = response.payload != null ? response.payload! : '{}';
     final remoteMessage = RemoteMessage.fromMap(jsonDecode(messageData));
-    log('Firebase on Notification response: ${jsonEncode(remoteMessage.toMap())}');
+    log(
+      'Firebase on Notification response: ${jsonEncode(remoteMessage.toMap())}',
+    );
     final slug = remoteMessage.data['slug'] ?? '/';
     _navigateToScreen(slug);
   }
 
   @pragma('vm:entry-point')
   static Future<void> onBackgroundNotificationResponse(
-      NotificationResponse response) async {
+    NotificationResponse response,
+  ) async {
     log('Firebase Notification tapped: ${response.payload}');
     final messageData = response.payload != null ? response.payload! : '{}';
     final remoteMessage = RemoteMessage.fromMap(jsonDecode(messageData));
-    log('Firebase on Notification response: ${jsonEncode(remoteMessage.toMap())}');
+    log(
+      'Firebase on Notification response: ${jsonEncode(remoteMessage.toMap())}',
+    );
     final slug = remoteMessage.data['slug'] ?? '/';
     if (slug != null && slug != 'login') {
       await FileService.writeSlug(slug);
@@ -228,7 +253,8 @@ class NotificationHandler {
   }
 
   static Future<void> _navigateToScreen(String slug) async {
-//    _handleInitialRouting(slug);
+    DashboardScreen(redirectToBooking: true).launch(navigatorKey.currentContext!, isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade);
+    //    _handleInitialRouting(slug);
   }
 
   static Future<void> showLocalNotification(RemoteMessage message) async {
@@ -241,8 +267,10 @@ class NotificationHandler {
     } else {
       // Notification is not silent - show local notification
       const androidNotificationChannel = AndroidNotificationChannel(
-          'high_importance_channel', 'High Importance Notification',
-          importance: Importance.high);
+        'high_importance_channel',
+        'High Importance Notification',
+        importance: Importance.high,
+      );
 
       NotificationDetails notificationDetails = NotificationDetails(
         android: AndroidNotificationDetails(
@@ -252,32 +280,46 @@ class NotificationHandler {
           icon: '@mipmap/ic_launcher',
         ),
         iOS: const DarwinNotificationDetails(
-            presentAlert: true, presentBadge: true, presentSound: true),
+          presentAlert: true,
+          presentBadge: true,
+          presentSound: true,
+        ),
       );
 
       final payload = jsonEncode(message.toMap());
 
       await flutterLocalNotificationsPlugin.show(
-          DateTime.now().millisecondsSinceEpoch ~/ 1000,
-          notification.title,
-          notification.body,
-          notificationDetails,
-          payload: payload);
-        }
+        DateTime.now().millisecondsSinceEpoch ~/ 1000,
+        notification.title,
+        notification.body,
+        notificationDetails,
+        payload: payload,
+      );
+    }
   }
 
   static Future<void> showBackgroundNotification(
-      String title, String body) async {
+    String title,
+    String body,
+  ) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails('background_fetch', 'Background Fetch',
-            channelDescription: 'Background fetch events',
-            importance: Importance.max,
-            priority: Priority.high,
-            showWhen: true,
-            icon: '@mipmap/ic_launcher');
-    const NotificationDetails platformChannelSpecifics =
-        NotificationDetails(android: androidPlatformChannelSpecifics);
+        AndroidNotificationDetails(
+          'background_fetch',
+          'Background Fetch',
+          channelDescription: 'Background fetch events',
+          importance: Importance.max,
+          priority: Priority.high,
+          showWhen: true,
+          icon: '@mipmap/ic_launcher',
+        );
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+    );
     await flutterLocalNotificationsPlugin.show(
-        0, title, body, platformChannelSpecifics);
+      0,
+      title,
+      body,
+      platformChannelSpecifics,
+    );
   }
 }

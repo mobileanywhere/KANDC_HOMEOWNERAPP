@@ -1438,3 +1438,15 @@ Future<BaseResponseModel> checkPushNotification(Map request) async {
     ),
   );
 }
+
+Future<BaseResponseModel> saveDeviceToken(Map request) async {
+  return BaseResponseModel.fromJson(
+    await handleResponse(
+      await buildHttpResponse(
+        'save-device-token',
+        request: request,
+        method: HttpMethodType.POST,
+      ),
+    ),
+  );
+}
