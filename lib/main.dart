@@ -104,7 +104,7 @@ void main() async {
   //   setupFirebaseRemoteConfig();
   // });
   NotificationHandler.initializeFirebaseAndNotifications();
-  NotificationHandler(navigatorKey: navigatorKey);
+  NotificationHandler();
 
   await appStore.setLoggedIn(getBoolAsync(IS_LOGGED_IN), isInitializing: true);
 
