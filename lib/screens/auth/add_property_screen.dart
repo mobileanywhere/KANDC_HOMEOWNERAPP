@@ -97,11 +97,11 @@ class _AddPropertyScreenState extends State<AddPropertyScreen> {
       stateList.clear();
       stateList.addAll(value);
       log(stateList);
-      value.forEach((e) {
+      for (var e in value) {
         if (e.id == getIntAsync(STATE_ID)) {
           selectedState = e;
         }
-      });
+      }
       setState(() {});
       if (widget.propertyData != null) showState();
     }).catchError((e) {
@@ -117,11 +117,11 @@ class _AddPropertyScreenState extends State<AddPropertyScreen> {
     await getCityList({UserKeys.stateId: stateId}).then((value) async {
       cityList.clear();
       cityList.addAll(value);
-      value.forEach((e) {
+      for (var e in value) {
         if (e.id == getIntAsync(CITY_ID)) {
           selectedCity = e;
         }
-      });
+      }
       setState(() {});
       if (widget.propertyData != null) showCity();
     }).catchError((e) {

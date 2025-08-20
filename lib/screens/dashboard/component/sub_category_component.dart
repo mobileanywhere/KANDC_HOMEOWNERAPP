@@ -8,7 +8,7 @@ class SubCategoryComponentTwo extends StatelessWidget {
   final int crossAxisCount;
   final void Function()? onTap;
   final bool isListTypeView;
-  SubCategoryComponentTwo(
+  const SubCategoryComponentTwo(
       {super.key,
       required this.categoryImage,
       required this.categoryName,
@@ -44,7 +44,7 @@ class SubCategoryComponentTwo extends StatelessWidget {
                       height: crossAxisCount == 2 ? 50 : 32,
                       width: crossAxisCount == 2 ? 50 : 32,
                       child: CachedImageWidget(
-                        url: '$categoryImage',
+                        url: categoryImage,
                         height: crossAxisCount == 2 ? 50 : 32,
                         width: crossAxisCount == 2 ? 50 : 32,
                         fit: BoxFit.fitWidth,
@@ -54,7 +54,7 @@ class SubCategoryComponentTwo extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          '$categoryName',
+                          categoryName,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
@@ -93,7 +93,7 @@ class SubCategoryComponentTwo extends StatelessWidget {
                       height: 50,
                       width: 50,
                       child: CachedImageWidget(
-                        url: '$categoryImage',
+                        url: categoryImage,
                         height: crossAxisCount == 2 ? 50 : 32,
                         width: crossAxisCount == 2 ? 50 : 32,
                         fit: BoxFit.fitWidth,
@@ -103,7 +103,7 @@ class SubCategoryComponentTwo extends StatelessWidget {
                     12.height,
                     Center(
                       child: Text(
-                        '$categoryName',
+                        categoryName,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,

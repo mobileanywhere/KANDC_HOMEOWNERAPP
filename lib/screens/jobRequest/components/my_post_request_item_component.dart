@@ -16,7 +16,7 @@ class MyPostRequestItemComponent extends StatefulWidget {
   final PostJobData data;
   final Function(bool) callback;
 
-  MyPostRequestItemComponent({required this.data, required this.callback});
+  const MyPostRequestItemComponent({super.key, required this.data, required this.callback});
 
   @override
   _MyPostRequestItemComponentState createState() => _MyPostRequestItemComponentState();

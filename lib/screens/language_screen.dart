@@ -5,6 +5,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../main.dart';
 
 class LanguagesScreen extends StatefulWidget {
+  const LanguagesScreen({super.key});
+
   @override
   LanguagesScreenState createState() => LanguagesScreenState();
 }

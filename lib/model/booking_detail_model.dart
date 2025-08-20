@@ -54,36 +54,36 @@ class BookingDetailResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.bookingActivity != null) {
-      data['booking_activity'] = this.bookingActivity!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (bookingActivity != null) {
+      data['booking_activity'] = bookingActivity!.map((v) => v.toJson()).toList();
     }
-    if (this.bookingDetail != null) {
-      data['booking_detail'] = this.bookingDetail!.toJson();
+    if (bookingDetail != null) {
+      data['booking_detail'] = bookingDetail!.toJson();
     }
-    if (this.couponData != null) {
-      data['coupon_data'] = this.couponData!.toJson();
+    if (couponData != null) {
+      data['coupon_data'] = couponData!.toJson();
     }
-    if (this.customer != null) {
-      data['customer'] = this.customer!.toJson();
+    if (customer != null) {
+      data['customer'] = customer!.toJson();
     }
-    if (this.handymanData != null) {
-      data['handyman_data'] = this.handymanData!.map((v) => v.toJson()).toList();
+    if (handymanData != null) {
+      data['handyman_data'] = handymanData!.map((v) => v.toJson()).toList();
     }
-    if (this.providerData != null) {
-      data['provider_data'] = this.providerData!.toJson();
+    if (providerData != null) {
+      data['provider_data'] = providerData!.toJson();
     }
-    if (this.ratingData != null) {
-      data['rating_data'] = this.ratingData!.map((v) => v.toJson()).toList();
+    if (ratingData != null) {
+      data['rating_data'] = ratingData!.map((v) => v.toJson()).toList();
     }
-    if (this.service != null) {
-      data['service'] = this.service!.toJson();
+    if (service != null) {
+      data['service'] = service!.toJson();
     }
-    if (this.customerReview != null) {
-      data['customer_review'] = this.customerReview!.toJson();
+    if (customerReview != null) {
+      data['customer_review'] = customerReview!.toJson();
     }
-    if (this.serviceProof != null) {
-      data['service_proof'] = this.serviceProof!.map((v) => v.toJson()).toList();
+    if (serviceProof != null) {
+      data['service_proof'] = serviceProof!.map((v) => v.toJson()).toList();
     }
     if (postRequestDetail != null) {
       data['post_request_detail'] = postRequestDetail?.toJson();
@@ -120,16 +120,16 @@ class BookingActivity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['activity_data'] = this.activityData;
-    data['activity_message'] = this.activityMessage;
-    data['activity_type'] = this.activityType;
-    data['booking_id'] = this.bookingId;
-    data['created_at'] = this.createdAt;
-    data['datetime'] = this.datetime;
-    data['deleted_at'] = this.deletedAt;
-    data['id'] = this.id;
-    data['updated_at'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['activity_data'] = activityData;
+    data['activity_message'] = activityMessage;
+    data['activity_type'] = activityType;
+    data['booking_id'] = bookingId;
+    data['created_at'] = createdAt;
+    data['datetime'] = datetime;
+    data['deleted_at'] = deletedAt;
+    data['id'] = id;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }
@@ -170,16 +170,16 @@ class ServiceProof {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['service_id'] = this.serviceId;
-    data['booking_id'] = this.bookingId;
-    data['user_id'] = this.userId;
-    data['handyman_name'] = this.handymanName;
-    data['service_name'] = this.serviceName;
-    data['attachments'] = this.attachments;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['description'] = description;
+    data['service_id'] = serviceId;
+    data['booking_id'] = bookingId;
+    data['user_id'] = userId;
+    data['handyman_name'] = handymanName;
+    data['service_name'] = serviceName;
+    data['attachments'] = attachments;
     return data;
   }
 }

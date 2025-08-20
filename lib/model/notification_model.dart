@@ -8,18 +8,18 @@ class NotificationListResponse {
     if (json['notification_data'] != null) {
       notificationData = [];
       json['notification_data'].forEach((v) {
-        notificationData!.add(new NotificationData.fromJson(v));
+        notificationData!.add(NotificationData.fromJson(v));
       });
     }
     allUnreadCount = json['all_unread_count'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.notificationData != null) {
-      data['notification_data'] = this.notificationData!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (notificationData != null) {
+      data['notification_data'] = notificationData!.map((v) => v.toJson()).toList();
     }
-    data['all_unread_count'] = this.allUnreadCount;
+    data['all_unread_count'] = allUnreadCount;
     return data;
   }
 }
@@ -38,15 +38,15 @@ class NotificationData {
     readAt = json['read_at'];
     createdAt = json['created_at'];
     profileImage = json['profile_image'];
-    data = json['data'] != null ? new NotificationInnerData.fromJson(json['data']) : null;
+    data = json['data'] != null ? NotificationInnerData.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['read_at'] = this.readAt;
-    data['created_at'] = this.createdAt;
-    data['profile_image'] = this.profileImage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['read_at'] = readAt;
+    data['created_at'] = createdAt;
+    data['profile_image'] = profileImage;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -72,12 +72,12 @@ class NotificationInnerData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['type'] = this.type;
-    data['subject'] = this.subject;
-    data['message'] = this.message;
-    data['notification-type'] = this.notificationType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['type'] = type;
+    data['subject'] = subject;
+    data['message'] = message;
+    data['notification-type'] = notificationType;
     return data;
   }
 }

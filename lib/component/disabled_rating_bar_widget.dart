@@ -6,7 +6,7 @@ class DisabledRatingBarWidget extends StatelessWidget {
   final num rating;
   final double? size;
 
-  DisabledRatingBarWidget({required this.rating, this.size});
+  const DisabledRatingBarWidget({super.key, required this.rating, this.size});
 
   @override
   Widget build(BuildContext context) {

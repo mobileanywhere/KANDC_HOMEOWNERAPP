@@ -23,7 +23,7 @@ class BookingServiceStep3 extends StatefulWidget {
   final ServiceDetailResponse data;
   final BookingPackage? selectedPackage;
 
-  BookingServiceStep3({required this.data, this.selectedPackage});
+  const BookingServiceStep3({super.key, required this.data, this.selectedPackage});
 
   @override
   _BookingServiceStep3State createState() => _BookingServiceStep3State();
@@ -81,7 +81,7 @@ class _BookingServiceStep3State extends State<BookingServiceStep3> {
           title: language.lblAvailableCoupons,
           child: CouponWidget(
             couponData: widget.data.couponData.validate(),
-            appliedCouponData: appliedCouponData ?? null,
+            appliedCouponData: appliedCouponData,
           ),
         );
       },
@@ -100,7 +100,7 @@ class _BookingServiceStep3State extends State<BookingServiceStep3> {
   }
 
   Widget priceWidget() {
-    if (!widget.data.serviceDetail!.isFreeService)
+    if (!widget.data.serviceDetail!.isFreeService) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -352,6 +352,7 @@ class _BookingServiceStep3State extends State<BookingServiceStep3> {
           )
         ],
       );
+    }
 
     return Offstage();
   }
@@ -427,7 +428,7 @@ class _BookingServiceStep3State extends State<BookingServiceStep3> {
   }
 
   Widget packageWidget() {
-    if (widget.selectedPackage != null)
+    if (widget.selectedPackage != null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -501,6 +502,7 @@ class _BookingServiceStep3State extends State<BookingServiceStep3> {
           ),
         ],
       );
+    }
 
     return Offstage();
   }

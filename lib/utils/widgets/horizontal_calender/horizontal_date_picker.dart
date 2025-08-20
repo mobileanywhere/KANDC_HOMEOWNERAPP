@@ -1,4 +1,4 @@
-library horizontal_center_date_picker;
+library;
 
 import 'package:homeowner/main.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,7 @@ class HorizontalDatePickerWidget extends StatefulWidget {
 
   /// Main widget part of this library.
   /// It is a horizontal date picker that always make the selected option to center.
-  HorizontalDatePickerWidget({
+  HorizontalDatePickerWidget({super.key, 
     required this.startDate,
     required this.endDate,
     required this.selectedDate,
@@ -103,16 +103,16 @@ class HorizontalDatePickerWidget extends StatefulWidget {
     this.dayFontSize = 18,
     this.weekDayFontSize = 12,
   })  : assert(dateItemComponentList.isNotEmpty, 'dateItemComponentList  cannot be empty'),
-        this.locale = locale ?? Intl.systemLocale;
+        locale = locale ?? Intl.systemLocale;
 
   @override
-  _HorizontalDatePickerWidgetState createState() => _HorizontalDatePickerWidgetState(this.datePickerController, this.widgetWidth, this.width, this.startDate, this.endDate, this.selectedDate);
+  _HorizontalDatePickerWidgetState createState() => _HorizontalDatePickerWidgetState(datePickerController, widgetWidth, width, startDate, endDate, selectedDate);
 }
 
 class _HorizontalDatePickerWidgetState extends State<HorizontalDatePickerWidget> {
   int _itemCount = 0;
   double _padding = 0.0;
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   _HorizontalDatePickerWidgetState(DatePickerController controller, double ttlWidth, double width, DateTime startDate, DateTime endDate, DateTime selectedDate) {
     _init(controller, ttlWidth, width, startDate, endDate, selectedDate);
@@ -129,7 +129,7 @@ class _HorizontalDatePickerWidgetState extends State<HorizontalDatePickerWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: widget.height,
       width: widget.widgetWidth,
       child: ListView.builder(

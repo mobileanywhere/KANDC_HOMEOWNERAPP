@@ -18,11 +18,11 @@ class ContactModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.uid != null) data['uid'] = this.uid;
-    if (this.addedOn != null) data['addedOn'] = this.addedOn;
-    if (this.unReadFromUser != null) data['unReadFromUser'] = this.unReadFromUser;
-    if (this.lastMessageTime != null) data['lastMessageTime'] = this.lastMessageTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (uid != null) data['uid'] = uid;
+    if (addedOn != null) data['addedOn'] = addedOn;
+    if (unReadFromUser != null) data['unReadFromUser'] = unReadFromUser;
+    if (lastMessageTime != null) data['lastMessageTime'] = lastMessageTime;
 
     return data;
   }

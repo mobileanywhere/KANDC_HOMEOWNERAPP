@@ -49,7 +49,7 @@ import '../../model/booking_amount_model.dart';
 class BookingDetailScreen extends StatefulWidget {
   final int bookingId;
 
-  BookingDetailScreen({required this.bookingId});
+  const BookingDetailScreen({super.key, required this.bookingId});
 
   @override
   _BookingDetailScreenState createState() => _BookingDetailScreenState();
@@ -82,7 +82,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
             snap.bookingDetail!.status == BookingStatusKeys.rejected ||
             snap.bookingDetail!.status == BookingStatusKeys.failed) &&
         ((snap.bookingDetail!.reason != null &&
-            snap.bookingDetail!.reason!.isNotEmpty))))
+            snap.bookingDetail!.reason!.isNotEmpty)))) {
       return Container(
         padding: EdgeInsets.all(16),
         color: redColor.withOpacity(0.05),
@@ -96,12 +96,13 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           ],
         ),
       );
+    }
 
     return SizedBox();
   }
 
   Widget _pendingMessage({required BookingDetailResponse snap}) {
-    if (snap.bookingDetail!.status == BookingStatusKeys.pending)
+    if (snap.bookingDetail!.status == BookingStatusKeys.pending) {
       return Container(
         padding: EdgeInsets.all(16),
         color: redColor.withOpacity(0.08),
@@ -122,6 +123,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           ],
         ),
       );
+    }
 
     return SizedBox();
   }
@@ -136,7 +138,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
               size: LABEL_TEXT_SIZE,
               color: appStore.isDarkMode ? white : gray.withOpacity(0.8)),
         ),
-        Text('#' + widget.bookingId.validate().toString(),
+        Text('#${widget.bookingId.validate()}',
             style: boldTextStyle(color: primaryColor, size: LABEL_TEXT_SIZE)),
       ],
     );
@@ -286,15 +288,16 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
         (value.bookingDetail!.status == BookingStatusKeys.inProgress ||
             value.bookingDetail!.status == BookingStatusKeys.hold ||
             value.bookingDetail!.status == BookingStatusKeys.complete ||
-            value.bookingDetail!.status == BookingStatusKeys.onGoing))
+            value.bookingDetail!.status == BookingStatusKeys.onGoing)) {
       return Column(
         children: [
           16.height,
           CountdownWidget(bookingDetailResponse: value),
         ],
       );
-    else
+    } else {
       return Offstage();
+    }
   }
 
   Widget serviceProofListWidget({required List<ServiceProof> list}) {
@@ -454,7 +457,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
   }
 
   Widget paymentDetailCard(BookingData bookingData) {
-    if (bookingData.paymentId != null && bookingData.paymentStatus != null)
+    if (bookingData.paymentId != null && bookingData.paymentStatus != null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -474,7 +477,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(language.lblId, style: secondaryTextStyle(size: 14)),
-                    Text("#" + bookingData.paymentId.toString(),
+                    Text("#${bookingData.paymentId}",
                         style: boldTextStyle()),
                   ],
                 ),
@@ -539,6 +542,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           ),
         ],
       );
+    }
 
     return Offstage();
   }
@@ -662,12 +666,12 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
   }
 
   Widget descriptionWidget({required BookingDetailResponse value}) {
-    if (value.bookingDetail!.description.validate().isNotEmpty)
+    if (value.bookingDetail!.description.validate().isNotEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           16.height,
-          Text("${language.hintDescription}",
+          Text(language.hintDescription,
               style: boldTextStyle(size: LABEL_TEXT_SIZE)),
           8.height,
           ReadMoreText(
@@ -677,12 +681,13 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           )
         ],
       );
-    else
+    } else {
       return Offstage();
+    }
   }
 
   Widget summaryWidget({required BookingDetailResponse value}) {
-    if (value.bookingDetail!.summary.validate().isNotEmpty)
+    if (value.bookingDetail!.summary.validate().isNotEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -696,8 +701,9 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           )
         ],
       );
-    else
+    } else {
       return Offstage();
+    }
   }
 
   Widget packageWidget({required BookingPackage? package}) {
@@ -1302,12 +1308,13 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                           return GestureDetector(
                             onTap: () {
                               if (snap.data?.bookingDetail?.attchment?[index] !=
-                                  null)
+                                  null) {
                                 ZoomImageScreen(galleryImages: [
                                   snap.data?.bookingDetail?.attchment?[index] ??
                                       'https://picsum.photos/200'
                                 ], index: 0)
                                     .launch(context);
+                              }
                             },
                             child: Container(
                               decoration: BoxDecoration(

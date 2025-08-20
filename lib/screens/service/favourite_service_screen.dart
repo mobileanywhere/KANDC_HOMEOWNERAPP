@@ -13,7 +13,7 @@ import '../../component/empty_error_state_widget.dart';
 import '../../utils/constant.dart';
 
 class FavouriteServiceScreen extends StatefulWidget {
-  const FavouriteServiceScreen({Key? key}) : super(key: key);
+  const FavouriteServiceScreen({super.key});
 
   @override
   _FavouriteServiceScreenState createState() => _FavouriteServiceScreenState();
@@ -40,6 +40,7 @@ class _FavouriteServiceScreenState extends State<FavouriteServiceScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(
@@ -56,12 +57,13 @@ class _FavouriteServiceScreenState extends State<FavouriteServiceScreen> {
             initialData: cachedServiceFavList,
             builder: (context, snap) {
               if (snap.hasData) {
-                if (snap.data.validate().isEmpty)
+                if (snap.data.validate().isEmpty) {
                   return NoDataWidget(
                     title: language.lblNoServicesFound,
                     subTitle: language.noFavouriteSubTitle,
                     imageWidget: EmptyStateWidget(),
                   );
+                }
 
                 return AnimatedScrollView(
                   padding: EdgeInsets.fromLTRB(16, 16, 16, 60),

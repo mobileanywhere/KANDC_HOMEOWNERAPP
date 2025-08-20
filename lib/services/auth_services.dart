@@ -45,7 +45,7 @@ class AuthService {
 
       String firstName = '';
       String lastName = '';
-      if (currentUser.displayName.validate().split(' ').length >= 1) firstName = currentUser.displayName.splitBefore(' ');
+      if (currentUser.displayName.validate().split(' ').isNotEmpty) firstName = currentUser.displayName.splitBefore(' ');
       if (currentUser.displayName.validate().split(' ').length >= 2) lastName = currentUser.displayName.splitAfter(' ');
 
       /// Create a temporary request to send
@@ -268,7 +268,7 @@ class AuthService {
         case AuthorizationStatus.error:
           throw ("${language.lblSignInFailed}: ${result.error!.localizedDescription}");
         case AuthorizationStatus.cancelled:
-          throw ('${language.lblUserCancelled}');
+          throw (language.lblUserCancelled);
       }
     } else {
       throw language.lblAppleSignInNotAvailable;
@@ -288,10 +288,10 @@ class AuthService {
     log('appleFamilyName:- ${getStringAsync(APPLE_FAMILY_NAME)}');
 
     var req = {
-      'email': getStringAsync(APPLE_EMAIL).isNotEmpty ? getStringAsync(APPLE_EMAIL) : getStringAsync(APPLE_UID) + '@gmail.com',
+      'email': getStringAsync(APPLE_EMAIL).isNotEmpty ? getStringAsync(APPLE_EMAIL) : '${getStringAsync(APPLE_UID)}@gmail.com',
       'first_name': getStringAsync(APPLE_GIVE_NAME),
       'last_name': getStringAsync(APPLE_FAMILY_NAME),
-      "username": getStringAsync(APPLE_EMAIL).isNotEmpty ? getStringAsync(APPLE_EMAIL) : getStringAsync(APPLE_UID) + '@gmail.com',
+      "username": getStringAsync(APPLE_EMAIL).isNotEmpty ? getStringAsync(APPLE_EMAIL) : '${getStringAsync(APPLE_UID)}@gmail.com',
       "profile_image": '',
       "social_image": '',
       'accessToken': '12345678',
@@ -299,7 +299,7 @@ class AuthService {
       "user_type": LOGIN_TYPE_USER,
     };
 
-    log("Apple Login Json" + jsonEncode(req));
+    log("Apple Login Json${jsonEncode(req)}");
 
     await loginUser(req, isSocialLogin: true).then((value) async {
       await loginFromFirebaseUser(user, loginData: value, displayName: value.userData!.displayName.validate(), loginType: LOGIN_TYPE_APPLE);

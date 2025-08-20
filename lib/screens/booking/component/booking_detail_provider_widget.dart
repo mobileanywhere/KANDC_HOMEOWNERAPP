@@ -12,8 +12,8 @@ class BookingDetailProviderWidget extends StatefulWidget {
   final UserData providerData;
   final bool canCustomerContact;
 
-  BookingDetailProviderWidget(
-      {required this.providerData, this.canCustomerContact = false});
+  const BookingDetailProviderWidget(
+      {super.key, required this.providerData, this.canCustomerContact = false});
 
   @override
   BookingDetailProviderWidgetState createState() =>
@@ -84,7 +84,7 @@ class BookingDetailProviderWidgetState
                 TextIcon(
                   spacing: 10,
                   onTap: () {
-                    launchMail("${widget.providerData.email.validate()}");
+                    launchMail(widget.providerData.email.validate());
                   },
                   prefix: Image.asset(ic_message,
                       width: 20,
@@ -102,7 +102,7 @@ class BookingDetailProviderWidgetState
                         spacing: 10,
                         onTap: () {
                           launchMap(
-                              "${widget.providerData.address.validate()}");
+                              widget.providerData.address.validate());
                         },
                         expandedText: true,
                         prefix: Image.asset(ic_location,
@@ -111,7 +111,7 @@ class BookingDetailProviderWidgetState
                             color: appStore.isDarkMode
                                 ? Colors.white
                                 : Colors.black),
-                        text: '${widget.providerData.address.validate()}',
+                        text: widget.providerData.address.validate(),
                       ),
                     ],
                   ),
@@ -125,7 +125,7 @@ class BookingDetailProviderWidgetState
                       width: 20,
                       height: 20,
                       color: appStore.isDarkMode ? Colors.white : Colors.black),
-                  text: '${widget.providerData.contactNumber.validate()}',
+                  text: widget.providerData.contactNumber.validate(),
                   expandedText: true,
                 ),
               ],

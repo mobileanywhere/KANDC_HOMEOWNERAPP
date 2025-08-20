@@ -1370,7 +1370,7 @@ class LanguageDe extends BaseLanguage {
   String get chooseAction => 'Wähle eine Aktion';
 
   @override
-  String get selectImgNote => "HINWEIS: Sie können Bilder mit \ 'jpg \', \ 'png \', \ 'jpeg \'-Erweiterungen hochladen, und Sie können mehrere Bilder auswählen";
+  String get selectImgNote => "HINWEIS: Sie können Bilder mit  'jpg ',  'png ',  'jpeg '-Erweiterungen hochladen, und Sie können mehrere Bilder auswählen";
 
   @override
   String get lblSubscriptions => 'Subscriptions';

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class FavouriteServiceShimmer extends StatelessWidget {
+  const FavouriteServiceShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

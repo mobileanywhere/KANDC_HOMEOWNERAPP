@@ -21,7 +21,7 @@ import 'package:nb_utils/nb_utils.dart';
 class CreateServiceScreen extends StatefulWidget {
   final ServiceData? data;
 
-  CreateServiceScreen({this.data});
+  const CreateServiceScreen({super.key, this.data});
 
   @override
   _CreateServiceScreenState createState() => _CreateServiceScreenState();
@@ -128,12 +128,13 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
       await Future.forEach<XFile>(tempImages, (element) async {
         int i = tempImages.indexOf(element);
         multiPartRequest.files.add(await MultipartFile.fromPath(
-            '${CreateService.serviceAttachment + i.toString()}', element.path));
+            CreateService.serviceAttachment + i.toString(), element.path));
       });
 
-      if (tempImages.isNotEmpty)
+      if (tempImages.isNotEmpty) {
         multiPartRequest.fields[CreateService.attachmentCount] =
             tempImages.length.toString();
+      }
     }
 
     multiPartRequest.headers.addAll(buildHeaderTokens());

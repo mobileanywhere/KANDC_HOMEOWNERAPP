@@ -18,7 +18,7 @@ import '../../../component/empty_error_state_widget.dart';
 class BookingFragment extends StatefulWidget {
   final bool isRequests;
 
-  BookingFragment({required this.isRequests});
+  const BookingFragment({super.key, required this.isRequests});
 
   @override
   _BookingFragmentState createState() => _BookingFragmentState();

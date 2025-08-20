@@ -18,7 +18,7 @@ class BookingConfirmationDialog extends StatefulWidget {
   final BookingPackage? selectedPackage;
   final BookingDetailResponse? bookingDetailResponse;
 
-  BookingConfirmationDialog({
+  const BookingConfirmationDialog({super.key, 
     required this.data,
     required this.bookingId,
     this.bookingPrice,

@@ -8,7 +8,6 @@ import 'package:homeowner/component/new_update_dialog.dart';
 import 'package:homeowner/main.dart';
 import 'package:homeowner/model/remote_config_data_model.dart';
 import 'package:homeowner/network/rest_apis.dart';
-import 'package:homeowner/screens/auth/auth_user_services.dart';
 import 'package:homeowner/screens/auth/sign_in_screen.dart';
 import 'package:homeowner/services/location_service.dart';
 import 'package:homeowner/utils/colors.dart';
@@ -99,12 +98,13 @@ Future<void> commonLaunchUrl(String address,
 
 void launchCall(String? url) {
   if (url.validate().isNotEmpty) {
-    if (isIOS)
-      commonLaunchUrl('tel://' + url!,
+    if (isIOS) {
+      commonLaunchUrl('tel://${url!}',
           launchMode: LaunchMode.externalApplication);
-    else
-      commonLaunchUrl('tel:' + url!,
+    } else {
+      commonLaunchUrl('tel:${url!}',
           launchMode: LaunchMode.externalApplication);
+    }
   }
 }
 
@@ -321,10 +321,10 @@ String calculateTimer(int secTime) {
   seconds = secTime - (hour * 3600) - (minute * 60);
 
   String hourLeft =
-      hour.toString().length < 2 ? "0" + hour.toString() : hour.toString();
+      hour.toString().length < 2 ? "0$hour" : hour.toString();
 
   String minuteLeft = minute.toString().length < 2
-      ? "0" + minute.toString()
+      ? "0$minute"
       : minute.toString();
 
   String minutes = minuteLeft == '00' ? '01' : minuteLeft;
@@ -381,9 +381,10 @@ Future<FirebaseRemoteConfig> setupFirebaseRemoteConfig() async {
   } catch (e) {
     throw language.firebaseRemoteCannotBe;
   }
-  if (remoteConfig.getString(USER_CHANGE_LOG).isNotEmpty)
+  if (remoteConfig.getString(USER_CHANGE_LOG).isNotEmpty) {
     await compareValuesInSharedPreference(
         USER_CHANGE_LOG, remoteConfig.getString(USER_CHANGE_LOG));
+  }
   if (remoteConfig.getString(USER_CHANGE_LOG).validate().isNotEmpty) {
     remoteConfigDataModel = RemoteConfigDataModel.fromJson(
         jsonDecode(remoteConfig.getString(USER_CHANGE_LOG)));

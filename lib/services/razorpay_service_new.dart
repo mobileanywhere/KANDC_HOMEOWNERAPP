@@ -43,7 +43,7 @@ class RazorPayServiceNew {
 
   void handleExternalWallet(ExternalWalletResponse response) {
     appStore.setLoading(false);
-    toast("${language.externalWallet} " + response.walletName!);
+    toast("${language.externalWallet} ${response.walletName!}");
   }
 
   void razorPayCheckout() async {

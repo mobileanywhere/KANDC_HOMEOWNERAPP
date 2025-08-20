@@ -29,7 +29,7 @@ class LineItemResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "pagination": pagination == null ? null : pagination!.toJson(),
+        "pagination": pagination?.toJson(),
         "data": data == null
             ? null
             : List<dynamic>.from(data!.map((x) => x.toJson())),

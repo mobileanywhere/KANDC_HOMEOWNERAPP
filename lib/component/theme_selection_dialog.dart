@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ThemeSelectionDaiLog extends StatefulWidget {
+  const ThemeSelectionDaiLog({super.key});
+
   @override
   ThemeSelectionDaiLogState createState() => ThemeSelectionDaiLogState();
 }
@@ -31,7 +33,7 @@ class ThemeSelectionDaiLogState extends State<ThemeSelectionDaiLog> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: context.width(),
       child: Container(
         child: Column(

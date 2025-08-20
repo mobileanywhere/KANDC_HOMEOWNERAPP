@@ -18,12 +18,12 @@ class CategoryResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.categoryList != null) {
-      data['data'] = this.categoryList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (categoryList != null) {
+      data['data'] = categoryList!.map((v) => v.toJson()).toList();
     }
-    if (this.pagination != null) {
-      data['pagination'] = this.pagination!.toJson();
+    if (pagination != null) {
+      data['pagination'] = pagination!.toJson();
     }
     return data;
   }
@@ -68,16 +68,16 @@ class CategoryData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['category_image'] = this.categoryImage;
-    data['color'] = this.color;
-    data['description'] = this.description;
-    data['id'] = this.id;
-    data['is_featured'] = this.isFeatured;
-    data['is_exist'] = this.isExist;
-    data['name'] = this.name;
-    data['status'] = this.status;
-    data['services'] = this.services;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['category_image'] = categoryImage;
+    data['color'] = color;
+    data['description'] = description;
+    data['id'] = id;
+    data['is_featured'] = isFeatured;
+    data['is_exist'] = isExist;
+    data['name'] = name;
+    data['status'] = status;
+    data['services'] = services;
     return data;
   }
 }

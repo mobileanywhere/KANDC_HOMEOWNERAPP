@@ -16,23 +16,23 @@ class BookingAmountModel {
   });
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['final_total_service_price'] = this.finalTotalServicePrice;
-    data['final_total_tax'] = this.finalTotalTax;
-    data['final_sub_total'] = this.finalSubTotal;
-    data['final_discount_amount'] = this.finalDiscountAmount;
-    data['final_coupon_discount_amount'] = this.finalCouponDiscountAmount;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['final_total_service_price'] = finalTotalServicePrice;
+    data['final_total_tax'] = finalTotalTax;
+    data['final_sub_total'] = finalSubTotal;
+    data['final_discount_amount'] = finalDiscountAmount;
+    data['final_coupon_discount_amount'] = finalCouponDiscountAmount;
     return data;
   }
 
   Map<String, dynamic> toBookingUpdateJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['final_total_service_price'] = this.finalTotalServicePrice;
-    data['final_total_tax'] = this.finalTotalTax;
-    data['final_sub_total'] = this.finalSubTotal;
-    data['final_discount_amount'] = this.finalDiscountAmount;
-    data['final_coupon_discount_amount'] = this.finalCouponDiscountAmount;
-    data['total_amount'] = this.finalGrandTotalAmount;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['final_total_service_price'] = finalTotalServicePrice;
+    data['final_total_tax'] = finalTotalTax;
+    data['final_sub_total'] = finalSubTotal;
+    data['final_discount_amount'] = finalDiscountAmount;
+    data['final_coupon_discount_amount'] = finalCouponDiscountAmount;
+    data['total_amount'] = finalGrandTotalAmount;
     return data;
   }
 }

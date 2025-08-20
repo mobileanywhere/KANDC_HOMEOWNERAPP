@@ -10,7 +10,7 @@ class GalleryComponent extends StatelessWidget {
   final double? height;
   final double? width;
 
-  GalleryComponent({required this.images, required this.index, this.padding, this.height, this.width});
+  const GalleryComponent({super.key, required this.images, required this.index, this.padding, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {

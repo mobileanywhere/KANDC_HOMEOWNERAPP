@@ -10,7 +10,7 @@ class ImageBorder extends StatelessWidget {
   final Color? borderColor;
   final double borderWidth;
 
-  ImageBorder({required this.src, required this.height, this.width, this.borderColor, this.borderWidth = 1});
+  const ImageBorder({super.key, required this.src, required this.height, this.width, this.borderColor, this.borderWidth = 1});
 
   @override
   Widget build(BuildContext context) {

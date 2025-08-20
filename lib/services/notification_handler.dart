@@ -2,15 +2,12 @@ import 'dart:convert';
 import 'dart:io'; // Added for File class
 
 // External Packages
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../network/rest_apis.dart';
 import '../screens/dashboard/dashboard_screen.dart';
 
 // Assume this is your encrypted preferences implementation

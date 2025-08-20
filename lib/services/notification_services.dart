@@ -40,7 +40,7 @@ class NotificationService {
       'app_id': oneSignalAppId,
       'android_channel_id': oneSignalChannelId,
       'include_player_ids': [receiverPlayerId.validate().trim()],
-      'android_group': '$APP_NAME',
+      'android_group': APP_NAME,
       /*"filters": [
         {"field": "providerApp", "relation": "=", "value": title}
       ]*/

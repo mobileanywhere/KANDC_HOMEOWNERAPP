@@ -11,7 +11,7 @@ class SlotWidget extends StatelessWidget {
   final Color inActiveColor;
   final Function() onTap;
 
-  SlotWidget({
+  const SlotWidget({super.key, 
     required this.isAvailable,
     required this.isSelected,
     required this.value,

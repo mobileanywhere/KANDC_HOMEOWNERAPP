@@ -15,7 +15,7 @@ class AddReviewDialog extends StatefulWidget {
   final int? handymanId;
   final bool? isCustomerRating;
 
-  AddReviewDialog({this.customerReview, this.bookingId, this.serviceId, this.handymanId, this.isCustomerRating});
+  const AddReviewDialog({super.key, this.customerReview, this.bookingId, this.serviceId, this.handymanId, this.isCustomerRating});
 
   @override
   State<AddReviewDialog> createState() => _AddReviewDialogState();

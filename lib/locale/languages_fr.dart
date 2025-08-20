@@ -1370,7 +1370,7 @@ class LanguageFr extends BaseLanguage {
   String get chooseAction => 'Choisir une action';
 
   @override
-  String get selectImgNote => "Remarque: vous pouvez télécharger des images avec \ 'jpg \', \ 'png \', \ 'jpeg \' extensions et vous pouvez sélectionner plusieurs images";
+  String get selectImgNote => "Remarque: vous pouvez télécharger des images avec  'jpg ',  'png ',  'jpeg ' extensions et vous pouvez sélectionner plusieurs images";
 
   @override
   String get lblSubscriptions => 'Subscriptions';

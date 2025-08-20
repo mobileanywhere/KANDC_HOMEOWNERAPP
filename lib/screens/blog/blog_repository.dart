@@ -26,7 +26,7 @@ Future<List<BlogData>> getBlogListAPI({int? page, required List<BlogData> blogDa
     return blogData;
   } catch (e) {
     appStore.setLoading(false);
-    throw e;
+    rethrow;
   }
 }
 
@@ -47,7 +47,7 @@ Future<BlogDetailResponse> getBlogDetailAPI(Map request) async {
     return res;
   } catch (e) {
     appStore.setLoading(false);
-    throw e;
+    rethrow;
   }
 }
 //endregion

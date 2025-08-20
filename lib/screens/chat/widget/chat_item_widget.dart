@@ -9,7 +9,7 @@ import 'package:nb_utils/nb_utils.dart';
 class ChatItemWidget extends StatefulWidget {
   final ChatMessageModel? chatItemData;
 
-  ChatItemWidget({this.chatItemData});
+  const ChatItemWidget({super.key, this.chatItemData});
 
   @override
   _ChatItemWidgetState createState() => _ChatItemWidgetState();
@@ -18,6 +18,7 @@ class ChatItemWidget extends StatefulWidget {
 class _ChatItemWidgetState extends State<ChatItemWidget> {
   String? images;
 
+  @override
   void initState() {
     super.initState();
     init();
@@ -179,6 +180,7 @@ class _ChatItemWidgetState extends State<ChatItemWidget> {
         }
       },
       child: Container(
+        margin: EdgeInsets.only(top: 2, bottom: 2),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: widget.chatItemData!.isMe.validate()
@@ -227,7 +229,6 @@ class _ChatItemWidgetState extends State<ChatItemWidget> {
             ),
           ],
         ),
-        margin: EdgeInsets.only(top: 2, bottom: 2),
       ),
     );
   }

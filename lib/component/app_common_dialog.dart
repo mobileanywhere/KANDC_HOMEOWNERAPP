@@ -5,7 +5,7 @@ class AppCommonDialog extends StatelessWidget {
   final String title;
   final Widget child;
 
-  AppCommonDialog({required this.title, required this.child});
+  const AppCommonDialog({super.key, required this.title, required this.child});
 
   @override
   Widget build(BuildContext context) {

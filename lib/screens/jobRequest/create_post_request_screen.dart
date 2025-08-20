@@ -15,6 +15,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../component/empty_error_state_widget.dart';
 
 class CreatePostRequestScreen extends StatefulWidget {
+  const CreatePostRequestScreen({super.key});
+
   @override
   _CreatePostRequestScreenState createState() => _CreatePostRequestScreenState();
 }
@@ -60,9 +62,9 @@ class _CreatePostRequestScreenState extends State<CreatePostRequestScreen> {
     List<int> serviceList = [];
 
     if (selectedServiceList.isNotEmpty) {
-      selectedServiceList.forEach((element) {
+      for (var element in selectedServiceList) {
         serviceList.add(element.id.validate());
-      });
+      }
     }
 
     Map request = {
@@ -269,7 +271,6 @@ class _CreatePostRequestScreenState extends State<CreatePostRequestScreen> {
             left: 16,
             right: 16,
             child: AppButton(
-              child: Text(language.save, style: boldTextStyle(color: white)),
               color: context.primaryColor,
               width: context.width(),
               onTap: () {
@@ -285,6 +286,7 @@ class _CreatePostRequestScreenState extends State<CreatePostRequestScreen> {
                   }
                 }
               },
+              child: Text(language.save, style: boldTextStyle(color: white)),
             ),
           ),
         ],

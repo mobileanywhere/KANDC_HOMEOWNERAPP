@@ -22,14 +22,14 @@ class CountryListResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
-    data['currency_code'] = this.currencyCode;
-    data['currency_name'] = this.currencyName;
-    data['dial_code'] = this.dialCode;
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['symbol'] = this.symbol;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
+    data['currency_code'] = currencyCode;
+    data['currency_name'] = currencyName;
+    data['dial_code'] = dialCode;
+    data['id'] = id;
+    data['name'] = name;
+    data['symbol'] = symbol;
     return data;
   }
 }

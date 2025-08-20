@@ -18,6 +18,8 @@ import '../component/booking_confirmed_component.dart';
 import '../component/new_job_request_component.dart';
 
 class DashboardFragment extends StatefulWidget {
+  const DashboardFragment({super.key});
+
   @override
   _DashboardFragmentState createState() => _DashboardFragmentState();
 }
@@ -94,7 +96,7 @@ class _DashboardFragmentState extends State<DashboardFragment> {
                           setState(() {});
                         });
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.6,
                         height: MediaQuery.of(context).size.height * 0.05,
                         child: Row(
@@ -111,11 +113,11 @@ class _DashboardFragmentState extends State<DashboardFragment> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Expanded(
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 0.5,
                                     child: Text(
-                                      '${appStore.selectedPropertyName}',
+                                      appStore.selectedPropertyName,
                                       overflow: TextOverflow.ellipsis,
                                       style: primaryTextStyle(
                                           size: 16, color: white),
@@ -123,7 +125,7 @@ class _DashboardFragmentState extends State<DashboardFragment> {
                                   ),
                                 ),
                                 Expanded(
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 0.5,
                                     child: Text(

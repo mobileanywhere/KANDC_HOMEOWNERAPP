@@ -17,8 +17,8 @@ class UserInfoWidget extends StatefulWidget {
   final bool forProvider;
   final VoidCallback? onUpdate;
 
-  UserInfoWidget(
-      {required this.data,
+  const UserInfoWidget(
+      {super.key, required this.data,
       this.isOnTapEnabled,
       this.forProvider = true,
       this.onUpdate});

@@ -37,8 +37,8 @@ class FinalServiceBookingScreen extends StatefulWidget {
   final int? subCategoryId;
   final bool isExist;
 
-  FinalServiceBookingScreen(
-      {required this.data,
+  const FinalServiceBookingScreen(
+      {super.key, required this.data,
       this.isSlotAvailable,
       required this.selectedPackage,
       this.typeId,
@@ -326,7 +326,7 @@ class _FinalServiceBookingScreenState extends State<FinalServiceBookingScreen> {
           title: language.lblAvailableCoupons,
           child: CouponWidget(
             couponData: widget.data.couponData.validate(),
-            appliedCouponData: appliedCouponData ?? null,
+            appliedCouponData: appliedCouponData,
           ),
         );
       },
@@ -391,7 +391,7 @@ class _FinalServiceBookingScreenState extends State<FinalServiceBookingScreen> {
                               Text(language.lblDateAndTime,
                                   style: boldTextStyle(size: LABEL_TEXT_SIZE)),
                               8.height,
-                              Container(
+                              SizedBox(
                                 width: context.width() * 0.89,
                                 height: context.height() * 0.05,
                                 child: Row(
@@ -467,8 +467,9 @@ class _FinalServiceBookingScreenState extends State<FinalServiceBookingScreen> {
                                   controller: dateTimeCont,
                                   isValidationRequired: true,
                                   validator: (value) {
-                                    if (value!.isEmpty)
+                                    if (value!.isEmpty) {
                                       return language.requiredText;
+                                    }
                                     return null;
                                   },
                                   readOnly: true,
@@ -842,10 +843,8 @@ class _FinalServiceBookingScreenState extends State<FinalServiceBookingScreen> {
     }
 
     // If there's an applied booking model, append that to the request.
-    if (bookingAmountModel != null) {
-      request.addAll(bookingAmountModel.toJson());
-    }
-
+    request.addAll(bookingAmountModel.toJson());
+  
     appStore.setLoading(true);
 
     try {

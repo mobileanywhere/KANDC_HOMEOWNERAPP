@@ -76,54 +76,54 @@ class DashboardResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    if (this.category != null) {
-      data['category'] = this.category!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    if (category != null) {
+      data['category'] = category!.map((v) => v.toJson()).toList();
     }
-    if (this.provider != null) {
-      data['provider'] = this.provider!.map((v) => v.toJson()).toList();
+    if (provider != null) {
+      data['provider'] = provider!.map((v) => v.toJson()).toList();
     }
-    if (this.service != null) {
-      data['service'] = this.service!.map((v) => v.toJson()).toList();
+    if (service != null) {
+      data['service'] = service!.map((v) => v.toJson()).toList();
     }
-    if (this.featuredServices != null) {
-      data['featured_service'] = this.service!.map((v) => v.toJson()).toList();
+    if (featuredServices != null) {
+      data['featured_service'] = service!.map((v) => v.toJson()).toList();
     }
-    if (this.slider != null) {
-      data['slider'] = this.slider!.map((v) => v.toJson()).toList();
+    if (slider != null) {
+      data['slider'] = slider!.map((v) => v.toJson()).toList();
     }
-    if (this.dashboardCustomerReview != null) {
-      data['customer_review'] = this.dashboardCustomerReview!.map((v) => v.toJson()).toList();
+    if (dashboardCustomerReview != null) {
+      data['customer_review'] = dashboardCustomerReview!.map((v) => v.toJson()).toList();
     }
-    if (this.upcomingData != null) {
-      data['upcomming_booking'] = this.upcomingData!.map((v) => v.toJson()).toList();
+    if (upcomingData != null) {
+      data['upcomming_booking'] = upcomingData!.map((v) => v.toJson()).toList();
     }
-    if (this.configurations != null) {
-      data['configurations'] = this.configurations!.map((v) => v.toJson()).toList();
-    }
-
-    if (this.privacyPolicy != null) {
-      data['privacy_policy'] = this.privacyPolicy;
-    }
-    if (this.appDownload != null) {
-      data['app_download'] = this.appDownload;
-    }
-    if (this.termConditions != null) {
-      data['term_conditions'] = this.termConditions;
-    }
-    if (this.generalSetting != null) {
-      data['generalsetting'] = this.generalSetting;
-    }
-    data['inquriy_email'] = this.inquiryEmail;
-    data['helpline_number'] = this.helplineNumber;
-
-    if (this.languageOption != null) {
-      data['language_option'] = this.languageOption!.map((v) => v.toJson()).toList();
+    if (configurations != null) {
+      data['configurations'] = configurations!.map((v) => v.toJson()).toList();
     }
 
-    data['is_advanced_payment_allowed'] = this.isAdvancedPaymentAllowed;
-    data['enable_user_wallet'] = this.enableUserWallet;
+    if (privacyPolicy != null) {
+      data['privacy_policy'] = privacyPolicy;
+    }
+    if (appDownload != null) {
+      data['app_download'] = appDownload;
+    }
+    if (termConditions != null) {
+      data['term_conditions'] = termConditions;
+    }
+    if (generalSetting != null) {
+      data['generalsetting'] = generalSetting;
+    }
+    data['inquriy_email'] = inquiryEmail;
+    data['helpline_number'] = helplineNumber;
+
+    if (languageOption != null) {
+      data['language_option'] = languageOption!.map((v) => v.toJson()).toList();
+    }
+
+    data['is_advanced_payment_allowed'] = isAdvancedPaymentAllowed;
+    data['enable_user_wallet'] = enableUserWallet;
 
     return data;
   }
@@ -164,15 +164,15 @@ class SliderModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['description'] = this.description;
-    data['id'] = this.id;
-    data['service_name'] = this.serviceName;
-    data['slider_image'] = this.sliderImage;
-    data['status'] = this.status;
-    data['title'] = this.title;
-    data['type'] = this.type;
-    data['type_id'] = this.typeId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['description'] = description;
+    data['id'] = id;
+    data['service_name'] = serviceName;
+    data['slider_image'] = sliderImage;
+    data['status'] = status;
+    data['title'] = title;
+    data['type'] = type;
+    data['type_id'] = typeId;
     return data;
   }
 }
@@ -194,7 +194,7 @@ class DashboardCustomerReview {
 
   factory DashboardCustomerReview.fromJson(Map<String, dynamic> json) {
     return DashboardCustomerReview(
-      attchments: json['attchments'] != null ? new List<String>.from(json['attchments']) : null,
+      attchments: json['attchments'] != null ? List<String>.from(json['attchments']) : null,
       bookingId: json['booking_id'],
       createdAt: json['created_at'],
       customerId: json['customer_id'],
@@ -209,19 +209,19 @@ class DashboardCustomerReview {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['booking_id'] = this.bookingId;
-    data['created_at'] = this.createdAt;
-    data['customer_id'] = this.customerId;
-    data['customer_name'] = this.customerName;
-    data['id'] = this.id;
-    data['profile_image'] = this.profileImage;
-    data['rating'] = this.rating;
-    data['review'] = this.review;
-    data['service_id'] = this.serviceId;
-    data['service_name'] = this.serviceName;
-    if (this.attchments != null) {
-      data['attchments'] = this.attchments;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['booking_id'] = bookingId;
+    data['created_at'] = createdAt;
+    data['customer_id'] = customerId;
+    data['customer_name'] = customerName;
+    data['id'] = id;
+    data['profile_image'] = profileImage;
+    data['rating'] = rating;
+    data['review'] = review;
+    data['service_id'] = serviceId;
+    data['service_name'] = serviceName;
+    if (attchments != null) {
+      data['attchments'] = attchments;
     }
     return data;
   }
@@ -247,13 +247,13 @@ class Configuration {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['key'] = this.key;
-    data['type'] = this.type;
-    data['value'] = this.value;
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['key'] = key;
+    data['type'] = type;
+    data['value'] = value;
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
     return data;
   }
@@ -275,10 +275,10 @@ class LanguageOption {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['flag_image'] = this.flagImage;
-    data['id'] = this.id;
-    data['title'] = this.title;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['flag_image'] = flagImage;
+    data['id'] = id;
+    data['title'] = title;
     return data;
   }
 }
@@ -321,16 +321,16 @@ class AppDownload {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['appstore_url'] = this.appstore_url;
-    data['created_at'] = this.created_at;
-    data['description'] = this.description;
-    data['id'] = this.id;
-    data['playstore_url'] = this.playstore_url;
-    data['provider_appstore_url'] = this.provider_appstore_url;
-    data['provider_playstore_url'] = this.provider_playstore_url;
-    data['title'] = this.title;
-    data['updated_at'] = this.updated_at;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['appstore_url'] = appstore_url;
+    data['created_at'] = created_at;
+    data['description'] = description;
+    data['id'] = id;
+    data['playstore_url'] = playstore_url;
+    data['provider_appstore_url'] = provider_appstore_url;
+    data['provider_playstore_url'] = provider_playstore_url;
+    data['title'] = title;
+    data['updated_at'] = updated_at;
     return data;
   }
 }
@@ -396,25 +396,25 @@ class GeneralSettingModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['earning_type'] = this.earningType;
-    data['facebook_url'] = this.facebookUrl;
-    data['helpline_number'] = this.helplineNumber;
-    data['inquriy_email'] = this.inquriyEmail;
-    data['instagram_url'] = this.instagramUrl;
-    data['linkedin_url'] = this.linkedinUrl;
-    data['remember_token'] = this.rememberToken;
-    data['site_copyright'] = this.siteCopyright;
-    data['site_description'] = this.siteDescription;
-    data['site_email'] = this.siteEmail;
-    data['site_favicon'] = this.siteFavicon;
-    data['site_logo'] = this.siteLogo;
-    data['site_name'] = this.siteName;
-    data['time_zone'] = this.timeZone;
-    data['twitter_url'] = this.twitterUrl;
-    data['youtube_url'] = this.youtubeUrl;
-    if (this.languageOption != null) {
-      data['language_option'] = this.languageOption;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['earning_type'] = earningType;
+    data['facebook_url'] = facebookUrl;
+    data['helpline_number'] = helplineNumber;
+    data['inquriy_email'] = inquriyEmail;
+    data['instagram_url'] = instagramUrl;
+    data['linkedin_url'] = linkedinUrl;
+    data['remember_token'] = rememberToken;
+    data['site_copyright'] = siteCopyright;
+    data['site_description'] = siteDescription;
+    data['site_email'] = siteEmail;
+    data['site_favicon'] = siteFavicon;
+    data['site_logo'] = siteLogo;
+    data['site_name'] = siteName;
+    data['time_zone'] = timeZone;
+    data['twitter_url'] = twitterUrl;
+    data['youtube_url'] = youtubeUrl;
+    if (languageOption != null) {
+      data['language_option'] = languageOption;
     }
     return data;
   }

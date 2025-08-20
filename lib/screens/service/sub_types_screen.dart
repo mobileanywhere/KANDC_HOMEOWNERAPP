@@ -25,7 +25,7 @@ class SubTypesScreen extends StatefulWidget {
   final bool isFromSearch;
   final int? providerId;
 
-  SubTypesScreen({
+  const SubTypesScreen({
     this.typeId,
     this.categoryName = '',
     this.isFeatured = '',
@@ -33,8 +33,8 @@ class SubTypesScreen extends StatefulWidget {
     this.isFromCategory = false,
     this.isFromSearch = false,
     this.providerId,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<SubTypesScreen> createState() => _SubTypesScreenState();
@@ -228,7 +228,7 @@ class _SubTypesScreenState extends State<SubTypesScreen> {
               },
               children: [
                 if (!widget.isFromSearch)
-                  filteredServiceList.length == 0
+                  filteredServiceList.isEmpty
                       ? gridSubCategoryWidget()
                       : Container(),
                 16.height,

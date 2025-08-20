@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class DashboardShimmer extends StatelessWidget {
+  const DashboardShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

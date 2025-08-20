@@ -22,7 +22,7 @@ class BookPostJobRequestScreen extends StatefulWidget {
   final num? providerId;
   final num? jobPrice;
 
-  BookPostJobRequestScreen({required this.postJobDetailResponse, required this.providerId, this.jobPrice});
+  const BookPostJobRequestScreen({super.key, required this.postJobDetailResponse, required this.providerId, this.jobPrice});
 
   @override
   _BookPostJobRequestScreenState createState() => _BookPostJobRequestScreenState();
@@ -142,7 +142,7 @@ class _BookPostJobRequestScreenState extends State<BookPostJobRequestScreen> {
       builder: (p0) {
         return Observer(
           builder: (context) {
-            return Container(
+            return SizedBox(
               width: context.width(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -314,7 +314,6 @@ class _BookPostJobRequestScreenState extends State<BookPostJobRequestScreen> {
                       ),
                       16.height,
                       AppButton(
-                        child: Text(language.lblBookNow, style: boldTextStyle(color: white)), //
                         color: context.primaryColor,
                         width: context.width(),
                         onTap: () {
@@ -323,6 +322,7 @@ class _BookPostJobRequestScreenState extends State<BookPostJobRequestScreen> {
                             bookTheServiceClick();
                           }
                         },
+                        child: Text(language.lblBookNow, style: boldTextStyle(color: white)),
                       )
                     ],
                   ),

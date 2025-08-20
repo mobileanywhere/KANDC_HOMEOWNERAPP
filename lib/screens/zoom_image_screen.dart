@@ -10,7 +10,7 @@ class ZoomImageScreen extends StatefulWidget {
   final int index;
   final List<String>? galleryImages;
 
-  ZoomImageScreen({required this.index, this.galleryImages});
+  const ZoomImageScreen({super.key, required this.index, this.galleryImages});
 
   @override
   _ZoomImageScreenState createState() => _ZoomImageScreenState();

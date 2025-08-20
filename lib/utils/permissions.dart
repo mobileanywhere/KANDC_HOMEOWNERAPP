@@ -19,7 +19,7 @@ class Permissions {
       );
 
       bool checkedTrue = true;
-      cameraPermissionStatus.values.forEach((element) {
+      for (var element in cameraPermissionStatus.values) {
         if (element == PermissionStatus.granted) {
           checkedTrue = true;
         } else if (element == PermissionStatus.permanentlyDenied) {
@@ -28,7 +28,7 @@ class Permissions {
         } else {
           checkedTrue = false;
         }
-      });
+      }
 
       return checkedTrue;
     }

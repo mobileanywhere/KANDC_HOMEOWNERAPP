@@ -27,6 +27,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../favourite_provider_screen.dart';
 
 class ProfileFragment extends StatefulWidget {
+  const ProfileFragment({super.key});
+
   @override
   ProfileFragmentState createState() => ProfileFragmentState();
 }

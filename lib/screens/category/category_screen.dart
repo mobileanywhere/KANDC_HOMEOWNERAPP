@@ -15,6 +15,8 @@ import '../../component/empty_error_state_widget.dart';
 import '../../utils/constant.dart';
 
 class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({super.key});
+
   @override
   _CategoryScreenState createState() => _CategoryScreenState();
 }
@@ -29,6 +31,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   UniqueKey key = UniqueKey();
 
+  @override
   void initState() {
     super.initState();
     init();

@@ -19,8 +19,8 @@ class BookingDetailHandymanWidget extends StatefulWidget {
   final BookingData bookingDetail;
   final Function() onUpdate;
 
-  BookingDetailHandymanWidget(
-      {required this.handymanData,
+  const BookingDetailHandymanWidget(
+      {super.key, required this.handymanData,
       required this.serviceDetail,
       required this.bookingDetail,
       required this.onUpdate});
@@ -93,6 +93,12 @@ class BookingDetailHandymanWidgetState
             children: [
               if (widget.handymanData.contactNumber.validate().isNotEmpty)
                 AppButton(
+                  width: context.width(),
+                  color: primaryColor,
+                  elevation: 0,
+                  onTap: () {
+                    launchCall(widget.handymanData.contactNumber.validate());
+                  },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -102,12 +108,6 @@ class BookingDetailHandymanWidgetState
                           style: boldTextStyle(color: white)),
                     ],
                   ).fit(),
-                  width: context.width(),
-                  color: primaryColor,
-                  elevation: 0,
-                  onTap: () {
-                    launchCall(widget.handymanData.contactNumber.validate());
-                  },
                 ).expand(),
               16.width,
               // AppButton(
@@ -138,7 +138,6 @@ class BookingDetailHandymanWidgetState
               // ).expand(),
               // 16.width,
               AppButton(
-                child: Image.asset(ic_whatsapp, height: 18),
                 elevation: 0,
                 color: context.scaffoldBackgroundColor,
                 onTap: () async {
@@ -147,7 +146,7 @@ class BookingDetailHandymanWidgetState
                       .validate()
                       .contains('+')) {
                     phoneNumber =
-                        "${widget.handymanData.contactNumber.validate().replaceAll('-', '')}";
+                        widget.handymanData.contactNumber.validate().replaceAll('-', '');
                   } else {
                     phoneNumber =
                         "+${widget.handymanData.contactNumber.validate().replaceAll('-', '')}";
@@ -157,6 +156,7 @@ class BookingDetailHandymanWidgetState
                           '${getSocialMediaLink(LinkProvider.WHATSAPP)}$phoneNumber'),
                       mode: LaunchMode.externalApplication);
                 },
+                child: Image.asset(ic_whatsapp, height: 18),
               ),
             ],
           ),

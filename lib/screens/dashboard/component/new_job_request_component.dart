@@ -6,7 +6,7 @@ import '../../auth/sign_in_screen.dart';
 import '../../jobRequest/my_post_request_list_screen.dart';
 
 class NewJobRequestComponent extends StatelessWidget {
-  const NewJobRequestComponent({Key? key}) : super(key: key);
+  const NewJobRequestComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +31,6 @@ class NewJobRequestComponent extends StatelessWidget {
                 textAlign: TextAlign.center),
             20.height,
             AppButton(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.add,
-                      color: appStore.isDarkMode
-                          ? Colors.white
-                          : context.primaryColor),
-                  4.width,
-                  Text(language.newPostJobRequest,
-                      style: boldTextStyle(
-                          color: appStore.isDarkMode
-                              ? Colors.white
-                              : context.primaryColor)),
-                ],
-              ),
               textStyle: primaryTextStyle(
                   color: appStore.isDarkMode
                       ? textPrimaryColorGlobal
@@ -64,6 +49,21 @@ class NewJobRequestComponent extends StatelessWidget {
                   }
                 }
               },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add,
+                      color: appStore.isDarkMode
+                          ? Colors.white
+                          : context.primaryColor),
+                  4.width,
+                  Text(language.newPostJobRequest,
+                      style: boldTextStyle(
+                          color: appStore.isDarkMode
+                              ? Colors.white
+                              : context.primaryColor)),
+                ],
+              ),
             ),
             16.height,
           ],

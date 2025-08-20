@@ -10,9 +10,9 @@ class BlogDetailResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.blogDetail != null) {
-      data['blog_detail'] = this.blogDetail!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (blogDetail != null) {
+      data['blog_detail'] = blogDetail!.toJson();
     }
     return data;
   }

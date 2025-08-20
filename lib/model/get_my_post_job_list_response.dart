@@ -114,18 +114,18 @@ class BidderData {
     providerId = json['provider_id'];
     price = json['price'];
     duration = json['duration'];
-    provider = json['provider'] != null ? new UserData.fromJson(json['provider']) : null;
+    provider = json['provider'] != null ? UserData.fromJson(json['provider']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['post_request_id'] = this.postRequestId;
-    data['provider_id'] = this.providerId;
-    data['price'] = this.price;
-    data['duration'] = this.duration;
-    if (this.provider != null) {
-      data['provider'] = this.provider!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['post_request_id'] = postRequestId;
+    data['provider_id'] = providerId;
+    data['price'] = price;
+    data['duration'] = duration;
+    if (provider != null) {
+      data['provider'] = provider!.toJson();
     }
     return data;
   }

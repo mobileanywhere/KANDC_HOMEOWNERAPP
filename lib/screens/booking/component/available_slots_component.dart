@@ -10,14 +10,14 @@ class AvailableSlotsComponent extends StatefulWidget {
   final bool? isProvider;
   final DateTime? selectedDate;
 
-  AvailableSlotsComponent({
+  const AvailableSlotsComponent({
     this.selectedSlots,
     required this.availableSlots,
     required this.onChanged,
     this.isProvider = true,
     this.selectedDate,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _AvailableSlotsComponentState createState() => _AvailableSlotsComponentState();

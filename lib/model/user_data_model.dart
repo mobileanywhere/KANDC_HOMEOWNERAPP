@@ -157,7 +157,7 @@ class UserData {
       stateId: json['state_id'],
       status: json['status'],
       updatedAt: json['updated_at'],
-      userRole: json['user_role'] != null ? new List<String>.from(json['user_role']) : null,
+      userRole: json['user_role'] != null ? List<String>.from(json['user_role']) : null,
       userType: json['user_type'],
       username: json['username'],
       isOnline: json['isOnline'],
@@ -175,7 +175,7 @@ class UserData {
       lastNotificationSeen: json['last_notification_seen'],
       providersServiceRating: json['providers_service_rating'],
       handymanRating: json['handyman_rating'],
-      handymanReview: json['handyman_review'] != null ? new HandymanReview.fromJson(json['handyman_review']) : null,
+      handymanReview: json['handyman_review'] != null ? HandymanReview.fromJson(json['handyman_review']) : null,
       timeZone: json['time_zone'],
       isVerifyProvider: json['is_verify_provider'],
       isUserExist: json['is_user_exist'],
@@ -186,75 +186,75 @@ class UserData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.address != null) data['address'] = this.address;
-    if (this.apiToken != null) data['api_token'] = this.apiToken;
-    if (this.cityId != null) data['city_id'] = this.cityId;
-    if (this.password != null) data['password'] = this.password;
-    if (this.contactNumber != null) data['contact_number'] = this.contactNumber;
-    if (this.countryId != null) data['country_id'] = this.countryId;
-    if (this.createdAt != null) data['created_at'] = this.createdAt;
-    if (this.displayName != null) data['display_name'] = this.displayName;
-    if (this.email != null) data['email'] = this.email;
-    if (this.emailVerifiedAt != null) data['email_verified_at'] = this.emailVerifiedAt;
-    if (this.firstName != null) data['first_name'] = this.firstName;
-    if (this.id != null) data['id'] = this.id;
-    if (this.socialImage != null) data['social_image'] = this.socialImage;
-    if (this.isFeatured != null) data['is_featured'] = this.isFeatured;
-    if (this.lastName != null) data['last_name'] = this.lastName;
-    if (this.playerId != null) data['player_id'] = this.playerId;
-    if (this.providerId != null) data['provider_id'] = this.providerId;
-    if (this.providerTypeId != null) data['providertype_id'] = this.providerTypeId;
-    if (this.stateId != null) data['state_id'] = this.stateId;
-    if (this.status != null) data['status'] = this.status;
-    if (this.updatedAt != null) data['updated_at'] = this.updatedAt;
-    if (this.userType != null) data['user_type'] = this.userType;
-    if (this.username != null) data['username'] = this.username;
-    if (this.profileImage != null) data['profile_image'] = this.profileImage;
-    if (this.uid != null) data['uid'] = this.uid;
-    if (this.isOnline != null) data['isOnline'] = this.isOnline;
-    if (this.description != null) data['description'] = this.description;
-    if (this.knownLanguages != null) data['known_languages'] = this.knownLanguages;
-    if (this.skills != null) data['skills'] = this.skills;
-    if (this.providerType != null) data['providertype'] = this.providerType;
-    if (this.cityName != null) data['city_name'] = this.cityName;
-    if (this.timeZone != null) data['time_zone'] = this.timeZone;
-    if (this.loginType != null) data['login_type'] = this.loginType;
-    if (this.serviceAddressId != null) data['service_address_id'] = this.serviceAddressId;
-    if (this.lastNotificationSeen != null) data['last_notification_seen'] = this.lastNotificationSeen;
-    if (this.providersServiceRating != null) data['providers_service_rating'] = this.providersServiceRating;
-    if (this.handymanRating != null) data['handyman_rating'] = this.handymanRating;
-    if (this.isVerifyProvider != null) data['is_verify_provider'] = this.isVerifyProvider;
-    if (this.isUserExist != null) data['is_user_exist'] = this.isUserExist;
-    if (this.designation != null) data['designation'] = this.designation;
-    if (this.verificationId != null) data['verificationId'] = this.verificationId;
-    if (this.otpCode != null) data['otpCode'] = this.otpCode;
-    if (this.isFavourite != null) data['is_favourite'] = this.isFavourite;
-    if (this.handymanReview != null) {
-      data['handyman_review'] = this.handymanReview!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (address != null) data['address'] = address;
+    if (apiToken != null) data['api_token'] = apiToken;
+    if (cityId != null) data['city_id'] = cityId;
+    if (password != null) data['password'] = password;
+    if (contactNumber != null) data['contact_number'] = contactNumber;
+    if (countryId != null) data['country_id'] = countryId;
+    if (createdAt != null) data['created_at'] = createdAt;
+    if (displayName != null) data['display_name'] = displayName;
+    if (email != null) data['email'] = email;
+    if (emailVerifiedAt != null) data['email_verified_at'] = emailVerifiedAt;
+    if (firstName != null) data['first_name'] = firstName;
+    if (id != null) data['id'] = id;
+    if (socialImage != null) data['social_image'] = socialImage;
+    if (isFeatured != null) data['is_featured'] = isFeatured;
+    if (lastName != null) data['last_name'] = lastName;
+    if (playerId != null) data['player_id'] = playerId;
+    if (providerId != null) data['provider_id'] = providerId;
+    if (providerTypeId != null) data['providertype_id'] = providerTypeId;
+    if (stateId != null) data['state_id'] = stateId;
+    if (status != null) data['status'] = status;
+    if (updatedAt != null) data['updated_at'] = updatedAt;
+    if (userType != null) data['user_type'] = userType;
+    if (username != null) data['username'] = username;
+    if (profileImage != null) data['profile_image'] = profileImage;
+    if (uid != null) data['uid'] = uid;
+    if (isOnline != null) data['isOnline'] = isOnline;
+    if (description != null) data['description'] = description;
+    if (knownLanguages != null) data['known_languages'] = knownLanguages;
+    if (skills != null) data['skills'] = skills;
+    if (providerType != null) data['providertype'] = providerType;
+    if (cityName != null) data['city_name'] = cityName;
+    if (timeZone != null) data['time_zone'] = timeZone;
+    if (loginType != null) data['login_type'] = loginType;
+    if (serviceAddressId != null) data['service_address_id'] = serviceAddressId;
+    if (lastNotificationSeen != null) data['last_notification_seen'] = lastNotificationSeen;
+    if (providersServiceRating != null) data['providers_service_rating'] = providersServiceRating;
+    if (handymanRating != null) data['handyman_rating'] = handymanRating;
+    if (isVerifyProvider != null) data['is_verify_provider'] = isVerifyProvider;
+    if (isUserExist != null) data['is_user_exist'] = isUserExist;
+    if (designation != null) data['designation'] = designation;
+    if (verificationId != null) data['verificationId'] = verificationId;
+    if (otpCode != null) data['otpCode'] = otpCode;
+    if (isFavourite != null) data['is_favourite'] = isFavourite;
+    if (handymanReview != null) {
+      data['handyman_review'] = handymanReview!.toJson();
     }
-    if (this.userRole != null) {
-      data['user_role'] = this.userRole;
+    if (userRole != null) {
+      data['user_role'] = userRole;
     }
     return data;
   }
 
   Map<String, dynamic> toFirebaseJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.id != null) data['id'] = this.id;
-    if (this.uid != null) data['uid'] = this.uid;
-    if (this.apiToken != null) data['api_token'] = this.apiToken;
-    if (this.firstName != null) data['first_name'] = this.firstName;
-    if (this.lastName != null) data['last_name'] = this.lastName;
-    if (this.email != null) data['email'] = this.email;
-    if (this.displayName != null) data['display_name'] = this.displayName;
-    if (this.password != null) data['password'] = this.password;
-    if (this.socialImage != null) data['social_image'] = this.socialImage;
-    if (this.playerId != null) data['player_id'] = this.playerId;
-    if (this.profileImage != null) data['profile_image'] = this.profileImage;
-    if (this.isOnline != null) data['isOnline'] = this.isOnline;
-    if (this.updatedAt != null) data['updated_at'] = this.updatedAt;
-    if (this.createdAt != null) data['created_at'] = this.createdAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (id != null) data['id'] = id;
+    if (uid != null) data['uid'] = uid;
+    if (apiToken != null) data['api_token'] = apiToken;
+    if (firstName != null) data['first_name'] = firstName;
+    if (lastName != null) data['last_name'] = lastName;
+    if (email != null) data['email'] = email;
+    if (displayName != null) data['display_name'] = displayName;
+    if (password != null) data['password'] = password;
+    if (socialImage != null) data['social_image'] = socialImage;
+    if (playerId != null) data['player_id'] = playerId;
+    if (profileImage != null) data['profile_image'] = profileImage;
+    if (isOnline != null) data['isOnline'] = isOnline;
+    if (updatedAt != null) data['updated_at'] = updatedAt;
+    if (createdAt != null) data['created_at'] = createdAt;
     return data;
   }
 }
@@ -304,19 +304,19 @@ class HandymanReview {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['customer_id'] = this.customerId;
-    data['rating'] = this.rating;
-    data['review'] = this.review;
-    data['service_id'] = this.serviceId;
-    data['booking_id'] = this.bookingId;
-    data['handyman_id'] = this.handymanId;
-    data['handyman_name'] = this.handymanName;
-    data['handyman_profile_image'] = this.handymanProfileImage;
-    data['customer_name'] = this.customerName;
-    data['customer_profile_image'] = this.customerProfileImage;
-    data['created_at'] = this.createdAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['customer_id'] = customerId;
+    data['rating'] = rating;
+    data['review'] = review;
+    data['service_id'] = serviceId;
+    data['booking_id'] = bookingId;
+    data['handyman_id'] = handymanId;
+    data['handyman_name'] = handymanName;
+    data['handyman_profile_image'] = handymanProfileImage;
+    data['customer_name'] = customerName;
+    data['customer_profile_image'] = customerProfileImage;
+    data['created_at'] = createdAt;
     return data;
   }
 }

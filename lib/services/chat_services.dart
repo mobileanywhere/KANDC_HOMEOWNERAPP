@@ -39,11 +39,11 @@ class ChatServices extends BaseService {
       unreadMessagesSnapshot = await ref!.doc(senderId).collection(receiverId).where('isMessageRead', isEqualTo: false).get();
     }
 
-    unreadMessagesSnapshot.docs.forEach((element) {
+    for (var element in unreadMessagesSnapshot.docs) {
       batch.update(element.reference, {
         'isMessageRead': true,
       });
-    });
+    }
 
     await batch.commit();
   }

@@ -14,7 +14,7 @@ import '../shimmer/blog_detail_shimmer.dart';
 class BlogDetailScreen extends StatefulWidget {
   final int blogId;
 
-  BlogDetailScreen({required this.blogId});
+  const BlogDetailScreen({super.key, required this.blogId});
 
   @override
   State<BlogDetailScreen> createState() => _BlogDetailScreenState();

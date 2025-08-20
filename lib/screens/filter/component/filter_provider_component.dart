@@ -14,7 +14,7 @@ import '../../../component/empty_error_state_widget.dart';
 class FilterProviderComponent extends StatefulWidget {
   final List<UserData> providerList;
 
-  FilterProviderComponent({required this.providerList});
+  const FilterProviderComponent({super.key, required this.providerList});
 
   @override
   State<FilterProviderComponent> createState() => _FilterProviderComponentState();
@@ -23,11 +23,12 @@ class FilterProviderComponent extends StatefulWidget {
 class _FilterProviderComponentState extends State<FilterProviderComponent> {
   @override
   Widget build(BuildContext context) {
-    if (widget.providerList.isEmpty)
+    if (widget.providerList.isEmpty) {
       return NoDataWidget(
         title: language.noProviderFound,
         imageWidget: EmptyStateWidget(),
       );
+    }
 
     return AnimatedListView(
       slideConfiguration: sliderConfigurationGlobal,

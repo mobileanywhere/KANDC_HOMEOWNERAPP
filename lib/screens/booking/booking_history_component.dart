@@ -11,7 +11,7 @@ class BookingHistoryComponent extends StatefulWidget {
   final List<BookingActivity> data;
   final ScrollController scrollController;
 
-  BookingHistoryComponent({required this.data, required this.scrollController});
+  const BookingHistoryComponent({super.key, required this.data, required this.scrollController});
 
   @override
   BookingHistoryComponentState createState() => BookingHistoryComponentState();
@@ -63,7 +63,7 @@ class BookingHistoryComponentState extends State<BookingHistoryComponent> {
                           style: boldTextStyle(color: primaryColor)),
                       4.width,
                       Text(
-                          ' #' + widget.data[0].bookingId.validate().toString(),
+                          ' #${widget.data[0].bookingId.validate()}',
                           style: boldTextStyle(color: primaryColor)),
                     ],
                   )

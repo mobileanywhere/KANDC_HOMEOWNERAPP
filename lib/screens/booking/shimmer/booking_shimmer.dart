@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class BookingShimmer extends StatelessWidget {
-  const BookingShimmer({Key? key}) : super(key: key);
+  const BookingShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

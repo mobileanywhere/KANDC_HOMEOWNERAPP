@@ -7,7 +7,7 @@ class BackWidget extends StatelessWidget {
   final Function()? onPressed;
   final Color? iconColor;
 
-  BackWidget({this.onPressed, this.iconColor});
+  const BackWidget({super.key, this.onPressed, this.iconColor});
 
   @override
   Widget build(BuildContext context) {

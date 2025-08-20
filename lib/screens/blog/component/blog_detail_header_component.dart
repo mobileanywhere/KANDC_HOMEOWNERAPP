@@ -9,7 +9,7 @@ import 'package:nb_utils/nb_utils.dart';
 class BlogDetailHeaderComponent extends StatefulWidget {
   final BlogData blogData;
 
-  BlogDetailHeaderComponent({required this.blogData});
+  const BlogDetailHeaderComponent({super.key, required this.blogData});
 
   @override
   State<BlogDetailHeaderComponent> createState() => _BlogDetailHeaderComponentState();
@@ -48,8 +48,8 @@ class _BlogDetailHeaderComponentState extends State<BlogDetailHeaderComponent> {
             top: context.statusBarHeight + 8,
             left: 8,
             child: Container(
-              child: BackWidget(iconColor: context.iconColor),
               decoration: BoxDecoration(shape: BoxShape.circle, color: context.cardColor.withOpacity(0.7)),
+              child: BackWidget(iconColor: context.iconColor),
             ),
           ),
           Positioned(

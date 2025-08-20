@@ -10,6 +10,8 @@ import 'package:nb_utils/nb_utils.dart';
 import 'walk_through_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }

@@ -16,7 +16,7 @@ class FilterScreen extends StatefulWidget {
   final bool isFromProvider;
   final bool isFromCategory;
 
-  FilterScreen({this.isFromProvider = true, this.isFromCategory = false});
+  const FilterScreen({super.key, this.isFromProvider = true, this.isFromCategory = false});
 
   @override
   _FilterScreenState createState() => _FilterScreenState();
@@ -42,11 +42,11 @@ class _FilterScreenState extends State<FilterScreen> {
         appStore.setLoading(false);
 
         providerList = value.providerList.validate();
-        providerList.forEach((element) {
+        for (var element in providerList) {
           if (filterStore.providerId.contains(element.id)) {
             element.isSelected = true;
           }
-        });
+        }
         setState(() {});
       }).catchError((e) {
         appStore.setLoading(false);
@@ -59,11 +59,11 @@ class _FilterScreenState extends State<FilterScreen> {
     if (!widget.isFromCategory) {
       await getCategoryList(id: 1, perPage: CATEGORY_LIST_ALL).then((value) {
         catList = value.categoryList.validate();
-        catList.forEach((element) {
+        for (var element in catList) {
           if (filterStore.categoryId.contains(element.id)) {
             element.isSelected = true;
           }
-        });
+        }
         setState(() {});
       }).catchError((e) {
         toast(e.toString());
@@ -86,7 +86,7 @@ class _FilterScreenState extends State<FilterScreen> {
         color: isSelected ? context.cardColor : context.scaffoldBackgroundColor,
         borderRadius: radius(0),
       ),
-      child: Text("$name", style: boldTextStyle(size: 12)),
+      child: Text(name, style: boldTextStyle(size: 12)),
     );
   }
 
@@ -183,21 +183,21 @@ class _FilterScreenState extends State<FilterScreen> {
                     onTap: () {
                       filterStore.categoryId = [];
 
-                      catList.forEach((element) {
+                      for (var element in catList) {
                         if (element.isSelected) {
                           filterStore.addToCategoryIdList(
                               prodId: element.id.validate());
                         }
-                      });
+                      }
 
                       filterStore.providerId = [];
 
-                      providerList.forEach((element) {
+                      for (var element in providerList) {
                         if (element.isSelected) {
                           filterStore.addToProviderList(
                               prodId: element.id.validate());
                         }
-                      });
+                      }
 
                       finish(context, true);
                     },

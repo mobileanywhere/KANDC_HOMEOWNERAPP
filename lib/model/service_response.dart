@@ -22,17 +22,17 @@ class ServiceResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['max'] = this.max;
-    data['min'] = this.min;
-    if (this.serviceList != null) {
-      data['data'] = this.serviceList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['max'] = max;
+    data['min'] = min;
+    if (serviceList != null) {
+      data['data'] = serviceList!.map((v) => v.toJson()).toList();
     }
-    if (this.pagination != null) {
-      data['pagination'] = this.pagination!.toJson();
+    if (pagination != null) {
+      data['pagination'] = pagination!.toJson();
     }
-    if (this.userServices != null) {
-      data['user_services'] = this.userServices!.map((v) => v.toJson()).toList();
+    if (userServices != null) {
+      data['user_services'] = userServices!.map((v) => v.toJson()).toList();
     }
     return data;
   }

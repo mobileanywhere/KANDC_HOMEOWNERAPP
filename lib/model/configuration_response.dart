@@ -19,13 +19,13 @@ class ConfigurationResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-    if (this.configurations != null) {
-      data['configurations'] = this.configurations!.map((v) => v.toJson()).toList();
+    if (configurations != null) {
+      data['configurations'] = configurations!.map((v) => v.toJson()).toList();
     }
-    if (this.paymentSettings != null) {
-      data['payment_settings'] = this.paymentSettings!.map((v) => v.toJson()).toList();
+    if (paymentSettings != null) {
+      data['payment_settings'] = paymentSettings!.map((v) => v.toJson()).toList();
     }
 
     return data;
@@ -52,13 +52,13 @@ class Configuration {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['key'] = this.key;
-    data['type'] = this.type;
-    data['value'] = this.value;
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['key'] = key;
+    data['type'] = type;
+    data['value'] = value;
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
     return data;
   }
@@ -96,17 +96,17 @@ class PaymentSetting {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['is_test'] = this.isTest;
-    data['status'] = this.status;
-    data['title'] = this.title;
-    data['type'] = this.type;
-    if (this.liveValue != null) {
-      data['live_value'] = this.liveValue?.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['is_test'] = isTest;
+    data['status'] = status;
+    data['title'] = title;
+    data['type'] = type;
+    if (liveValue != null) {
+      data['live_value'] = liveValue?.toJson();
     }
-    if (this.testValue != null) {
-      data['value'] = this.testValue?.toJson();
+    if (testValue != null) {
+      data['value'] = testValue?.toJson();
     }
     return data;
   }
@@ -182,23 +182,23 @@ class LiveValue {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['stripe_url'] = this.stripeUrl;
-    data['stripe_key'] = this.stripeKey;
-    data['stripe_publickey'] = this.stripePublickey;
-    data['razor_url'] = this.razorUrl;
-    data['razor_key'] = this.razorKey;
-    data['razor_secret'] = this.razorSecret;
-    data['flutterwave_public'] = this.flutterwavePublic;
-    data['flutterwave_secret'] = this.flutterwaveSecret;
-    data['flutterwave_encryption'] = this.flutterwaveEncryption;
-    data['paypal_url'] = this.paypalUrl;
-    data['sadad_id'] = this.sadadId;
-    data['sadad_key'] = this.sadadKey;
-    data['sadad_domain'] = this.sadadDomain;
-    data['cinet_id'] = this.cinetId;
-    data['cinet_key'] = this.cinetKey;
-    data['cinet_publickey'] = this.cinetPublicKey;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['stripe_url'] = stripeUrl;
+    data['stripe_key'] = stripeKey;
+    data['stripe_publickey'] = stripePublickey;
+    data['razor_url'] = razorUrl;
+    data['razor_key'] = razorKey;
+    data['razor_secret'] = razorSecret;
+    data['flutterwave_public'] = flutterwavePublic;
+    data['flutterwave_secret'] = flutterwaveSecret;
+    data['flutterwave_encryption'] = flutterwaveEncryption;
+    data['paypal_url'] = paypalUrl;
+    data['sadad_id'] = sadadId;
+    data['sadad_key'] = sadadKey;
+    data['sadad_domain'] = sadadDomain;
+    data['cinet_id'] = cinetId;
+    data['cinet_key'] = cinetKey;
+    data['cinet_publickey'] = cinetPublicKey;
 
     return data;
   }

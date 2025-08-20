@@ -17,7 +17,6 @@ import '../../component/wallet_balance_component.dart';
 import '../../model/configuration_response.dart';
 import '../../network/rest_apis.dart';
 import '../../services/cinet_pay_services_new.dart';
-import '../../services/flutter_wave_service_new.dart';
 import '../../services/razorpay_service_new.dart';
 import '../../services/sadad_services_new.dart';
 import '../../utils/model_keys.dart';
@@ -27,7 +26,7 @@ class PaymentScreen extends StatefulWidget {
   final BookingDetailResponse bookings;
   final bool isForAdvancePayment;
 
-  PaymentScreen({required this.bookings, this.isForAdvancePayment = false});
+  const PaymentScreen({super.key, required this.bookings, this.isForAdvancePayment = false});
 
   @override
   _PaymentScreenState createState() => _PaymentScreenState();
@@ -238,7 +237,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         serviceDetail: widget.bookings.service!,
                         taxes: widget.bookings.bookingDetail!.taxes.validate(),
                         couponData: widget.bookings.couponData,
-                        bookingPackage: widget.bookings.bookingDetail!.bookingPackage != null ? widget.bookings.bookingDetail!.bookingPackage : null,
+                        bookingPackage: widget.bookings.bookingDetail!.bookingPackage,
                       ),
                       32.height,
                       Text(language.lblChoosePaymentMethod, style: boldTextStyle(size: LABEL_TEXT_SIZE)),

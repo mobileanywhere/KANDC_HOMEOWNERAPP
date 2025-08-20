@@ -5,6 +5,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../../component/price_widget.dart';
 
 class FilterPriceComponent extends StatefulWidget {
+  const FilterPriceComponent({super.key});
+
   @override
   State<FilterPriceComponent> createState() => _FilterPriceComponentState();
 }

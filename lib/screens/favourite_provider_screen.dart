@@ -13,7 +13,7 @@ import '../utils/constant.dart';
 import 'shimmer/favourite_provider_shimmer.dart';
 
 class FavouriteProviderScreen extends StatefulWidget {
-  const FavouriteProviderScreen({Key? key}) : super(key: key);
+  const FavouriteProviderScreen({super.key});
 
   @override
   _FavouriteProviderScreenState createState() => _FavouriteProviderScreenState();
@@ -40,6 +40,7 @@ class _FavouriteProviderScreenState extends State<FavouriteProviderScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.cardColor,
@@ -57,12 +58,13 @@ class _FavouriteProviderScreenState extends State<FavouriteProviderScreen> {
             initialData: cachedProviderFavList,
             builder: (context, snap) {
               if (snap.hasData) {
-                if (snap.data.validate().isEmpty)
+                if (snap.data.validate().isEmpty) {
                   return NoDataWidget(
                     title: language.noProviderFound,
                     subTitle: language.noProviderFoundMessage,
                     imageWidget: EmptyStateWidget(),
                   );
+                }
                 return AnimatedScrollView(
                   padding: EdgeInsets.fromLTRB(16, 16, 16, 60),
                   listAnimationType: ListAnimationType.FadeIn,

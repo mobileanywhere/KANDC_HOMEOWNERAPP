@@ -18,7 +18,7 @@ class PaymentWebViewScreen extends StatefulWidget {
   final String? url;
   final String? accessToken;
 
-  PaymentWebViewScreen({required this.url, this.accessToken});
+  const PaymentWebViewScreen({super.key, required this.url, this.accessToken});
 
   @override
   _PaymentWebViewScreenState createState() => _PaymentWebViewScreenState();

@@ -53,26 +53,26 @@ class BookingPackage {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['price'] = this.price;
-    data['start_date'] = this.startDate;
-    data['end_date'] = this.endDate;
-    data['status'] = this.status;
-    data['package_type'] = this.packageType;
-    if (this.serviceList != null) {
-      data['services'] = this.serviceList!.map((v) => v.toJson()).toList();
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['price'] = price;
+    data['start_date'] = startDate;
+    data['end_date'] = endDate;
+    data['status'] = status;
+    data['package_type'] = packageType;
+    if (serviceList != null) {
+      data['services'] = serviceList!.map((v) => v.toJson()).toList();
     }
-    data['category_id'] = this.categoryId;
-    data['is_featured'] = this.isFeatured;
-    if (this.attchments != null) {
-      data['attchments_array'] = this.attchments!.map((v) => v.toJson()).toList();
+    data['category_id'] = categoryId;
+    data['is_featured'] = isFeatured;
+    if (attchments != null) {
+      data['attchments_array'] = attchments!.map((v) => v.toJson()).toList();
     }
-    if (this.imageAttachments != null) {
-      data['attchments'] = this.imageAttachments;
+    if (imageAttachments != null) {
+      data['attchments'] = imageAttachments;
     }
     return data;
   }
@@ -92,9 +92,9 @@ class Attachments {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['url'] = url;
     return data;
   }
 }

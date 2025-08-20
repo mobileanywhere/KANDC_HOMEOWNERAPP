@@ -11,7 +11,7 @@ import '../../service/view_all_service_screen.dart';
 class FeaturedServiceListComponent extends StatelessWidget {
   final List<ServiceData> serviceList;
 
-  FeaturedServiceListComponent({required this.serviceList});
+  const FeaturedServiceListComponent({super.key, required this.serviceList});
 
   @override
   Widget build(BuildContext context) {

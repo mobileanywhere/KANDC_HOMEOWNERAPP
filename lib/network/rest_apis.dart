@@ -76,8 +76,9 @@ Future<LoginResponse> loginUser(Map request,
 }
 
 Future<void> saveUserData(UserData data) async {
-  if (data.apiToken.validate().isNotEmpty)
+  if (data.apiToken.validate().isNotEmpty) {
     await appStore.setToken(data.apiToken!);
+  }
   appStore.setLoggedIn(true);
 
   await appStore.setUserId(data.id.validate());
@@ -89,8 +90,9 @@ Future<void> saveUserData(UserData data) async {
   await appStore.setStateId(data.stateId.validate());
   await appStore.setCityId(data.cityId.validate());
   await appStore.setContactNumber(data.contactNumber.validate());
-  if (data.loginType.validate().isNotEmpty)
+  if (data.loginType.validate().isNotEmpty) {
     await appStore.setLoginType(data.loginType.validate());
+  }
   await appStore.setAddress(data.address.validate());
 
   if (data.playerId.validate().isNotEmpty) {
@@ -159,16 +161,14 @@ Future<void> logout(BuildContext context) async {
           Row(
             children: [
               AppButton(
-                child: Text(language.lblNo, style: boldTextStyle()),
                 elevation: 0,
                 onTap: () {
                   finish(context);
                 },
+                child: Text(language.lblNo, style: boldTextStyle()),
               ).expand(),
               16.width,
               AppButton(
-                child:
-                    Text(language.lblYes, style: boldTextStyle(color: white)),
                 color: primaryColor,
                 elevation: 0,
                 onTap: () async {
@@ -192,6 +192,8 @@ Future<void> logout(BuildContext context) async {
                         pageRouteAnimation: PageRouteAnimation.Fade);
                   }
                 },
+                child:
+                    Text(language.lblYes, style: boldTextStyle(color: white)),
               ).expand(),
             ],
           ),
@@ -352,13 +354,16 @@ void _performAdditionalProcessing(DashboardResponse dashboardResponse) async {
   dashboardResponse.configurations.validate().forEach((data) {
     if (data.key == CONFIGURATION_KEY_CURRENCY_COUNTRY_ID &&
         data.country != null) {
-      if (data.country!.currencyCode.validate() != appStore.currencyCode)
+      if (data.country!.currencyCode.validate() != appStore.currencyCode) {
         appStore.setCurrencyCode(data.country!.currencyCode.validate());
+      }
       if (data.country!.id.validate().toString() !=
-          appStore.countryId.toString())
+          appStore.countryId.toString()) {
         appStore.setCurrencyCountryId(data.country!.id.validate().toString());
-      if (data.country!.symbol.validate() != appStore.currencySymbol)
+      }
+      if (data.country!.symbol.validate() != appStore.currencySymbol) {
         appStore.setCurrencySymbol(data.country!.symbol.validate());
+      }
     } else if (data.key == CONFIGURATION_TYPE_CURRENCY_POSITION &&
         data.value.validate().isNotEmpty) {
       compareValuesInSharedPreference(CURRENCY_POSITION, data.value);
@@ -867,7 +872,7 @@ Future<void> saveBooking(Map request, {List<File>? imageFile}) async {
 
   // multiPartRequest.headers.addAll(buildHeaderTokens());
 
-  log("Multi Part Request : ${jsonEncode(multiPartRequest.fields)} ${multiPartRequest.files.map((e) => e.field + ": " + e.filename.validate())}");
+  log("Multi Part Request : ${jsonEncode(multiPartRequest.fields)} ${multiPartRequest.files.map((e) => "${e.field}: ${e.filename.validate()}")}");
 
   // sendMultiPartRequest(multiPartRequest);
 
@@ -1253,7 +1258,7 @@ Future<List<MultipartFile>> getMultipartImages(
     int i = files.indexOf(element);
 
     multiPartRequest.add(await MultipartFile.fromPath(
-        '${'$name' + i.toString()}', element.path));
+        '$name$i', element.path));
   });
 
   return multiPartRequest;

@@ -16,7 +16,7 @@ class RatingViewAllScreen extends StatefulWidget {
   final int? serviceId;
   final int? handymanId;
 
-  RatingViewAllScreen({this.ratingData, this.serviceId, this.handymanId});
+  const RatingViewAllScreen({super.key, this.ratingData, this.serviceId, this.handymanId});
 
   @override
   State<RatingViewAllScreen> createState() => _RatingViewAllScreenState();

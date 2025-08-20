@@ -17,8 +17,8 @@ class ServiceComponent extends StatefulWidget {
   final int? typeId;
   final int? subTypeId;
 
-  ServiceComponent(
-      {this.serviceData,
+  const ServiceComponent(
+      {super.key, this.serviceData,
       this.width,
       this.isBorderEnabled,
       this.isFavouriteService = false,
@@ -70,7 +70,7 @@ class ServiceComponentState extends State<ServiceComponent> {
           setStatusBarColor(transparentColor);
         });
       },
-      child: Container(
+      child: SizedBox(
         width: context.width() / 4 - 20,
         child: Column(
           children: [
@@ -138,7 +138,7 @@ class ServiceComponentState extends State<ServiceComponent> {
                     ),
             8.height,
             Marquee(
-                child: Text('${widget.serviceData?.name?.validate() ?? ''}',
+                child: Text(widget.serviceData?.name?.validate() ?? '',
                     style: boldTextStyle(size: 12),
                     textAlign: TextAlign.center,
                     maxLines: 1))

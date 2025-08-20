@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class RattingShimmer extends StatelessWidget {
+  const RattingShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AnimatedListView(

@@ -117,7 +117,7 @@ class ServiceData {
       isFeatured: json['is_featured'],
       providerName: json['provider_name'],
       categoryName: json['category_name'],
-      attachments: json['attchments'] != null ? new List<String>.from(json['attchments']) : null,
+      attachments: json['attchments'] != null ? List<String>.from(json['attchments']) : null,
       totalReview: json['total_review'],
       totalRating: json['total_rating'],
       isFavourite: json['is_favourite'],
@@ -127,7 +127,7 @@ class ServiceData {
       bookingSlots: json['slots'] != null ? (json['slots'] as List).map((i) => SlotData.fromJson(i)).toList() : null,
       createdAt: json['created_at'],
       customerName: json['customer_name'],
-      serviceAttachments: json['service_attchments'] != null ? new List<String>.from(json['service_attchments']) : null,
+      serviceAttachments: json['service_attchments'] != null ? List<String>.from(json['service_attchments']) : null,
       serviceId: json['service_id'],
       userId: json['user_id'],
       servicePackage: json['servicePackage'] != null ? (json['servicePackage'] as List).map((i) => BookingPackage.fromJson(i)).toList() : null,
@@ -138,52 +138,52 @@ class ServiceData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['category_id'] = this.categoryId;
-    data['category_name'] = this.categoryName;
-    data['city_id'] = this.cityId;
-    data['description'] = this.description;
-    data['discount'] = this.discount;
-    data['booking_date'] = this.bookingDate;
-    data['booking_slot'] = this.bookingSlot;
-    data['booking_day'] = this.bookingDay;
-    data['slots'] = this.bookingSlots;
-    data['duration'] = this.duration;
-    data['id'] = this.id;
-    data['is_featured'] = this.isFeatured;
-    data['name'] = this.name;
-    data['price'] = this.price;
-    data['is_slot'] = this.isSlot;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['category_id'] = categoryId;
+    data['category_name'] = categoryName;
+    data['city_id'] = cityId;
+    data['description'] = description;
+    data['discount'] = discount;
+    data['booking_date'] = bookingDate;
+    data['booking_slot'] = bookingSlot;
+    data['booking_day'] = bookingDay;
+    data['slots'] = bookingSlots;
+    data['duration'] = duration;
+    data['id'] = id;
+    data['is_featured'] = isFeatured;
+    data['name'] = name;
+    data['price'] = price;
+    data['is_slot'] = isSlot;
     // data['price_format'] = this.priceFormat;
-    data['provider_id'] = this.providerId;
-    data['provider_name'] = this.providerName;
-    data['status'] = this.status;
-    data['total_rating'] = this.totalRating;
-    data['total_review'] = this.totalReview;
-    data['provider_image'] = this.providerImage;
-    data['subcategory_name'] = this.subCategoryName;
-    data['created_at'] = this.createdAt;
-    data['customer_name'] = this.customerName;
-    data['service_id'] = this.serviceId;
-    data['user_id'] = this.userId;
-    data['type'] = this.type;
-    if (this.serviceAttachments != null) {
-      data['service_attchments'] = this.serviceAttachments;
+    data['provider_id'] = providerId;
+    data['provider_name'] = providerName;
+    data['status'] = status;
+    data['total_rating'] = totalRating;
+    data['total_review'] = totalReview;
+    data['provider_image'] = providerImage;
+    data['subcategory_name'] = subCategoryName;
+    data['created_at'] = createdAt;
+    data['customer_name'] = customerName;
+    data['service_id'] = serviceId;
+    data['user_id'] = userId;
+    data['type'] = type;
+    if (serviceAttachments != null) {
+      data['service_attchments'] = serviceAttachments;
     }
-    if (this.attachments != null) {
-      data['attchments'] = this.attachments;
+    if (attachments != null) {
+      data['attchments'] = attachments;
     }
-    data['is_favourite'] = this.isFavourite;
-    if (this.serviceAddressMapping != null) {
-      data['service_address_mapping'] = this.serviceAddressMapping!.map((v) => v.toJson()).toList();
+    data['is_favourite'] = isFavourite;
+    if (serviceAddressMapping != null) {
+      data['service_address_mapping'] = serviceAddressMapping!.map((v) => v.toJson()).toList();
     }
 
-    if (this.servicePackage != null) {
-      data['servicePackage'] = this.servicePackage!.map((v) => v.toJson()).toList();
+    if (servicePackage != null) {
+      data['servicePackage'] = servicePackage!.map((v) => v.toJson()).toList();
     }
-    data[AdvancePaymentKey.isEnableAdvancePayment] = this.isAdvancePayment;
-    data[AdvancePaymentKey.advancePaymentAmount] = this.advancePaymentPercentage;
-    data['advance_payment_amount'] = this.advancePaymentAmount;
+    data[AdvancePaymentKey.isEnableAdvancePayment] = isAdvancePayment;
+    data[AdvancePaymentKey.advancePaymentAmount] = advancePaymentPercentage;
+    data['advance_payment_amount'] = advancePaymentAmount;
     return data;
   }
 }
@@ -204,18 +204,18 @@ class ServiceAddressMapping {
     providerAddressId = json['provider_address_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    providerAddressMapping = json['provider_address_mapping'] != null ? new ProviderAddressMapping.fromJson(json['provider_address_mapping']) : null;
+    providerAddressMapping = json['provider_address_mapping'] != null ? ProviderAddressMapping.fromJson(json['provider_address_mapping']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['service_id'] = this.serviceId;
-    data['provider_address_id'] = this.providerAddressId;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    if (this.providerAddressMapping != null) {
-      data['provider_address_mapping'] = this.providerAddressMapping!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['service_id'] = serviceId;
+    data['provider_address_id'] = providerAddressId;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    if (providerAddressMapping != null) {
+      data['provider_address_mapping'] = providerAddressMapping!.toJson();
     }
     return data;
   }
@@ -245,15 +245,15 @@ class ProviderAddressMapping {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['provider_id'] = this.providerId;
-    data['address'] = this.address;
-    data['latitude'] = this.latitude;
-    data['longitude'] = this.longitude;
-    data['status'] = this.status;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['provider_id'] = providerId;
+    data['address'] = address;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
+    data['status'] = status;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }

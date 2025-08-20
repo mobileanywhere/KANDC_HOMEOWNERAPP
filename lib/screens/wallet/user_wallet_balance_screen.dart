@@ -1,5 +1,4 @@
 import 'package:homeowner/component/price_widget.dart';
-import 'package:homeowner/services/flutter_wave_service_new.dart';
 import 'package:homeowner/utils/extensions/num_extenstions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +19,7 @@ import '../../utils/constant.dart';
 import '../../utils/images.dart';
 
 class UserWalletBalanceScreen extends StatefulWidget {
-  const UserWalletBalanceScreen({Key? key}) : super(key: key);
+  const UserWalletBalanceScreen({super.key});
 
   @override
   State<UserWalletBalanceScreen> createState() =>

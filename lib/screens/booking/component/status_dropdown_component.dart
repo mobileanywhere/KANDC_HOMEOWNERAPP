@@ -13,12 +13,12 @@ class StatusDropdownComponent extends StatefulWidget {
   final Function(BookingStatusResponse value) onValueChanged;
   final bool isValidate;
 
-  StatusDropdownComponent({
+  const StatusDropdownComponent({
     this.defaultValue,
     required this.onValueChanged,
     required this.isValidate,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _StatusDropdownComponentState createState() => _StatusDropdownComponentState();
@@ -28,7 +28,7 @@ class _StatusDropdownComponentState extends State<StatusDropdownComponent> {
   BookingStatusResponse? selectedData;
   String? defaultValue;
 
-  AsyncMemoizer<List<BookingStatusResponse>> _asyncMemoizer = AsyncMemoizer();
+  final AsyncMemoizer<List<BookingStatusResponse>> _asyncMemoizer = AsyncMemoizer();
 
   @override
   void initState() {

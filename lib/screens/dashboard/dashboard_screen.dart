@@ -1,10 +1,8 @@
 import 'package:homeowner/main.dart';
 import 'package:homeowner/screens/auth/sign_in_screen.dart';
-import 'package:homeowner/screens/booking/booking_detail_screen.dart';
 import 'package:homeowner/screens/dashboard/fragment/booking_fragment.dart';
 import 'package:homeowner/screens/dashboard/fragment/dashboard_fragment.dart';
 import 'package:homeowner/screens/dashboard/fragment/profile_fragment.dart';
-import 'package:homeowner/screens/service/service_detail_screen.dart';
 import 'package:homeowner/utils/colors.dart';
 import 'package:homeowner/utils/constant.dart';
 import 'package:homeowner/utils/images.dart';
@@ -16,7 +14,7 @@ import 'package:nb_utils/nb_utils.dart';
 class DashboardScreen extends StatefulWidget {
   final bool? redirectToBooking;
 
-  DashboardScreen({this.redirectToBooking});
+  const DashboardScreen({super.key, this.redirectToBooking});
 
   @override
   _DashboardScreenState createState() => _DashboardScreenState();

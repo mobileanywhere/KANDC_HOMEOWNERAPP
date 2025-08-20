@@ -32,7 +32,7 @@ class DateItemWidget extends StatelessWidget {
 
   final List<DateItem> dateItemComponentList;
 
-  DateItemWidget({
+  DateItemWidget({super.key, 
     required this.dateTime,
     required this.dateItemState,
     required this.width,
@@ -62,19 +62,19 @@ class DateItemWidget extends StatelessWidget {
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List<Widget>.generate(this.dateItemComponentList.length, (index) {
-          switch (this.dateItemComponentList[index]) {
+        children: List<Widget>.generate(dateItemComponentList.length, (index) {
+          switch (dateItemComponentList[index]) {
             case DateItem.WeekDay:
-              return Text(DateFormat.E(this.locale).format(this.dateTime), style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: this.weekDayFontSize, fontWeight: _getTextWeightByState(dateItemState)));
+              return Text(DateFormat.E(locale).format(dateTime), style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: weekDayFontSize, fontWeight: _getTextWeightByState(dateItemState)));
             case DateItem.Day:
               return Text(
-                DateFormat.d().format(this.dateTime),
-                style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: this.dayFontSize, fontWeight: _getTextWeightByState(dateItemState)),
+                DateFormat.d().format(dateTime),
+                style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: dayFontSize, fontWeight: _getTextWeightByState(dateItemState)),
               );
             case DateItem.Month:
               return Text(
-                DateFormat.MMM(this.locale).format(this.dateTime),
-                style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: this.monthFontSize, fontWeight: _getTextWeightByState(dateItemState)),
+                DateFormat.MMM(locale).format(dateTime),
+                style: TextStyle(color: _getTextColorByState(dateItemState), fontSize: monthFontSize, fontWeight: _getTextWeightByState(dateItemState)),
               );
             default:
               return Container();

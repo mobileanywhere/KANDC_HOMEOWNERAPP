@@ -15,7 +15,7 @@ class CachedImageWidget extends StatelessWidget {
   final double? radius;
   final Widget? child;
 
-  CachedImageWidget({
+  const CachedImageWidget({super.key, 
     required this.url,
     required this.height,
     this.width,

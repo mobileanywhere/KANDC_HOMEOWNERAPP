@@ -15,7 +15,7 @@ class SubCategoryComponent extends StatefulWidget {
   final Function(bool val) onDataLoaded;
   final Function(CategoryData categoryData)? onCategoryTap;
 
-  SubCategoryComponent({required this.catId, required this.onDataLoaded, this.onCategoryTap});
+  const SubCategoryComponent({super.key, required this.catId, required this.onDataLoaded, this.onCategoryTap});
 
   @override
   _SubCategoryComponentState createState() => _SubCategoryComponentState();
@@ -126,7 +126,7 @@ class _SubCategoryComponentState extends State<SubCategoryComponent> {
                                             ),
                                     4.height,
                                     if (index == 0) Text(language.lblViewAll, style: boldTextStyle(size: 12), textAlign: TextAlign.center, maxLines: 1),
-                                    if (index != 0) Marquee(child: Text('${data.name.validate()}', style: boldTextStyle(size: 12), textAlign: TextAlign.center, maxLines: 1)),
+                                    if (index != 0) Marquee(child: Text(data.name.validate(), style: boldTextStyle(size: 12), textAlign: TextAlign.center, maxLines: 1)),
                                   ],
                                 ),
                                 Positioned(

@@ -13,6 +13,8 @@ import '../../component/base_scaffold_widget.dart';
 import '../../component/empty_error_state_widget.dart';
 
 class MyPostRequestListScreen extends StatefulWidget {
+  const MyPostRequestListScreen({super.key});
+
   @override
   _MyPostRequestListScreenState createState() => _MyPostRequestListScreenState();
 }
@@ -52,6 +54,20 @@ class _MyPostRequestListScreenState extends State<MyPostRequestListScreen> {
   Widget build(BuildContext context) {
     return AppScaffold(
       appBarTitle: language.myPostJobList,
+      bottomNavigationBar: AppButton(
+        color: context.primaryColor,
+        width: context.width(),
+        onTap: () async {
+          bool? res = await CreatePostRequestScreen().launch(context);
+
+          if (res ?? false) {
+            page = 1;
+            init();
+            setState(() {});
+          }
+        },
+        child: Text(language.requestNewJob, style: boldTextStyle(color: white)),
+      ).paddingAll(16),
       child: Stack(
         children: [
           SnapHelperWidget<List<PostJobData>>(
@@ -123,20 +139,6 @@ class _MyPostRequestListScreenState extends State<MyPostRequestListScreen> {
           Observer(builder: (context) => LoaderWidget().visible(appStore.isLoading))
         ],
       ),
-      bottomNavigationBar: AppButton(
-        child: Text(language.requestNewJob, style: boldTextStyle(color: white)),
-        color: context.primaryColor,
-        width: context.width(),
-        onTap: () async {
-          bool? res = await CreatePostRequestScreen().launch(context);
-
-          if (res ?? false) {
-            page = 1;
-            init();
-            setState(() {});
-          }
-        },
-      ).paddingAll(16),
     );
   }
 }

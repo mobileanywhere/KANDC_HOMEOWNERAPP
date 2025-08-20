@@ -6,6 +6,6 @@ import '../constant.dart';
 
 extension NumExtension on num {
   String toPriceFormat() {
-    return "${isCurrencyPositionLeft ? appStore.currencySymbol : ''}${this.toStringAsFixed(DECIMAL_POINT).formatNumberWithComma()}${isCurrencyPositionRight ? appStore.currencySymbol : ''}";
+    return "${isCurrencyPositionLeft ? appStore.currencySymbol : ''}${toStringAsFixed(DECIMAL_POINT).formatNumberWithComma()}${isCurrencyPositionRight ? appStore.currencySymbol : ''}";
   }
 }

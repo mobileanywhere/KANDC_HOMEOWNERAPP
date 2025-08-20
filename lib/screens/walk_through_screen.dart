@@ -8,6 +8,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../main.dart';
 
 class WalkThroughScreen extends StatefulWidget {
+  const WalkThroughScreen({super.key});
+
   @override
   _WalkThroughScreenState createState() => _WalkThroughScreenState();
 }

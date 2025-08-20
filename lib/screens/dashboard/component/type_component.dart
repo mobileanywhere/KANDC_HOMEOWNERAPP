@@ -10,7 +10,7 @@ import 'package:nb_utils/nb_utils.dart';
 class TypeComponent extends StatefulWidget {
   final List<MainTypesData>? categoryList;
 
-  TypeComponent({this.categoryList});
+  const TypeComponent({super.key, this.categoryList});
 
   @override
   CategoryComponentState createState() => CategoryComponentState();

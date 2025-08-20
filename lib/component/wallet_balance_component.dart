@@ -7,7 +7,7 @@ import '../utils/common.dart';
 import '../utils/constant.dart';
 
 class WalletBalanceComponent extends StatefulWidget {
-  const WalletBalanceComponent({Key? key}) : super(key: key);
+  const WalletBalanceComponent({super.key});
 
   @override
   State<WalletBalanceComponent> createState() => _WalletBalanceComponentState();

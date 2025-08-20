@@ -219,8 +219,9 @@ abstract class _AppStore with Store {
   Future<void> setPrivacyPolicy(String val,
       {bool isInitializing = false}) async {
     privacyPolicy = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(PRIVACY_POLICY, val);
+    }
   }
 
   @action
@@ -233,24 +234,27 @@ abstract class _AppStore with Store {
   Future<void> setTermConditions(String val,
       {bool isInitializing = false}) async {
     termConditions = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(TERM_CONDITIONS, val);
+    }
   }
 
   @action
   Future<void> setInquiryEmail(String val,
       {bool isInitializing = false}) async {
     inquiryEmail = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(INQUIRY_EMAIL, val);
+    }
   }
 
   @action
   Future<void> setHelplineNumber(String val,
       {bool isInitializing = false}) async {
     helplineNumber = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(HELPLINE_NUMBER, val);
+    }
   }
 
   @action
@@ -294,8 +298,9 @@ abstract class _AppStore with Store {
   Future<void> setCurrencyCountryId(String val,
       {bool isInitializing = false}) async {
     currencyCountryId = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(CURRENCY_COUNTRY_ID, val);
+    }
   }
 
   @action
@@ -386,8 +391,9 @@ abstract class _AppStore with Store {
   Future<void> setCurrentLocation(bool val,
       {bool isInitializing = false}) async {
     isCurrentLocation = val;
-    if (!isInitializing)
+    if (!isInitializing) {
       await compareValuesInSharedPreference(IS_CURRENT_LOCATION, val);
+    }
   }
 
   @action

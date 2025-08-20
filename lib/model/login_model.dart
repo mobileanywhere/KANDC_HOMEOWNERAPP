@@ -18,13 +18,13 @@ class LoginResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.userData != null) {
-      data['data'] = this.userData!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (userData != null) {
+      data['data'] = userData!.toJson();
     }
-    data['is_user_exist'] = this.isUserExist;
-    data['status'] = this.status;
-    data['message'] = this.message;
+    data['is_user_exist'] = isUserExist;
+    data['status'] = status;
+    data['message'] = message;
     return data;
   }
 }

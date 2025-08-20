@@ -9,7 +9,7 @@ class ViewAllLabel extends StatelessWidget {
   final VoidCallback? onTap;
   final int? labelSize;
 
-  ViewAllLabel({required this.label, this.onTap, this.labelSize, this.list});
+  const ViewAllLabel({super.key, required this.label, this.onTap, this.labelSize, this.list});
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class CountdownWidget extends StatefulWidget {
   final String? text;
   final BookingDetailResponse bookingDetailResponse;
 
-  CountdownWidget({this.text, required this.bookingDetailResponse});
+  const CountdownWidget({super.key, this.text, required this.bookingDetailResponse});
 
   @override
   _CountdownWidgetState createState() => _CountdownWidgetState();
@@ -69,11 +69,11 @@ class _CountdownWidgetState extends State<CountdownWidget> {
 
     seconds = secTime - (hour * 3600) - (minute * 60);
 
-    String hourLeft = hour.toString().length < 2 ? "0" + hour.toString() : hour.toString();
+    String hourLeft = hour.toString().length < 2 ? "0$hour" : hour.toString();
 
-    String minuteLeft = minute.toString().length < 2 ? "0" + minute.toString() : minute.toString();
+    String minuteLeft = minute.toString().length < 2 ? "0$minute" : minute.toString();
 
-    String secondsLeft = seconds.toString().length < 2 ? "0" + seconds.toString() : seconds.toString();
+    String secondsLeft = seconds.toString().length < 2 ? "0$seconds" : seconds.toString();
 
     String result = "$hourLeft:$minuteLeft:$secondsLeft";
 

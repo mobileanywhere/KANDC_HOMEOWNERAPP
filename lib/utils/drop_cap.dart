@@ -24,16 +24,16 @@ class DropCap extends StatelessWidget {
   final Widget child;
   final double width, height;
 
-  DropCap({
-    Key? key,
+  const DropCap({
+    super.key,
     required this.child,
     required this.width,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(child: child, width: width, height: height);
+    return SizedBox(width: width, height: height, child: child);
   }
 }
 
@@ -52,9 +52,9 @@ class DropCapText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow overflow;
 
-  DropCapText(
+  const DropCapText(
     this.data, {
-    Key? key,
+    super.key,
     this.mode = DropCapMode.inside,
     this.style,
     this.dropCapStyle,
@@ -69,7 +69,7 @@ class DropCapText extends StatelessWidget {
     this.overflow = TextOverflow.clip,
     this.maxLines,
     this.dropCapPosition,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -98,8 +98,9 @@ class DropCapText extends StatelessWidget {
     final String dropCapStr =
         (mdData?.plainText ?? data).substring(0, dropCapChars);
 
-    if (mode == DropCapMode.baseline && dropCap == null)
+    if (mode == DropCapMode.baseline && dropCap == null) {
       return _buildBaseline(context, textStyle, capStyle);
+    }
 
     // custom DropCap
     if (dropCap != null) {
@@ -329,18 +330,20 @@ class MarkdownParser {
     bool italic = false;
     bool underline = false;
 
-    const String MARKUP_BOLD = '**';
-    const String MARKUP_ITALIC = '_';
-    const String MARKUP_UNDERLINE = '++';
+    const String markupBold = '**';
+    const String markupItalic = '_';
+    const String markupUnderline = '++';
 
     addSpan(String markup, bool isOpening) {
       final List<Markup> markups = [Markup(markup, isOpening)];
 
-      if (bold && markup != MARKUP_BOLD) markups.add(Markup(MARKUP_BOLD, true));
-      if (italic && markup != MARKUP_ITALIC)
-        markups.add(Markup(MARKUP_ITALIC, true));
-      if (underline && markup != MARKUP_UNDERLINE)
-        markups.add(Markup(MARKUP_UNDERLINE, true));
+      if (bold && markup != markupBold) markups.add(Markup(markupBold, true));
+      if (italic && markup != markupItalic) {
+        markups.add(Markup(markupItalic, true));
+      }
+      if (underline && markup != markupUnderline) {
+        markups.add(Markup(markupUnderline, true));
+      }
 
       spans.add(
         MarkdownSpan(
@@ -360,18 +363,18 @@ class MarkdownParser {
     }
 
     for (int c = 0; c < data.length; c++) {
-      if (checkMarkup(c, MARKUP_BOLD)) {
+      if (checkMarkup(c, markupBold)) {
         bold = !bold;
-        addSpan(MARKUP_BOLD, bold);
-        c += MARKUP_BOLD.length - 1;
-      } else if (checkMarkup(c, MARKUP_ITALIC)) {
+        addSpan(markupBold, bold);
+        c += markupBold.length - 1;
+      } else if (checkMarkup(c, markupItalic)) {
         italic = !italic;
-        addSpan(MARKUP_ITALIC, italic);
-        c += MARKUP_ITALIC.length - 1;
-      } else if (checkMarkup(c, MARKUP_UNDERLINE)) {
+        addSpan(markupItalic, italic);
+        c += markupItalic.length - 1;
+      } else if (checkMarkup(c, markupUnderline)) {
         underline = !underline;
-        addSpan(MARKUP_UNDERLINE, underline);
-        c += MARKUP_UNDERLINE.length - 1;
+        addSpan(markupUnderline, underline);
+        c += markupUnderline.length - 1;
       } else {
         spans[spans.length - 1].text += data[c];
         plainText += data[c];

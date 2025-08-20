@@ -29,28 +29,31 @@ Map<String, String> buildHeaderTokens({Map? extraKeys}) {
       HttpHeaders.contentTypeHeader,
       () => 'application/x-www-form-urlencoded',
     );
-    if (extraKeys.containsKey('stripeKeyPayment'))
+    if (extraKeys.containsKey('stripeKeyPayment')) {
       header.putIfAbsent(
         HttpHeaders.authorizationHeader,
         () => 'Bearer ${extraKeys!['stripeKeyPayment']}',
       );
+    }
   } else if (appStore.isLoggedIn &&
       extraKeys.containsKey('isFlutterWave') &&
       extraKeys['isFlutterWave'] as bool) {
-    if (extraKeys.containsKey('flutterWaveSecretKey'))
+    if (extraKeys.containsKey('flutterWaveSecretKey')) {
       header.putIfAbsent(
         HttpHeaders.authorizationHeader,
         () => "Bearer ${extraKeys!['flutterWaveSecretKey']}",
       );
+    }
   } else if (appStore.isLoggedIn &&
       extraKeys.containsKey('isSadadPayment') &&
       extraKeys['isSadadPayment'] as bool) {
     header.putIfAbsent(HttpHeaders.contentTypeHeader, () => 'application/json');
-    if (extraKeys.containsKey('sadadToken'))
+    if (extraKeys.containsKey('sadadToken')) {
       header.putIfAbsent(
         HttpHeaders.authorizationHeader,
         () => extraKeys!['sadadToken'],
       );
+    }
   } else {
     header.putIfAbsent(
       HttpHeaders.authorizationHeader,
@@ -154,21 +157,21 @@ Future handleResponse(
     throw errorInternetNotAvailable;
   }
   if (response.statusCode == 400) {
-    throw '${language.badRequest}';
+    throw language.badRequest;
   } else if (response.statusCode == 403) {
-    throw '${language.forbidden}';
+    throw language.forbidden;
   } else if (response.statusCode == 404) {
-    throw '${language.pageNotFound}';
+    throw language.pageNotFound;
   } else if (response.statusCode == 429) {
-    throw '${language.tooManyRequests}';
+    throw language.tooManyRequests;
   } else if (response.statusCode == 500) {
-    throw '${language.internalServerError}';
+    throw language.internalServerError;
   } else if (response.statusCode == 502) {
-    throw '${language.badGateway}';
+    throw language.badGateway;
   } else if (response.statusCode == 503) {
-    throw '${language.serviceUnavailable}';
+    throw language.serviceUnavailable;
   } else if (response.statusCode == 504) {
-    throw '${language.gatewayTimeout}';
+    throw language.gatewayTimeout;
   }
 
   if (response.statusCode.isSuccessful()) {
@@ -215,7 +218,7 @@ Future<MultipartRequest> getMultiPartRequest(
   String endPoint, {
   String? baseUrl,
 }) async {
-  String url = '${baseUrl ?? buildBaseUrl(endPoint).toString()}';
+  String url = baseUrl ?? buildBaseUrl(endPoint).toString();
   return MultipartRequest('POST', Uri.parse(url));
 }
 
@@ -279,9 +282,10 @@ void apiPrint({
   );
   log("\u001b[93m Url: \u001B[39m $url");
   log("\u001b[93m Header: \u001B[39m \u001b[96m$headers\u001B[39m");
-  if (request.isNotEmpty)
+  if (request.isNotEmpty) {
     log("\u001b[93m Request: \u001B[39m \u001b[96m$request\u001B[39m");
-  log("${statusCode.isSuccessful() ? "\u001b[32m" : "\u001b[31m"}");
+  }
+  log(statusCode.isSuccessful() ? "\u001b[32m" : "\u001b[31m");
   printWrapped('Response ($methodtype) $statusCode: $responseBody');
   log("\u001B[0m");
   log(

@@ -10,7 +10,7 @@ import 'package:nb_utils/nb_utils.dart';
 class InvoiceRequestDialogComponent extends StatefulWidget {
   final int? bookingId;
 
-  InvoiceRequestDialogComponent({required this.bookingId});
+  const InvoiceRequestDialogComponent({super.key, required this.bookingId});
 
   @override
   State<InvoiceRequestDialogComponent> createState() => _InvoiceRequestDialogComponentState();

@@ -3,6 +3,8 @@ import 'package:homeowner/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoaderWidget extends StatefulWidget {
+  const LoaderWidget({super.key});
+
   @override
   _LoaderWidgetState createState() => _LoaderWidgetState();
 }

@@ -12,7 +12,7 @@ import '../../../component/empty_error_state_widget.dart';
 import '../../../component/loader_widget.dart';
 
 class BlogListScreen extends StatefulWidget {
-  const BlogListScreen({Key? key}) : super(key: key);
+  const BlogListScreen({super.key});
 
   @override
   State<BlogListScreen> createState() => _BlogListScreenState();

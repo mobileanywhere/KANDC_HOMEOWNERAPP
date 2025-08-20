@@ -14,11 +14,11 @@ class VerifyTransactionResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['status'] = this.status;
-    if (this.transactionData != null) {
-      data['data'] = this.transactionData!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['status'] = status;
+    if (transactionData != null) {
+      data['data'] = transactionData!.toJson();
     }
     return data;
   }
@@ -98,33 +98,33 @@ class TransactionData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['account_id'] = this.accountId;
-    data['amount'] = this.amount;
-    data['amount_settled'] = this.amountSettled;
-    data['app_fee'] = this.appFee;
-    data['auth_model'] = this.authModel;
-    data['charged_amount'] = this.chargedAmount;
-    data['created_at'] = this.createdAt;
-    data['currency'] = this.currency;
-    data['device_fingerprint'] = this.deviceFingerprint;
-    data['flw_ref'] = this.flwRef;
-    data['id'] = this.id;
-    data['ip'] = this.ip;
-    data['merchant_fee'] = this.merchantFee;
-    data['narration'] = this.narration;
-    data['payment_type'] = this.paymentType;
-    data['processor_response'] = this.processorResponse;
-    data['status'] = this.status;
-    data['tx_ref'] = this.txRef;
-    if (this.card != null) {
-      data['card'] = this.card!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['account_id'] = accountId;
+    data['amount'] = amount;
+    data['amount_settled'] = amountSettled;
+    data['app_fee'] = appFee;
+    data['auth_model'] = authModel;
+    data['charged_amount'] = chargedAmount;
+    data['created_at'] = createdAt;
+    data['currency'] = currency;
+    data['device_fingerprint'] = deviceFingerprint;
+    data['flw_ref'] = flwRef;
+    data['id'] = id;
+    data['ip'] = ip;
+    data['merchant_fee'] = merchantFee;
+    data['narration'] = narration;
+    data['payment_type'] = paymentType;
+    data['processor_response'] = processorResponse;
+    data['status'] = status;
+    data['tx_ref'] = txRef;
+    if (card != null) {
+      data['card'] = card!.toJson();
     }
-    if (this.customer != null) {
-      data['customer'] = this.customer!.toJson();
+    if (customer != null) {
+      data['customer'] = customer!.toJson();
     }
-    if (this.meta != null) {
-      data['meta'] = this.meta!.toJson();
+    if (meta != null) {
+      data['meta'] = meta!.toJson();
     }
     return data;
   }
@@ -150,12 +150,12 @@ class Customer {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['created_at'] = this.createdAt;
-    data['email'] = this.email;
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['phone_number'] = this.phoneNumber;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['created_at'] = createdAt;
+    data['email'] = email;
+    data['id'] = id;
+    data['name'] = name;
+    data['phone_number'] = phoneNumber;
     return data;
   }
 }
@@ -172,8 +172,8 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['__CheckoutInitAddress'] = this.checkoutInitAddress;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['__CheckoutInitAddress'] = checkoutInitAddress;
     return data;
   }
 }
@@ -202,14 +202,14 @@ class Card {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['country'] = this.country;
-    data['expiry'] = this.expiry;
-    data['first_6digits'] = this.first_6digits;
-    data['issuer'] = this.issuer;
-    data['last_4digits'] = this.last_4digits;
-    data['token'] = this.token;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['country'] = country;
+    data['expiry'] = expiry;
+    data['first_6digits'] = first_6digits;
+    data['issuer'] = issuer;
+    data['last_4digits'] = last_4digits;
+    data['token'] = token;
+    data['type'] = type;
     return data;
   }
 }

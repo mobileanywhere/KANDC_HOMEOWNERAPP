@@ -1,7 +1,7 @@
 import 'package:nb_utils/nb_utils.dart';
 
 /// DO NOT CHANGE THIS PACKAGE NAME
-var appPackageName = isAndroid ? 'com.kandc.homeowner' : 'com.kandc.homeowner';
+var appPackageName = isAndroid ? 'com.kc.owner' : 'com.kc.owner';
 
 enum GalleryFileTypes { CANCEL, CAMERA, GALLERY }
 
@@ -263,12 +263,7 @@ const List<String> RTL_LanguageS = ['ar', 'ur'];
 //endregion
 
 //region MessageType
-enum MessageType {
-  TEXT,
-  IMAGE,
-  VIDEO,
-  AUDIO,
-}
+enum MessageType { TEXT, IMAGE, VIDEO, AUDIO }
 //endregion
 
 //region MessageExtension
@@ -309,8 +304,10 @@ const GOOGLE_MAP_PREFIX = 'https://www.google.com/maps/search/?api=1&query=';
 
 //endregion
 
-SlideConfiguration sliderConfigurationGlobal =
-    SlideConfiguration(duration: 400.milliseconds, delay: 50.milliseconds);
+SlideConfiguration sliderConfigurationGlobal = SlideConfiguration(
+  duration: 400.milliseconds,
+  delay: 50.milliseconds,
+);
 
 // region JOB REQUEST STATUS
 const JOB_REQUEST_STATUS_REQUESTED = "requested";

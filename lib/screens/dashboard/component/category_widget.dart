@@ -10,8 +10,8 @@ class CategoryWidget extends StatelessWidget {
   final bool? isFromCategory;
   final bool? isOdd;
 
-  CategoryWidget(
-      {required this.categoryData,
+  const CategoryWidget(
+      {super.key, required this.categoryData,
       this.width,
       this.isFromCategory,
       this.isOdd});

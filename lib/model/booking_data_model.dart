@@ -172,13 +172,13 @@ class BookingData {
       providerName: json['provider_name'],
       quantity: json['quantity'],
       serviceAttachments: json['service_attchments'] != null
-          ? new List<String>.from(json['service_attchments'])
+          ? List<String>.from(json['service_attchments'])
           : null,
       serviceAttachment: json['service_attchment'] != null
-          ? new List<String>.from(json['service_attchment'])
+          ? List<String>.from(json['service_attchment'])
           : null,
       attchment: json['attchment'] != null
-          ? new List<String>.from(json['attchment'])
+          ? List<String>.from(json['attchment'])
           : null,
       serviceId: json['service_id'],
       serviceName: json['service_name'],
@@ -213,68 +213,68 @@ class BookingData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['is_invoice_generated'] = this.isInvoiceGenerated;
-    data['address'] = this.address;
-    data['booking_address_id'] = this.bookingAddressId;
-    data['customer_id'] = this.customerId;
-    data['customer_name'] = this.customerName;
-    data['total_amount'] = this.totalAmount;
-    data['booking_slot'] = this.bookingSlot;
-    data['amount'] = this.amount;
-    data['date'] = this.date;
-    data['description'] = this.description;
-    data['summary'] = this.summary;
-    data['discount'] = this.discount;
-    data['duration_diff'] = this.durationDiff;
-    data['duration_diff_hour'] = this.durationDiffHour;
-    data['id'] = this.id;
-    data['payment_id'] = this.paymentId;
-    data['payment_method'] = this.paymentMethod;
-    data['payment_status'] = this.paymentStatus;
-    data['provider_id'] = this.providerId;
-    data['provider_name'] = this.providerName;
-    data['quantity'] = this.quantity;
-    data['service_id'] = this.serviceId;
-    data['service_name'] = this.serviceName;
-    data['status'] = this.status;
-    data['status_label'] = this.statusLabel;
-    data['type'] = this.type;
-    data['reason'] = this.reason;
-    data['total_review'] = this.totalReview;
-    data['total_rating'] = this.totalRating;
-    data['start_at'] = this.startAt;
-    data['end_at'] = this.endAt;
-    data['booking_type'] = this.bookingType;
-    data[AdvancePaymentKey.advancePaidAmount] = this.amount;
-    data['final_total_service_price'] = this.finalTotalServicePrice;
-    data['final_total_tax'] = this.finalTotalTax;
-    data['final_sub_total'] = this.finalSubTotal;
-    data['final_discount_amount'] = this.finalDiscountAmount;
-    data['final_coupon_discount_amount'] = this.finalCouponDiscountAmount;
-    data['txn_id'] = this.txnId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['is_invoice_generated'] = isInvoiceGenerated;
+    data['address'] = address;
+    data['booking_address_id'] = bookingAddressId;
+    data['customer_id'] = customerId;
+    data['customer_name'] = customerName;
+    data['total_amount'] = totalAmount;
+    data['booking_slot'] = bookingSlot;
+    data['amount'] = amount;
+    data['date'] = date;
+    data['description'] = description;
+    data['summary'] = summary;
+    data['discount'] = discount;
+    data['duration_diff'] = durationDiff;
+    data['duration_diff_hour'] = durationDiffHour;
+    data['id'] = id;
+    data['payment_id'] = paymentId;
+    data['payment_method'] = paymentMethod;
+    data['payment_status'] = paymentStatus;
+    data['provider_id'] = providerId;
+    data['provider_name'] = providerName;
+    data['quantity'] = quantity;
+    data['service_id'] = serviceId;
+    data['service_name'] = serviceName;
+    data['status'] = status;
+    data['status_label'] = statusLabel;
+    data['type'] = type;
+    data['reason'] = reason;
+    data['total_review'] = totalReview;
+    data['total_rating'] = totalRating;
+    data['start_at'] = startAt;
+    data['end_at'] = endAt;
+    data['booking_type'] = bookingType;
+    data[AdvancePaymentKey.advancePaidAmount] = amount;
+    data['final_total_service_price'] = finalTotalServicePrice;
+    data['final_total_tax'] = finalTotalTax;
+    data['final_sub_total'] = finalSubTotal;
+    data['final_discount_amount'] = finalDiscountAmount;
+    data['final_coupon_discount_amount'] = finalCouponDiscountAmount;
+    data['txn_id'] = txnId;
 
-    if (this.couponData != null) {
-      data['coupon_data'] = this.couponData!.toJson();
+    if (couponData != null) {
+      data['coupon_data'] = couponData!.toJson();
     }
-    if (this.handyman != null) {
-      data['handyman'] = this.handyman!.map((v) => v.toJson()).toList();
+    if (handyman != null) {
+      data['handyman'] = handyman!.map((v) => v.toJson()).toList();
     }
-    if (this.serviceAttachments != null) {
-      data['service_attchments'] = this.serviceAttachments;
+    if (serviceAttachments != null) {
+      data['service_attchments'] = serviceAttachments;
     }
-    if (this.attchment != null) {
-      data['attchment'] = this.attchment;
+    if (attchment != null) {
+      data['attchment'] = attchment;
     }
-    if (this.taxes != null) {
-      data['taxes'] = this.taxes!.map((v) => v.toJson()).toList();
+    if (taxes != null) {
+      data['taxes'] = taxes!.map((v) => v.toJson()).toList();
     }
-    if (this.extraCharges != null) {
+    if (extraCharges != null) {
       data['extra_charges'] =
-          this.extraCharges!.map((v) => v.toJson()).toList();
+          extraCharges!.map((v) => v.toJson()).toList();
     }
     if (bookingPackage != null) {
-      data['booking_package'] = this.bookingPackage!.toJson();
+      data['booking_package'] = bookingPackage!.toJson();
     }
     return data;
   }

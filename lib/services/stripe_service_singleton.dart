@@ -101,7 +101,7 @@ class StripeService {
     required String userEmail,
   }) async {
     try {
-      var paymentIntentData;
+      Map<String, dynamic> paymentIntentData;
       PaymentIntent? finalPaymentIntent;
 
       // Step 1: Show Payment Method Choice Dialog
@@ -306,7 +306,7 @@ class StripeService {
     final billingNameController = TextEditingController(text: userName);
     final billingEmailController = TextEditingController(text: userEmail);
 
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     final ValueNotifier<bool> isSubmitting = ValueNotifier<bool>(false);
 
     return await showDialog<Map<String, dynamic>?>(
@@ -316,7 +316,7 @@ class StripeService {
         return AlertDialog(
           title: const Text('Enter ACH Details'),
           content: Form(
-            key: _formKey,
+            key: formKey,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -424,7 +424,7 @@ class StripeService {
                   onPressed: loading
                       ? null
                       : () async {
-                          if (_formKey.currentState?.validate() ?? false) {
+                          if (formKey.currentState?.validate() ?? false) {
                             isSubmitting.value = true;
                             await Future.delayed(
                                 const Duration(seconds: 2)); // Simulate delay

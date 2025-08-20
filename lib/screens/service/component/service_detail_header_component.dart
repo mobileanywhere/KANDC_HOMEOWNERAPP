@@ -15,8 +15,7 @@ import 'package:nb_utils/nb_utils.dart';
 class ServiceDetailHeaderComponent extends StatefulWidget {
   final ServiceData serviceDetail;
 
-  const ServiceDetailHeaderComponent({required this.serviceDetail, Key? key})
-      : super(key: key);
+  const ServiceDetailHeaderComponent({required this.serviceDetail, super.key});
 
   @override
   State<ServiceDetailHeaderComponent> createState() =>
@@ -73,14 +72,15 @@ class _ServiceDetailHeaderComponentState
             top: context.statusBarHeight + 8,
             left: 16,
             child: Container(
-              child: BackWidget(iconColor: context.iconColor),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: context.cardColor.withOpacity(0.7)),
+              child: BackWidget(iconColor: context.iconColor),
             ),
           ),
           Positioned(
             top: context.statusBarHeight + 8,
+            right: 8,
             child: Container(
               padding: EdgeInsets.all(10),
               margin: EdgeInsets.only(right: 8),
@@ -106,7 +106,6 @@ class _ServiceDetailHeaderComponentState
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 hoverColor: Colors.transparent),
-            right: 8,
           ),
           Positioned(
             bottom: 0,
@@ -197,9 +196,9 @@ class _ServiceDetailHeaderComponentState
                                 boldTextStyle(size: 14, color: primaryColor)),
                       8.height,
                       Marquee(
-                        child: Text('${widget.serviceDetail.name.validate()}',
-                            style: boldTextStyle(size: 18)),
                         directionMarguee: DirectionMarguee.oneDirection,
+                        child: Text(widget.serviceDetail.name.validate(),
+                            style: boldTextStyle(size: 18)),
                       ),
                       // 8.height,
                       // Row(
@@ -222,7 +221,7 @@ class _ServiceDetailHeaderComponentState
                       TextIcon(
                         edgeInsets:
                             EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-                        text: '${language.duration}',
+                        text: language.duration,
                         textStyle: secondaryTextStyle(size: 14),
                         expandedText: true,
                         suffix: Text(

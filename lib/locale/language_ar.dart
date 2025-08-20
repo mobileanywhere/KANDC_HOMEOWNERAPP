@@ -1408,7 +1408,7 @@ class LanguageAr extends BaseLanguage {
 
   @override
   String get selectImgNote =>
-      "ملاحظة: يمكنك تحميل الصور من نوع \ 'jpg \'، \ 'png \'، \ 'jpeg \' extensions & يمكنك تحديد صور متعددة";
+      "ملاحظة: يمكنك تحميل الصور من نوع  'jpg '،  'png '،  'jpeg ' extensions & يمكنك تحديد صور متعددة";
 
   @override
   String get lblSubscriptions => 'Subscriptions';

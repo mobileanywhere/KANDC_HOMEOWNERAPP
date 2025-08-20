@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class FilterRatingComponent extends StatefulWidget {
+  const FilterRatingComponent({super.key});
+
   @override
   State<FilterRatingComponent> createState() => _FilterRatingComponentState();
 }

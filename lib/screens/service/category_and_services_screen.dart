@@ -28,7 +28,7 @@ class CategoryAndServicesScreen extends StatefulWidget {
   final bool isFromCategory;
   final int? providerId;
 
-  CategoryAndServicesScreen({
+  const CategoryAndServicesScreen({
     this.typeId,
     this.subTypeId,
     this.subTypeName = '',
@@ -36,8 +36,8 @@ class CategoryAndServicesScreen extends StatefulWidget {
     this.isFromProvider = true,
     this.isFromCategory = false,
     this.providerId,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<CategoryAndServicesScreen> createState() =>
@@ -238,7 +238,7 @@ class _CategoryAndServicesScreenState extends State<CategoryAndServicesScreen> {
                                 //       maxLines: 1),
                                 // if (index != 0)
                                 Marquee(
-                                    child: Text('${data.name.validate()}',
+                                    child: Text(data.name.validate(),
                                         style: boldTextStyle(size: 12),
                                         textAlign: TextAlign.center,
                                         maxLines: 1)),

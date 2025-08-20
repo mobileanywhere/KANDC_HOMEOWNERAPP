@@ -16,7 +16,7 @@ import 'package:nb_utils/nb_utils.dart';
 class EditBookingServiceDialog extends StatefulWidget {
   final BookingData data;
 
-  EditBookingServiceDialog({required this.data});
+  const EditBookingServiceDialog({super.key, required this.data});
 
   @override
   State<EditBookingServiceDialog> createState() => _EditBookingServiceDialogState();
@@ -130,7 +130,7 @@ class _EditBookingServiceDialogState extends State<EditBookingServiceDialog> {
                 children: [
                   Text('#${widget.data.id.validate()}', style: boldTextStyle(color: primaryColor)),
                   16.width,
-                  Text('${widget.data.serviceName.validate()}', style: boldTextStyle()).flexible(),
+                  Text(widget.data.serviceName.validate(), style: boldTextStyle()).flexible(),
                 ],
               ),
               16.height,

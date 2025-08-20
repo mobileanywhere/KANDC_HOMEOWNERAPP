@@ -27,13 +27,12 @@ class SignUpScreen extends StatefulWidget {
   final bool isOTPLogin;
   final String? uid;
 
-  SignUpScreen(
-      {Key? key,
+  const SignUpScreen(
+      {super.key,
       this.phoneNumber,
       this.isOTPLogin = false,
       this.countryCode,
-      this.uid})
-      : super(key: key);
+      this.uid});
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -170,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<void> createUsers({required UserData tempRegisterData}) async {
     await createUser(tempRegisterData.toJson()).then((registerResponse) async {
       registerResponse.userData!.password = passwordCont.text.trim();
-      var request;
+      Map<String, String> request;
 
       /// After successful entry in the mysql database it will login into firebase.
 
@@ -225,9 +224,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: 80,
           width: 80,
           padding: EdgeInsets.all(16),
-          child: ic_profile2.iconImage(color: Colors.white),
           decoration:
               boxDecorationDefault(shape: BoxShape.circle, color: primaryColor),
+          child: ic_profile2.iconImage(color: Colors.white),
         ),
         16.height,
         Text(language.lblHelloUser, style: boldTextStyle(size: 22)).center(),
@@ -309,7 +308,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           errorThisFieldRequired: language.requiredText,
           nextFocus: passwordFocus,
           decoration: inputDecoration(context,
-                  labelText: "${language.hintContactNumberTxt}")
+                  labelText: language.hintContactNumberTxt)
               .copyWith(
             prefixText: '+${selectedCountry.phoneCode} ',
             hintText: '${language.lblExample}: ${selectedCountry.example}',

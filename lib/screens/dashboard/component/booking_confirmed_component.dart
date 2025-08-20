@@ -11,7 +11,7 @@ import '../../../utils/constant.dart';
 class PendingBookingComponent extends StatefulWidget {
   final List<BookingData>? upcomingData;
 
-  PendingBookingComponent({this.upcomingData});
+  const PendingBookingComponent({super.key, this.upcomingData});
 
   @override
   State<PendingBookingComponent> createState() =>

@@ -10,7 +10,7 @@ class GalleryScreen extends StatefulWidget {
   final String serviceName;
   final List<String> attachments;
 
-  GalleryScreen({required this.serviceName, required this.attachments});
+  const GalleryScreen({super.key, required this.serviceName, required this.attachments});
 
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();

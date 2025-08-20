@@ -10,7 +10,7 @@ import '../../utils/constant.dart';
 class ServiceFaqAllScreen extends StatelessWidget {
   final List<ServiceFaq> data;
 
-  ServiceFaqAllScreen({required this.data});
+  const ServiceFaqAllScreen({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

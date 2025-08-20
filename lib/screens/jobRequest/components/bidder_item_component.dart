@@ -18,7 +18,7 @@ class BidderItemComponent extends StatefulWidget {
   final PostJobData postJobData;
   final PostJobDetailResponse? postJobDetailResponse;
 
-  BidderItemComponent({required this.data, required this.postRequestId, required this.postJobData, this.postJobDetailResponse});
+  const BidderItemComponent({super.key, required this.data, required this.postRequestId, required this.postJobData, this.postJobDetailResponse});
 
   @override
   _BidderItemComponentState createState() => _BidderItemComponentState();
@@ -145,6 +145,10 @@ class _BidderItemComponentState extends State<BidderItemComponent> {
           if (widget.postJobData.providerId == null)
             AppButton(
               padding: EdgeInsets.zero,
+              color: context.primaryColor,
+              onTap: () {
+                savePostJobReq();
+              },
               child: Row(
                 children: [
                   Icon(Icons.check, color: white, size: 16),
@@ -152,10 +156,6 @@ class _BidderItemComponentState extends State<BidderItemComponent> {
                   Text(language.accept, style: boldTextStyle(color: white, size: 12)),
                 ],
               ),
-              color: context.primaryColor,
-              onTap: () {
-                savePostJobReq();
-              },
             ),
         ],
       ),

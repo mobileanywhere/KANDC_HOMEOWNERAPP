@@ -5,6 +5,8 @@ import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class MaintenanceModeScreen extends StatelessWidget {
+  const MaintenanceModeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

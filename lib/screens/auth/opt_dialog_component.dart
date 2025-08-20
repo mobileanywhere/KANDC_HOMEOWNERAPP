@@ -13,7 +13,7 @@ import '../../utils/constant.dart';
 class OtpDialogComponent extends StatefulWidget {
   final Function(String? otpCode) onTap;
 
-  OtpDialogComponent({required this.onTap});
+  const OtpDialogComponent({super.key, required this.onTap});
 
   @override
   State<OtpDialogComponent> createState() => _OtpDialogComponentState();

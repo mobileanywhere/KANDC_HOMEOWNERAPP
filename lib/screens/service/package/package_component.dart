@@ -13,7 +13,7 @@ class PackageComponent extends StatefulWidget {
   final List<BookingPackage> servicePackage;
   final Function(BookingPackage?) callBack;
 
-  PackageComponent({required this.servicePackage, required this.callBack});
+  const PackageComponent({super.key, required this.servicePackage, required this.callBack});
 
   @override
   _PackageComponentState createState() => _PackageComponentState();
@@ -117,13 +117,6 @@ class _PackageComponentState extends State<PackageComponent> {
                   ).expand(),
                   16.width,
                   AppButton(
-                    child: Text(
-                      language.buy,
-                      style: boldTextStyle(
-                          color: selectedIndex != i
-                              ? white
-                              : textPrimaryColorGlobal),
-                    ),
                     color: selectedIndex != i
                         ? context.primaryColor
                         : context.scaffoldBackgroundColor,
@@ -155,6 +148,13 @@ class _PackageComponentState extends State<PackageComponent> {
                         widget.callBack.call(data);
                       }
                     },
+                    child: Text(
+                      language.buy,
+                      style: boldTextStyle(
+                          color: selectedIndex != i
+                              ? white
+                              : textPrimaryColorGlobal),
+                    ),
                   ),
                 ],
               ),

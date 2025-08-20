@@ -99,7 +99,7 @@ class StripePayModel {
       onBehalfOf: json['on_behalf_of'],
       paymentMethod: json['payment_method'],
       paymentMethodOptions: json['payment_method_options'] != null ? PaymentMethodOptions.fromJson(json['payment_method_options']) : null,
-      paymentMethodTypes: json['payment_method_types'] != null ? new List<String>.from(json['payment_method_types']) : null,
+      paymentMethodTypes: json['payment_method_types'] != null ? List<String>.from(json['payment_method_types']) : null,
       receiptEmail: json['receipt_email'],
       review: json['review'],
       setupFutureUsage: json['setup_future_usage'],
@@ -114,47 +114,47 @@ class StripePayModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['`object`'] = this.object;
-    data['amount'] = this.amount;
-    data['amount_capturable'] = this.amountCapturable;
-    data['amount_received'] = this.amountReceived;
-    data['application'] = this.application;
-    data['application_fee_amount'] = this.applicationFeeAmount;
-    data['canceled_at'] = this.canceledAt;
-    data['cancellation_reason'] = this.cancellationReason;
-    data['capture_method'] = this.captureMethod;
-    data['client_secret'] = this.clientSecret;
-    data['confirmation_method'] = this.confirmationMethod;
-    data['created'] = this.created;
-    data['currency'] = this.currency;
-    data['customer'] = this.customer;
-    data['description'] = this.description;
-    data['id'] = this.id;
-    data['invoice'] = this.invoice;
-    data['last_payment_error'] = this.lastPaymentError;
-    data['livemode'] = this.livemode;
-    data['next_action'] = this.nextAction;
-    data['on_behalf_of'] = this.onBehalfOf;
-    data['payment_method'] = this.paymentMethod;
-    data['receipt_email'] = this.receiptEmail;
-    data['review'] = this.review;
-    data['setup_future_usage'] = this.setupFutureUsage;
-    data['shipping'] = this.shipping;
-    data['source'] = this.source;
-    data['statement_descriptor'] = this.statementDescriptor;
-    data['statement_descriptor_suffix'] = this.statementDescriptorSuffix;
-    data['status'] = this.status;
-    data['transfer_data'] = this.transferData;
-    data['transfer_group'] = this.transferGroup;
-    if (this.charges != null) {
-      data['charges'] = this.charges!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['`object`'] = object;
+    data['amount'] = amount;
+    data['amount_capturable'] = amountCapturable;
+    data['amount_received'] = amountReceived;
+    data['application'] = application;
+    data['application_fee_amount'] = applicationFeeAmount;
+    data['canceled_at'] = canceledAt;
+    data['cancellation_reason'] = cancellationReason;
+    data['capture_method'] = captureMethod;
+    data['client_secret'] = clientSecret;
+    data['confirmation_method'] = confirmationMethod;
+    data['created'] = created;
+    data['currency'] = currency;
+    data['customer'] = customer;
+    data['description'] = description;
+    data['id'] = id;
+    data['invoice'] = invoice;
+    data['last_payment_error'] = lastPaymentError;
+    data['livemode'] = livemode;
+    data['next_action'] = nextAction;
+    data['on_behalf_of'] = onBehalfOf;
+    data['payment_method'] = paymentMethod;
+    data['receipt_email'] = receiptEmail;
+    data['review'] = review;
+    data['setup_future_usage'] = setupFutureUsage;
+    data['shipping'] = shipping;
+    data['source'] = source;
+    data['statement_descriptor'] = statementDescriptor;
+    data['statement_descriptor_suffix'] = statementDescriptorSuffix;
+    data['status'] = status;
+    data['transfer_data'] = transferData;
+    data['transfer_group'] = transferGroup;
+    if (charges != null) {
+      data['charges'] = charges!.toJson();
     }
-    if (this.paymentMethodOptions != null) {
-      data['payment_method_options'] = this.paymentMethodOptions!.toJson();
+    if (paymentMethodOptions != null) {
+      data['payment_method_options'] = paymentMethodOptions!.toJson();
     }
-    if (this.paymentMethodTypes != null) {
-      data['payment_method_types'] = this.paymentMethodTypes;
+    if (paymentMethodTypes != null) {
+      data['payment_method_types'] = paymentMethodTypes;
     }
     return data;
   }
@@ -172,9 +172,9 @@ class PaymentMethodOptions {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.card != null) {
-      data['card'] = this.card!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (card != null) {
+      data['card'] = card!.toJson();
     }
     return data;
   }
@@ -196,10 +196,10 @@ class Card {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['installments'] = this.installments;
-    data['network'] = this.network;
-    data['request_three_d_secure'] = this.requestThreeDSecure;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['installments'] = installments;
+    data['network'] = network;
+    data['request_three_d_secure'] = requestThreeDSecure;
     return data;
   }
 }
@@ -222,11 +222,11 @@ class Charges {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['`object`'] = this.object;
-    data['has_more'] = this.hasMore;
-    data['total_count'] = this.totalCount;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['`object`'] = object;
+    data['has_more'] = hasMore;
+    data['total_count'] = totalCount;
+    data['url'] = url;
     return data;
   }
 }

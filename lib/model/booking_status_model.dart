@@ -20,14 +20,14 @@ class BookingStatusResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['value'] = this.value;
-    data['label'] = this.label;
-    data['status'] = this.status;
-    data['sequence'] = this.sequence;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['value'] = value;
+    data['label'] = label;
+    data['status'] = status;
+    data['sequence'] = sequence;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }

@@ -29,8 +29,8 @@ class ConfirmBookingDialog extends StatefulWidget {
   final BookingPackage? selectedPackage;
   final BookingAmountModel? bookingAmountModel;
 
-  ConfirmBookingDialog(
-      {required this.imagesFile,
+  const ConfirmBookingDialog(
+      {super.key, required this.imagesFile,
       required this.data,
       required this.bookingPrice,
       this.qty = 1,
@@ -52,15 +52,15 @@ class _ConfirmBookingDialogState extends State<ConfirmBookingDialog> {
   Future<void> bookServices() async {
     if (widget.selectedPackage != null) {
       if (widget.selectedPackage!.serviceList != null) {
-        widget.selectedPackage!.serviceList!.forEach((element) {
+        for (var element in widget.selectedPackage!.serviceList!) {
           selectedService.add(element.id.validate());
-        });
+        }
 
         for (var i in selectedService) {
           if (i == selectedService.last) {
             serviceId = serviceId + i.toString();
           } else {
-            serviceId = serviceId + i.toString() + ",";
+            serviceId = "$serviceId$i,";
           }
         }
       }
@@ -172,7 +172,7 @@ class _ConfirmBookingDialogState extends State<ConfirmBookingDialog> {
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        return Container(
+        return SizedBox(
           width: context.width(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

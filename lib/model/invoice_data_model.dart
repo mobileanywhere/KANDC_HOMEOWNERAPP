@@ -1,9 +1,4 @@
 import 'package:homeowner/model/booking_data_model.dart';
-import 'package:homeowner/model/booking_list_model.dart';
-import 'package:homeowner/model/extra_charges_model.dart';
-import 'package:homeowner/model/package_data_model.dart';
-import 'package:homeowner/model/service_detail_response.dart';
-import 'package:homeowner/utils/constant.dart';
 
 class InvoiceDataModel {
   String? message;

@@ -12,6 +12,8 @@ import 'package:flutter/services.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class SubscriptionsScreen extends StatefulWidget {
+  const SubscriptionsScreen({super.key});
+
   @override
   _SubscriptionsScreenState createState() => _SubscriptionsScreenState();
 }
@@ -60,7 +62,7 @@ class _SubscriptionsScreenState extends State<SubscriptionsScreen> {
     });
     var request = {
       "customer_id": "${appStore.userId}",
-      "plan_id": "$planId",
+      "plan_id": planId,
       'property_id': propertyIds
     };
     PurchasePlanModel? purchasePlanModel;
@@ -100,7 +102,7 @@ class _SubscriptionsScreenState extends State<SubscriptionsScreen> {
     try {
       return await updatePayment(req);
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -226,7 +228,7 @@ class _SubscriptionsScreenState extends State<SubscriptionsScreen> {
       for (var i = 0; i < selectedIds.length; i++) {
         print('properties length id: ${selectedIds[i]}');
       }
-      print('price : ${totalAmount}');
+      print('price : $totalAmount');
       print(
           'properties length: ${properties.length > 1 ? (totalAmount * selectedIds.length) : totalAmount}');
 
@@ -376,7 +378,7 @@ class _SubscriptionsScreenState extends State<SubscriptionsScreen> {
 class PropertySelectionDialog extends StatefulWidget {
   final List<PropertyData> properties;
 
-  PropertySelectionDialog({required this.properties});
+  const PropertySelectionDialog({super.key, required this.properties});
 
   @override
   _PropertySelectionDialogState createState() =>
@@ -390,7 +392,7 @@ class _PropertySelectionDialogState extends State<PropertySelectionDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('Select Properties'),
-      content: Container(
+      content: SizedBox(
         width: double.minPositive,
         child: widget.properties.isEmpty
             ? Text('No property found that satisfy subscription plan.')
@@ -430,7 +432,7 @@ class _PropertySelectionDialogState extends State<PropertySelectionDialog> {
         ),
         TextButton(
           onPressed: () {
-            if (widget.properties.length == 0) {
+            if (widget.properties.isEmpty) {
               Navigator.pop(context, null);
             } else {
               Navigator.pop(context, selectedPropertyIds);

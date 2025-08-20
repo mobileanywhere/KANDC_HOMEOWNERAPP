@@ -19,7 +19,7 @@ import '../../utils/images.dart';
 class HandymanInfoScreen extends StatefulWidget {
   final int? handymanId;
 
-  HandymanInfoScreen({this.handymanId});
+  const HandymanInfoScreen({super.key, this.handymanId});
 
   @override
   HandymanInfoScreenState createState() => HandymanInfoScreenState();
@@ -165,7 +165,7 @@ class HandymanInfoScreenState extends State<HandymanInfoScreen> {
                                 spacing: 10,
                                 onTap: () {
                                   launchMail(
-                                      "${data.userData!.email.validate()}");
+                                      data.userData!.email.validate());
                                 },
                                 prefix: Image.asset(ic_message,
                                     width: 16,
@@ -182,7 +182,7 @@ class HandymanInfoScreenState extends State<HandymanInfoScreen> {
                                 spacing: 10,
                                 onTap: () {
                                   launchCall(
-                                      "${data.userData!.contactNumber.validate()}");
+                                      data.userData!.contactNumber.validate());
                                 },
                                 prefix: Image.asset(ic_calling,
                                     width: 16,

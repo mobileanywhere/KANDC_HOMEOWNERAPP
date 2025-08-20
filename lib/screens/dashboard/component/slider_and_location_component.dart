@@ -11,7 +11,7 @@ class SliderLocationComponent extends StatefulWidget {
   final List<SliderModel> sliderList;
   final VoidCallback? callback;
 
-  SliderLocationComponent({required this.sliderList, this.callback});
+  const SliderLocationComponent({super.key, required this.sliderList, this.callback});
 
   @override
   State<SliderLocationComponent> createState() =>

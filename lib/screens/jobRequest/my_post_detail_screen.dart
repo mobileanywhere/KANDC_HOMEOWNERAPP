@@ -26,7 +26,7 @@ class MyPostDetailScreen extends StatefulWidget {
   final PostJobData? postJobData;
   final VoidCallback callback;
 
-  MyPostDetailScreen({required this.postRequestId, this.postJobData, required this.callback});
+  const MyPostDetailScreen({super.key, required this.postRequestId, this.postJobData, required this.callback});
 
   @override
   _MyPostDetailScreenState createState() => _MyPostDetailScreenState();
@@ -306,7 +306,6 @@ class _MyPostDetailScreenState extends State<MyPostDetailScreen> {
                   left: 16,
                   right: 16,
                   child: AppButton(
-                    child: Text(language.bookTheService, style: boldTextStyle(color: white)),
                     color: context.primaryColor,
                     width: context.width(),
                     onTap: () async {
@@ -316,6 +315,7 @@ class _MyPostDetailScreenState extends State<MyPostDetailScreen> {
                         jobPrice: data.postRequestDetail!.jobPrice.validate(),
                       ).launch(context);
                     },
+                    child: Text(language.bookTheService, style: boldTextStyle(color: white)),
                   ),
                 ),
               Observer(builder: (context) => LoaderWidget().visible(appStore.isLoading))

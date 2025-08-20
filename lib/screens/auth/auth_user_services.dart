@@ -20,8 +20,9 @@ Future<LoginResponse> loginCurrentUsers(BuildContext context,
   String? uid = req['uid'];
 
   final userValue = await loginUser(req, isSocialLogin: isSocialLogin);
-  if (userValue.userData != null && userValue.userData!.status == 0)
+  if (userValue.userData != null && userValue.userData!.status == 0) {
     throw language.accessDeniedContactYourAdmin;
+  }
   userValue.userData?.uid = uid;
 
   log("***************** Normal Login Succeeds *****************");
@@ -111,7 +112,7 @@ Future<void> updatePlayerId({required String playerId}) async {
 
   multiPartRequest.headers.addAll(buildHeaderTokens());
 
-  log("MultiPart Request : ${jsonEncode(multiPartRequest.fields)} ${multiPartRequest.files.map((e) => e.field + ": " + e.filename.validate())}");
+  log("MultiPart Request : ${jsonEncode(multiPartRequest.fields)} ${multiPartRequest.files.map((e) => "${e.field}: ${e.filename.validate()}")}");
 
   await sendMultiPartRequest(multiPartRequest, onSuccess: (temp) async {
     appStore.setLoading(false);

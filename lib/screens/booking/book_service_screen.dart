@@ -19,8 +19,8 @@ class BookServiceScreen extends StatefulWidget {
   final int? subCategoryId;
   final bool isExists;
 
-  BookServiceScreen(
-      {this.data,
+  const BookServiceScreen(
+      {super.key, this.data,
       required this.serviceId,
       this.bookingAddressId = 0,
       this.selectedPackage,
@@ -110,7 +110,7 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
           data: snap,
           isSlotAvailable: !snap.serviceDetail!.isSlotAvailable,
           selectedPackage:
-              widget.selectedPackage != null ? widget.selectedPackage : null,
+              widget.selectedPackage,
           typeId: widget.typeId,
           // subTypeId: widget.subTypeId,
           categoryId: widget.categoryId,

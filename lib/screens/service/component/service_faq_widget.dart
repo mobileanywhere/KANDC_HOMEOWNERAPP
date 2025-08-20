@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ServiceFaqWidget extends StatelessWidget {
-  const ServiceFaqWidget({Key? key, required this.serviceFaq}) : super(key: key);
+  const ServiceFaqWidget({super.key, required this.serviceFaq});
 
   final ServiceFaq serviceFaq;
 

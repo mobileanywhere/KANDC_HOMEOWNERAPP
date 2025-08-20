@@ -7,7 +7,7 @@ import 'package:nb_utils/nb_utils.dart';
 class ServiceProofListWidget extends StatelessWidget {
   final ServiceProof data;
 
-  ServiceProofListWidget({required this.data});
+  const ServiceProofListWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

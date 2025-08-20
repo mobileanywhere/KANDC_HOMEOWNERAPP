@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class BookingHistoryListWidget extends StatelessWidget {
-  const BookingHistoryListWidget({Key? key, required this.data, required this.index, required this.length}) : super(key: key);
+  const BookingHistoryListWidget({super.key, required this.data, required this.index, required this.length});
 
   final BookingActivity data;
   final int index;

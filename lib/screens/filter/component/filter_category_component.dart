@@ -11,7 +11,7 @@ import '../../../component/image_border_component.dart';
 class FilterCategoryComponent extends StatefulWidget {
   final List<CategoryData> catList;
 
-  FilterCategoryComponent({required this.catList});
+  const FilterCategoryComponent({super.key, required this.catList});
 
   @override
   State<FilterCategoryComponent> createState() => _FilterCategoryComponentState();
@@ -32,11 +32,12 @@ class _FilterCategoryComponentState extends State<FilterCategoryComponent> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.catList.isEmpty)
+    if (widget.catList.isEmpty) {
       return NoDataWidget(
         title: language.noCategoryFound,
         imageWidget: EmptyStateWidget(),
       );
+    }
 
     return AnimatedListView(
       itemCount: widget.catList.length,

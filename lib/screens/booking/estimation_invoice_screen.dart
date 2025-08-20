@@ -6,7 +6,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 class EstimationInvoiceScreen extends StatefulWidget {
   final List<LineItemData> particulars;
-  EstimationInvoiceScreen({super.key, required this.particulars});
+  const EstimationInvoiceScreen({super.key, required this.particulars});
 
   @override
   State<EstimationInvoiceScreen> createState() =>
@@ -48,12 +48,12 @@ class _EstimationInvoiceScreenState extends State<EstimationInvoiceScreen> {
   double calculateTotalInfo() {
     double totalAmount = 0;
 
-    widget.particulars.forEach((element) {
+    for (var element in widget.particulars) {
       if (element.qty! >= 1) {
         double itemTotal = element.qty! * double.parse(element.price ?? '0');
         totalAmount += itemTotal;
       }
-    });
+    }
 
     return totalAmount;
   }
@@ -61,12 +61,12 @@ class _EstimationInvoiceScreenState extends State<EstimationInvoiceScreen> {
   double amountToPay() {
     double totalAmount = 0;
 
-    widget.particulars.forEach((element) {
+    for (var element in widget.particulars) {
       if (element.qty! >= 1) {
         double itemTotal = element.qty! * double.parse(element.price ?? '0');
         totalAmount += itemTotal;
       }
-    });
+    }
 
     return (totalAmount - 0);
   }

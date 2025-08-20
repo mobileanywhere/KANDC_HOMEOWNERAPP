@@ -5,6 +5,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../../utils/constant.dart';
 
 class CategoryShimmer extends StatelessWidget {
+  const CategoryShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

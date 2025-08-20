@@ -18,11 +18,11 @@ class BookingItemComponent extends StatelessWidget {
   final BookingData bookingData;
   final bool inspection;
 
-  BookingItemComponent({required this.bookingData, required this.inspection});
+  const BookingItemComponent({super.key, required this.bookingData, required this.inspection});
 
   @override
   Widget build(BuildContext context) {
-    Widget _buildEditBookingWidget() {
+    Widget buildEditBookingWidget() {
       // if (bookingData.isSlotBooking) return Offstage();
       if (bookingData.status == BookingStatusKeys.pending &&
           DateTime.parse(bookingData.date.validate()).isAfter(DateTime.now())) {
@@ -226,7 +226,7 @@ class BookingItemComponent extends StatelessWidget {
                       ).flexible(),
                       Row(
                         children: [
-                          _buildEditBookingWidget(),
+                          buildEditBookingWidget(),
                           Text('#${bookingData.id.validate()}',
                               style: boldTextStyle(color: primaryColor)),
                         ],
@@ -242,8 +242,8 @@ class BookingItemComponent extends StatelessWidget {
                           bookingData.bookingType == 'plan'
                               ? bookingData.plan?.title ?? ''
                               : bookingData.isPackageBooking
-                                  ? '${bookingData.bookingPackage!.name.validate()}'
-                                  : '${bookingData.serviceName.validate()}',
+                                  ? bookingData.bookingPackage!.name.validate()
+                                  : bookingData.serviceName.validate(),
                           style: boldTextStyle(size: 14),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
@@ -325,8 +325,7 @@ class BookingItemComponent extends StatelessWidget {
                     8.width,
                     Text(
                       bookingData.date != null
-                          ? "${formatDate(bookingData.date.validate(), format: DATE_FORMAT_2)} ${language.at} " +
-                              buildTimeWidget(bookingDetail: bookingData)
+                          ? "${formatDate(bookingData.date.validate(), format: DATE_FORMAT_2)} ${language.at} ${buildTimeWidget(bookingDetail: bookingData)}"
                           : '',
                       style: boldTextStyle(size: 12),
                       maxLines: 2,

@@ -20,7 +20,6 @@ class AppTheme {
             BottomNavigationBarThemeData(backgroundColor: Colors.white),
         iconTheme: IconThemeData(color: appTextSecondaryColor),
         textTheme: GoogleFonts.workSansTextTheme(),
-        dialogBackgroundColor: Colors.white,
         unselectedWidgetColor: Colors.black,
         dividerColor: borderColor,
         bottomSheetTheme: BottomSheetThemeData(
@@ -64,7 +63,6 @@ class AppTheme {
             backgroundColor: scaffoldSecondaryDark),
         iconTheme: IconThemeData(color: Colors.white),
         textTheme: GoogleFonts.workSansTextTheme(),
-        dialogBackgroundColor: scaffoldSecondaryDark,
         unselectedWidgetColor: Colors.white60,
         bottomSheetTheme: BottomSheetThemeData(
           shape: RoundedRectangleBorder(

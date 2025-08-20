@@ -12,7 +12,7 @@ class BackgroundComponent extends StatelessWidget {
 
   final bool isError;
 
-  BackgroundComponent({this.image, this.text, this.subTitle, this.size, this.isError = false, this.height, this.width});
+  const BackgroundComponent({super.key, this.image, this.text, this.subTitle, this.size, this.isError = false, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {

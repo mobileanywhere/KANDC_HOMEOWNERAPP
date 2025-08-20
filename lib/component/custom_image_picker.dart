@@ -15,12 +15,11 @@ class CustomImagePicker extends StatefulWidget {
   final Function(String value)? onRemoveClick;
   final List<String>? selectedImages;
 
-  CustomImagePicker(
-      {Key? key,
+  const CustomImagePicker(
+      {super.key,
       required this.onFileSelected,
       this.selectedImages,
-      this.onRemoveClick})
-      : super(key: key);
+      this.onRemoveClick});
 
   @override
   _CustomImagePickerState createState() => _CustomImagePickerState();
@@ -100,9 +99,9 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                 } else if (file == GalleryFileTypes.GALLERY) {
                   await getMultipleImageSource().then((value) {
                     if (imageFiles.validate().isNotEmpty) {
-                      value.forEach((element) {
+                      for (var element in value) {
                         imageFiles.add(element);
-                      });
+                      }
                     } else {
                       imageFiles = value;
                     }
@@ -185,7 +184,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
 class FilePickerDialog extends StatelessWidget {
   final bool isSelected;
 
-  FilePickerDialog({this.isSelected = false});
+  const FilePickerDialog({super.key, this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {

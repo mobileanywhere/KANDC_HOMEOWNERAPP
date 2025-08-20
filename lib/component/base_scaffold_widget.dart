@@ -17,7 +17,7 @@ class AppScaffold extends StatelessWidget {
   final Widget? bottomNavigationBar;
   final bool showLoader;
 
-  AppScaffold({
+  const AppScaffold({super.key, 
     this.appBarTitle,
     required this.child,
     this.actions,
@@ -75,7 +75,7 @@ class AppScaffold extends StatelessWidget {
             )
           : null,
       backgroundColor: scaffoldBackgroundColor,
-      body: Body(child: child, showLoader: showLoader),
+      body: Body(showLoader: showLoader, child: child),
       bottomNavigationBar: bottomNavigationBar,
     );
   }

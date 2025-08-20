@@ -11,7 +11,7 @@ class ProviderInfoResponse {
   ProviderInfoResponse({this.userData, this.serviceList, this.handymanRatingReviewList});
 
   ProviderInfoResponse.fromJson(Map<String, dynamic> json) {
-    userData = json['data'] != null ? new UserData.fromJson(json['data']) : null;
+    userData = json['data'] != null ? UserData.fromJson(json['data']) : null;
     if (json['service'] != null) {
       serviceList = [];
       json['service'].forEach((v) {
@@ -21,21 +21,21 @@ class ProviderInfoResponse {
     if (json['handyman_rating_review'] != null) {
       handymanRatingReviewList = [];
       json['handyman_rating_review'].forEach((v) {
-        handymanRatingReviewList!.add(new RatingData.fromJson(v));
+        handymanRatingReviewList!.add(RatingData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.userData != null) {
-      data['data'] = this.userData!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (userData != null) {
+      data['data'] = userData!.toJson();
     }
-    if (this.serviceList != null) {
-      data['service'] = this.serviceList!.map((v) => v.toJson()).toList();
+    if (serviceList != null) {
+      data['service'] = serviceList!.map((v) => v.toJson()).toList();
     }
-    if (this.handymanRatingReviewList != null) {
-      data['handyman_rating_review'] = this.handymanRatingReviewList!.map((v) => v.toJson()).toList();
+    if (handymanRatingReviewList != null) {
+      data['handyman_rating_review'] = handymanRatingReviewList!.map((v) => v.toJson()).toList();
     }
     return data;
   }

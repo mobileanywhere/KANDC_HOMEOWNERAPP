@@ -44,17 +44,17 @@ class ChatMessageModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.uid != null) data['uid'] = this.uid;
-    if (this.createdAt != null) data['createdAt'] = this.createdAt;
-    if (this.message != null) data['message'] = this.message;
-    if (this.senderId != null) data['senderId'] = this.senderId;
-    if (this.isMessageRead != null) data['isMessageRead'] = this.isMessageRead;
-    if (this.receiverId != null) data['receiverId'] = this.receiverId;
-    if (this.photoUrl != null) data['photoUrl'] = this.photoUrl;
-    if (this.createdAtTime != null) data['createdAtTime'] = this.createdAtTime;
-    if (this.updatedAtTime != null) data['updatedAtTime'] = this.updatedAtTime;
-    if (this.messageType != null) data['messageType'] = this.messageType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (uid != null) data['uid'] = uid;
+    if (createdAt != null) data['createdAt'] = createdAt;
+    if (message != null) data['message'] = message;
+    if (senderId != null) data['senderId'] = senderId;
+    if (isMessageRead != null) data['isMessageRead'] = isMessageRead;
+    if (receiverId != null) data['receiverId'] = receiverId;
+    if (photoUrl != null) data['photoUrl'] = photoUrl;
+    if (createdAtTime != null) data['createdAtTime'] = createdAtTime;
+    if (updatedAtTime != null) data['updatedAtTime'] = updatedAtTime;
+    if (messageType != null) data['messageType'] = messageType;
     return data;
   }
 }

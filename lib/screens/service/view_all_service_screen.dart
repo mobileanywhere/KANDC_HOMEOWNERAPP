@@ -26,7 +26,7 @@ class ViewAllServiceScreen extends StatefulWidget {
   final bool isFromSearch;
   final int? providerId;
 
-  ViewAllServiceScreen({
+  const ViewAllServiceScreen({
     this.categoryId,
     this.categoryName = '',
     this.isFeatured = '',
@@ -34,8 +34,8 @@ class ViewAllServiceScreen extends StatefulWidget {
     this.isFromCategory = false,
     this.isFromSearch = false,
     this.providerId,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<ViewAllServiceScreen> createState() => _ViewAllServiceScreenState();
@@ -431,7 +431,7 @@ class _ViewAllServiceScreenState extends State<ViewAllServiceScreen> {
               children: [
                 // if (widget.categoryId != null) subCategoryWidget(),
                 if (!widget.isFromSearch)
-                  filteredServiceList.length == 0
+                  filteredServiceList.isEmpty
                       ? staticSubCategoryWidget()
                       : Container(),
                 16.height,

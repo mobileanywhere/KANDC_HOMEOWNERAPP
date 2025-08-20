@@ -23,7 +23,7 @@ class BookingServiceStep1 extends StatefulWidget {
   final BookingData? bookingData;
   final bool showAppbar;
 
-  BookingServiceStep1({this.data, this.showAppbar = false, this.bookingData});
+  const BookingServiceStep1({super.key, this.data, this.showAppbar = false, this.bookingData});
 
   @override
   _BookingServiceStep1State createState() => _BookingServiceStep1State();
@@ -34,7 +34,7 @@ class _BookingServiceStep1State extends State<BookingServiceStep1> {
 
   List<SlotData> slotsList = [];
 
-  DatePickerController _datePickerController = DatePickerController();
+  final DatePickerController _datePickerController = DatePickerController();
 
   DateTime selectedHorizontalDate = DateTime.now();
 

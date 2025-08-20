@@ -67,19 +67,19 @@ class _LineItemsModuleState extends State<LineItemsModule> {
   double calculateTotalInfo() {
     double totalAmount = 0;
 
-    comingDataList.forEach((element) {
+    for (var element in comingDataList) {
       if (element.qty! >= 1) {
         double itemTotal = element.qty! * double.parse(element.price ?? '0');
         totalAmount += itemTotal;
       }
-    });
+    }
 
     return totalAmount;
   }
 
   List<Map<String, String>> populateSList() {
     List<Map<String, String>> s = [];
-    comingDataList.forEach((lineItem) {
+    for (var lineItem in comingDataList) {
       Map<String, String> lineItemMap = {
         "line_item_id": lineItem.id?.toString() ?? "",
         "line_item_name": lineItem.name ?? "",
@@ -89,14 +89,14 @@ class _LineItemsModuleState extends State<LineItemsModule> {
       setState(() {
         s.add(lineItemMap);
       });
-    });
+    }
     return s;
   }
 
   void estimationDetailsData() async {
     Map req = {
-      "customer_id": "${widget.customerId}",
-      "booking_id": "${widget.bookingId}"
+      "customer_id": widget.customerId,
+      "booking_id": widget.bookingId
     };
     try {
       var res = await estimationDetails(req);
@@ -129,8 +129,8 @@ class _LineItemsModuleState extends State<LineItemsModule> {
   void approveEstimationData() async {
     appStore.setLoading(true);
     Map req = {
-      "customer_id": "${widget.customerId}",
-      "booking_id": "${widget.bookingId}"
+      "customer_id": widget.customerId,
+      "booking_id": widget.bookingId
     };
     try {
       await approveEstimation(req).then((value) {
@@ -145,8 +145,8 @@ class _LineItemsModuleState extends State<LineItemsModule> {
   void declineEstimationData() async {
     appStore.setLoading(true);
     Map req = {
-      "customer_id": "${widget.customerId}",
-      "booking_id": "${widget.bookingId}"
+      "customer_id": widget.customerId,
+      "booking_id": widget.bookingId
     };
     try {
       await declineEstimation(req).then((value) {

@@ -11,8 +11,8 @@ class PackageInfoComponent extends StatefulWidget {
   final bool? isFromServiceDetail;
   final ScrollController scrollController;
 
-  PackageInfoComponent(
-      {required this.packageData,
+  const PackageInfoComponent(
+      {super.key, required this.packageData,
       required this.scrollController,
       this.isFromServiceDetail = false});
 

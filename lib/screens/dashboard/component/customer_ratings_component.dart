@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class CustomerRatingsComponent extends StatelessWidget {
+  const CustomerRatingsComponent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

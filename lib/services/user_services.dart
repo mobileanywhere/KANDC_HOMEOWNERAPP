@@ -47,7 +47,7 @@ class UserService extends BaseService {
       if (value.docs.isNotEmpty) {
         return UserData.fromJson(value.docs.first.data() as Map<String, dynamic>);
       } else {
-        throw '${language.lblNoUserFound}';
+        throw language.lblNoUserFound;
       }
     });
   }
@@ -66,7 +66,7 @@ class UserService extends BaseService {
         if (value.docs.isNotEmpty) {
           return UserData.fromJson(value.docs.first.data() as Map<String, dynamic>);
         } else {
-          throw "${language.lblNoUserFound}";
+          throw language.lblNoUserFound;
         }
       },
     );
@@ -74,7 +74,7 @@ class UserService extends BaseService {
 
   Future<void> saveToContacts({required String senderId, required String receiverId}) async {
     return ref!.doc(senderId).collection(CONTACT_COLLECTION).doc(receiverId).update({'lastMessageTime': DateTime.now().millisecondsSinceEpoch}).catchError((e) {
-      throw "${language.lblUserNotCreated}";
+      throw language.lblUserNotCreated;
     });
   }
 

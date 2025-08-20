@@ -10,7 +10,7 @@ import 'package:nb_utils/nb_utils.dart';
 class UserItemWidget extends StatefulWidget {
   final String userUid;
 
-  UserItemWidget({required this.userUid});
+  const UserItemWidget({super.key, required this.userUid});
 
   @override
   State<UserItemWidget> createState() => _UserItemWidgetState();
@@ -51,7 +51,7 @@ class _UserItemWidgetState extends State<UserItemWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            data.firstName.validate() + " " + data.lastName.validate(),
+                            "${data.firstName.validate()} ${data.lastName.validate()}",
                             style: boldTextStyle(),
                             maxLines: 1,
                             textAlign: TextAlign.start,

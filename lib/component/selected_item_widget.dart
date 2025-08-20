@@ -8,7 +8,7 @@ class SelectedItemWidget extends StatelessWidget {
   double itemSize;
   bool isSelected;
 
-  SelectedItemWidget({this.decoration, this.itemSize = 12.0, required this.isSelected});
+  SelectedItemWidget({super.key, this.decoration, this.itemSize = 12.0, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {

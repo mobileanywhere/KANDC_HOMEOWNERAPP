@@ -11,7 +11,7 @@ class ReviewWidget extends StatelessWidget {
   final RatingData data;
   final bool isCustomer;
 
-  ReviewWidget({required this.data, this.isCustomer = false});
+  const ReviewWidget({super.key, required this.data, this.isCustomer = false});
 
   @override
   Widget build(BuildContext context) {

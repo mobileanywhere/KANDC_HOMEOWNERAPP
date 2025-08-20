@@ -6,7 +6,7 @@ import 'package:nb_utils/nb_utils.dart';
 class LocationServiceDialog extends StatefulWidget {
   final Function()? onAccept;
 
-  LocationServiceDialog({this.onAccept});
+  const LocationServiceDialog({super.key, this.onAccept});
 
   @override
   State<LocationServiceDialog> createState() => _LocationServiceDialogState();
@@ -15,7 +15,7 @@ class LocationServiceDialog extends StatefulWidget {
 class _LocationServiceDialogState extends State<LocationServiceDialog> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: context.width(),
       child: Column(
         mainAxisSize: MainAxisSize.min,

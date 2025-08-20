@@ -15,7 +15,7 @@ class ReasonDialog extends StatefulWidget {
   final BookingDetailResponse status;
   final String? currentStatus;
 
-  ReasonDialog({required this.status, this.currentStatus});
+  const ReasonDialog({super.key, required this.status, this.currentStatus});
 
   @override
   State<ReasonDialog> createState() => _ReasonDialogState();
@@ -24,7 +24,7 @@ class ReasonDialog extends StatefulWidget {
 class _ReasonDialogState extends State<ReasonDialog> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController _textFieldReason = TextEditingController();
+  final TextEditingController _textFieldReason = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

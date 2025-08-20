@@ -16,7 +16,7 @@ class FavouriteProviderComponent extends StatefulWidget {
   final Function? onUpdate;
   final bool isFavouriteProvider;
 
-  FavouriteProviderComponent({required this.width, this.data, this.onUpdate, this.isFavouriteProvider = true});
+  const FavouriteProviderComponent({super.key, required this.width, this.data, this.onUpdate, this.isFavouriteProvider = true});
 
   @override
   State<FavouriteProviderComponent> createState() => _FavouriteProviderComponentState();

@@ -18,6 +18,8 @@ import '../review/shimmer/ratting_shimmer.dart';
 import '../service/service_detail_screen.dart';
 
 class CustomerRatingScreen extends StatefulWidget {
+  const CustomerRatingScreen({super.key});
+
   @override
   State<CustomerRatingScreen> createState() => _CustomerRatingScreenState();
 }
@@ -91,7 +93,7 @@ class _CustomerRatingScreenState extends State<CustomerRatingScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('${data.serviceName.validate()}',
+                                      Text(data.serviceName.validate(),
                                           style: boldTextStyle(
                                               size: LABEL_TEXT_SIZE),
                                           maxLines: 3,

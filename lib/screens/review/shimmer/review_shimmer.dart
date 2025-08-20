@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ReviewShimmer extends StatelessWidget {
+  const ReviewShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AnimatedListView(

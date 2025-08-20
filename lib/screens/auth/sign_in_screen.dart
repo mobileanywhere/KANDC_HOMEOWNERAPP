@@ -25,7 +25,7 @@ class SignInScreen extends StatefulWidget {
   final bool returnExpected;
   final bool isRegeneratingToken;
 
-  SignInScreen({
+  const SignInScreen({super.key, 
     this.isFromDashboard,
     this.isFromServiceBooking,
     this.returnExpected = false,
@@ -409,6 +409,7 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: EdgeInsets.all(8),
           textStyle: boldTextStyle(),
           width: context.width() - context.navigationBarHeight,
+          onTap: otpSignIn,
           child: Row(
             children: [
               Container(
@@ -428,7 +429,6 @@ class _SignInScreenState extends State<SignInScreen> {
               ).expand(),
             ],
           ),
-          onTap: otpSignIn,
         ),
         16.height,
         if (isIOS)

@@ -12,7 +12,7 @@ import '../../../utils/constant.dart';
 class PaymentInfoComponent extends StatefulWidget {
   final int bookingId;
 
-  PaymentInfoComponent(this.bookingId);
+  const PaymentInfoComponent(this.bookingId, {super.key});
 
   @override
   State<PaymentInfoComponent> createState() => _PaymentInfoComponentState();

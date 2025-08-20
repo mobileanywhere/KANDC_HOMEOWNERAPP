@@ -5,7 +5,6 @@ import 'package:homeowner/component/loader_widget.dart';
 import 'package:homeowner/main.dart';
 import 'package:homeowner/model/chat_message_model.dart';
 import 'package:homeowner/model/user_data_model.dart';
-import 'package:homeowner/screens/chat/widget/chat_item_widget.dart';
 import 'package:homeowner/services/notification_services.dart';
 import 'package:homeowner/utils/colors.dart';
 import 'package:homeowner/utils/common.dart';
@@ -21,7 +20,7 @@ import '../../component/empty_error_state_widget.dart';
 class UserChatScreen extends StatefulWidget {
   final UserData receiverUser;
 
-  UserChatScreen({required this.receiverUser});
+  const UserChatScreen({super.key, required this.receiverUser});
 
   @override
   _UserChatScreenState createState() => _UserChatScreenState();
@@ -223,7 +222,7 @@ class _UserChatScreenState extends State<UserChatScreen> with WidgetsBindingObse
         color: context.primaryColor,
         systemUiOverlayStyle: SystemUiOverlayStyle(statusBarColor: context.primaryColor, statusBarBrightness: Brightness.dark, statusBarIconBrightness: Brightness.light),
         titleWidget: Text(
-          "${widget.receiverUser.firstName.validate() + " " + widget.receiverUser.lastName.validate()}",
+          "${widget.receiverUser.firstName.validate()} ${widget.receiverUser.lastName.validate()}",
           style: boldTextStyle(color: white, size: APP_BAR_TEXT_SIZE),
         ),
         actions: [

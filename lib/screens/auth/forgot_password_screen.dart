@@ -9,6 +9,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../main.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   ForgotPasswordScreenState createState() => ForgotPasswordScreenState();
 }
@@ -88,7 +90,7 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${language.hintEmailAddressTxt}", style: boldTextStyle()),
+                Text(language.hintEmailAddressTxt, style: boldTextStyle()),
                 6.height,
                 Text(language.lblForgotPwdSubtitle, style: secondaryTextStyle()),
                 24.height,

@@ -7,7 +7,7 @@ import 'package:nb_utils/nb_utils.dart';
 class NotificationWidget extends StatelessWidget {
   final NotificationData data;
 
-  NotificationWidget({required this.data});
+  const NotificationWidget({super.key, required this.data});
 
   /*static String getTime(String inputString, String time) {
     List<String> wordList = inputString.split(" ");
@@ -54,7 +54,7 @@ class NotificationWidget extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${data.data!.type.validate().split('_').join(' ').capitalizeFirstLetter()}', style: boldTextStyle(size: 12)).expand(),
+                  Text(data.data!.type.validate().split('_').join(' ').capitalizeFirstLetter(), style: boldTextStyle(size: 12)).expand(),
                   Text(data.createdAt.validate(), style: secondaryTextStyle()),
                 ],
               ),

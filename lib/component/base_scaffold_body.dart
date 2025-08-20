@@ -8,7 +8,7 @@ class Body extends StatelessWidget {
   final Widget child;
   final bool showLoader;
 
-  const Body({Key? key, required this.child, this.showLoader = true}) : super(key: key);
+  const Body({super.key, required this.child, this.showLoader = true});
 
   @override
   Widget build(BuildContext context) {

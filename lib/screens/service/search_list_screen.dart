@@ -28,7 +28,7 @@ class SearchListScreen extends StatefulWidget {
   final bool isFromSearch;
   final int? providerId;
 
-  SearchListScreen({this.categoryId, this.categoryName = '', this.isFromSearch = false, this.isFeatured = '', this.isFromProvider = true, this.isFromCategory = false, this.providerId});
+  const SearchListScreen({super.key, this.categoryId, this.categoryName = '', this.isFromSearch = false, this.isFeatured = '', this.isFromProvider = true, this.isFromCategory = false, this.providerId});
 
   @override
   SearchListScreenState createState() => SearchListScreenState();
@@ -215,7 +215,7 @@ class SearchListScreenState extends State<SearchListScreen> {
                   children: [
                     if (widget.categoryId != null)
                       SubCategoryComponent(
-                        catId: widget.categoryId != null ? widget.categoryId : null,
+                        catId: widget.categoryId,
                         onDataLoaded: (bool val) async {
                           //appStore.setLoading(false);
                         },

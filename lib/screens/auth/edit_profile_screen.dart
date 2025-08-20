@@ -27,6 +27,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class EditProfileScreen extends StatefulWidget {
+  const EditProfileScreen({super.key});
+
   @override
   EditProfileScreenState createState() => EditProfileScreenState();
 }
@@ -81,7 +83,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
     lNameCont.text = appStore.userLastName.validate();
     emailCont.text = appStore.userEmail.validate();
     userNameCont.text = appStore.userName.validate();
-    mobileCont.text = '${appStore.userContactNumber.validate()}';
+    mobileCont.text = appStore.userContactNumber.validate();
     countryId = appStore.countryId.validate();
     stateId = appStore.stateId.validate();
     cityId = appStore.cityId.validate();
@@ -105,11 +107,11 @@ class EditProfileScreenState extends State<EditProfileScreen> {
       countryList.clear();
       countryList.addAll(value);
       setState(() {});
-      value.forEach((e) {
+      for (var e in value) {
         if (e.id == getIntAsync(COUNTRY_ID)) {
           selectedCountry = e;
         }
-      });
+      }
     }).catchError((e) {
       toast('$e', print: true);
     });
@@ -122,11 +124,11 @@ class EditProfileScreenState extends State<EditProfileScreen> {
       stateList.clear();
       stateList.addAll(value);
       log(stateList);
-      value.forEach((e) {
+      for (var e in value) {
         if (e.id == getIntAsync(STATE_ID)) {
           selectedState = e;
         }
-      });
+      }
       setState(() {});
     }).catchError((e) {
       toast('$e', print: true);
@@ -140,11 +142,11 @@ class EditProfileScreenState extends State<EditProfileScreen> {
     await getCityList({UserKeys.stateId: stateId}).then((value) async {
       cityList.clear();
       cityList.addAll(value);
-      value.forEach((e) {
+      for (var e in value) {
         if (e.id == getIntAsync(CITY_ID)) {
           selectedCity = e;
         }
-      });
+      }
     }).catchError((e) {
       toast('$e', print: true);
     });
@@ -168,7 +170,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
     multiPartRequest.fields[UserKeys.cityId] = cityId.toString();
     multiPartRequest.fields[CommonKeys.address] = addressCont.text;
     multiPartRequest.fields[UserKeys.displayName] =
-        '${fNameCont.text.validate() + " " + lNameCont.text.validate()}';
+        "${fNameCont.text.validate()} ${lNameCont.text.validate()}";
     if (imageFile != null) {
       multiPartRequest.files.add(
           await MultipartFile.fromPath(UserKeys.profileImage, imageFile!.path));
@@ -399,8 +401,9 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                           .hasMatch(mobileCont)) {
                     return language.inputMustBeNumberOrDigit;
                   }
-                  if (!mobileCont.trim().contains('-'))
+                  if (!mobileCont.trim().contains('-')) {
                     return '"-" ${language.requiredAfterCountryCode}';
+                  }
                   return null;
                 },
               ),

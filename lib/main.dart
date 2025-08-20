@@ -25,8 +25,6 @@ import 'package:homeowner/utils/colors.dart';
 import 'package:homeowner/utils/common.dart';
 import 'package:homeowner/utils/configs.dart';
 import 'package:homeowner/utils/constant.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -171,6 +169,8 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }

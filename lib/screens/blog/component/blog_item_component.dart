@@ -8,7 +8,7 @@ import 'package:nb_utils/nb_utils.dart';
 class BlogItemComponent extends StatefulWidget {
   final BlogData? blogData;
 
-  BlogItemComponent({this.blogData});
+  const BlogItemComponent({super.key, this.blogData});
 
   @override
   State<BlogItemComponent> createState() => _BlogItemComponentState();

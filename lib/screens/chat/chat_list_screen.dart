@@ -1,9 +1,7 @@
 import 'package:homeowner/component/back_widget.dart';
 import 'package:homeowner/component/loader_widget.dart';
 import 'package:homeowner/main.dart';
-import 'package:homeowner/model/user_data_model.dart';
 import 'package:homeowner/screens/auth/sign_in_screen.dart';
-import 'package:homeowner/screens/chat/widget/user_item_widget.dart';
 import 'package:homeowner/utils/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_pagination/firebase_pagination.dart';
@@ -15,6 +13,8 @@ import '../../component/base_scaffold_body.dart';
 import '../../component/empty_error_state_widget.dart';
 
 class ChatListScreen extends StatefulWidget {
+  const ChatListScreen({super.key});
+
   @override
   _ChatListScreenState createState() => _ChatListScreenState();
 }

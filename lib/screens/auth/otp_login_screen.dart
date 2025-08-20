@@ -13,7 +13,7 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../utils/configs.dart';
 
 class OTPLoginScreen extends StatefulWidget {
-  const OTPLoginScreen({Key? key}) : super(key: key);
+  const OTPLoginScreen({super.key});
 
   @override
   State<OTPLoginScreen> createState() => _OTPLoginScreenState();

@@ -16,14 +16,14 @@ class MapScreen extends StatefulWidget {
   final double? latLong;
   final double? latitude;
 
-  MapScreen({this.latLong, this.latitude});
+  const MapScreen({super.key, this.latLong, this.latitude});
 
   @override
   MapScreenState createState() => MapScreenState();
 }
 
 class MapScreenState extends State<MapScreen> {
-  CameraPosition _initialLocation = CameraPosition(target: LatLng(0.0, 0.0));
+  final CameraPosition _initialLocation = CameraPosition(target: LatLng(0.0, 0.0));
   late GoogleMapController mapController;
 
   String _currentAddress = '';

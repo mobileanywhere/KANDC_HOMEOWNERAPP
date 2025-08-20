@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ServiceDetailShimmer extends StatelessWidget {
+  const ServiceDetailShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,10 +28,10 @@ class ServiceDetailShimmer extends StatelessWidget {
                   top: context.statusBarHeight + 8,
                   left: 16,
                   child: Container(
-                    child: BackWidget(iconColor: context.iconColor),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: context.cardColor.withOpacity(0.7)),
+                    child: BackWidget(iconColor: context.iconColor),
                   ),
                 ),
                 Positioned(

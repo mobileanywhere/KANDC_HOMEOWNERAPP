@@ -9,7 +9,7 @@ PageController customStepperController = PageController(initialPage: 0);
 class CustomStepper extends StatefulWidget {
   final List<CustomStep> stepsList;
 
-  CustomStepper({required this.stepsList});
+  const CustomStepper({super.key, required this.stepsList});
 
   @override
   _CustomStepperState createState() => _CustomStepperState();
@@ -58,14 +58,14 @@ class _CustomStepperState extends State<CustomStepper> {
   }
 
   Widget _buildStepper(int currentStep) {
-    return Container(
+    return SizedBox(
       height: 100,
       width: context.width() * 0.8,
       child: Row(
         children: List.generate(
           widget.stepsList.length,
           (index) {
-            if (index < widget.stepsList.length - 1)
+            if (index < widget.stepsList.length - 1) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,8 +76,9 @@ class _CustomStepperState extends State<CustomStepper> {
                   buildStepDivider(index).paddingBottom(16),
                 ],
               ).expand(flex: widget.stepsList.length);
-            else
+            } else {
               return buildStep(index).expand();
+            }
           },
         ),
       ),

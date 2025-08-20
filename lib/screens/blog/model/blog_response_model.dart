@@ -15,12 +15,12 @@ class BlogResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    if (this.pagination != null) {
-      data['pagination'] = this.pagination!.toJson();
+    if (pagination != null) {
+      data['pagination'] = pagination!.toJson();
     }
     return data;
   }
@@ -71,7 +71,7 @@ class BlogData {
     if (json['attchments_array'] != null) {
       attachment = <Attachments>[];
       json['attchments_array'].forEach((v) {
-        attachment!.add(new Attachments.fromJson(v));
+        attachment!.add(Attachments.fromJson(v));
       });
     }
     deletedAt = json['deleted_at'];
@@ -79,22 +79,22 @@ class BlogData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['is_featured'] = this.isFeatured;
-    data['total_views'] = this.totalViews;
-    data['author_id'] = this.authorId;
-    data['author_name'] = this.authorName;
-    data['author_image'] = this.authorImage;
-    data['status'] = this.status;
-    data['attchments'] = this.imageAttachments;
-    if (this.attachment != null) {
-      data['attchments_array'] = this.attachment!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['description'] = description;
+    data['is_featured'] = isFeatured;
+    data['total_views'] = totalViews;
+    data['author_id'] = authorId;
+    data['author_name'] = authorName;
+    data['author_image'] = authorImage;
+    data['status'] = status;
+    data['attchments'] = imageAttachments;
+    if (attachment != null) {
+      data['attchments_array'] = attachment!.map((v) => v.toJson()).toList();
     }
-    data['deleted_at'] = this.deletedAt;
-    data['created_at'] = this.createdAt;
+    data['deleted_at'] = deletedAt;
+    data['created_at'] = createdAt;
     return data;
   }
 }

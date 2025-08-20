@@ -13,7 +13,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 class FinalInvoiceScreen extends StatefulWidget {
   final int bookingId;
-  FinalInvoiceScreen({super.key, required this.bookingId});
+  const FinalInvoiceScreen({super.key, required this.bookingId});
 
   @override
   State<FinalInvoiceScreen> createState() => _FinalInvoiceScreenState();
@@ -168,7 +168,6 @@ class _FinalInvoiceScreenState extends State<FinalInvoiceScreen> {
       setState(() {
         invoiceDataModel = response;
       });
-    } catch (e) {
     } finally {
       appStore.setLoading(false);
     }
@@ -196,7 +195,7 @@ class _FinalInvoiceScreenState extends State<FinalInvoiceScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          '${invoiceDataModel?.bookingData?.booking?.serviceName ?? ''}',
+                          invoiceDataModel?.bookingData?.booking?.serviceName ?? '',
                           style: boldTextStyle(size: 16)),
                       Text(
                           '\$${invoiceDataModel?.bookingData?.booking?.amount ?? 0}',
@@ -207,7 +206,7 @@ class _FinalInvoiceScreenState extends State<FinalInvoiceScreen> {
                     height: 6,
                   ),
                   Text(
-                      '${invoiceDataModel?.bookingData?.booking?.date != null ? '(${formatDate(invoiceDataModel?.bookingData?.booking?.date.validate())})' : ''}',
+                      invoiceDataModel?.bookingData?.booking?.date != null ? '(${formatDate(invoiceDataModel?.bookingData?.booking?.date.validate())})' : '',
                       style: secondaryTextStyle(
                           size: 12, fontStyle: FontStyle.italic)),
                   SizedBox(

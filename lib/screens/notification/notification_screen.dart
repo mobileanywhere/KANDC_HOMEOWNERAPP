@@ -13,6 +13,8 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../component/empty_error_state_widget.dart';
 
 class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
+
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }

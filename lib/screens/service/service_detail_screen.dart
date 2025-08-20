@@ -27,7 +27,7 @@ class ServiceDetailScreen extends StatefulWidget {
   final int serviceId;
   final ServiceData? service;
 
-  ServiceDetailScreen({required this.serviceId, this.service});
+  const ServiceDetailScreen({super.key, required this.serviceId, this.service});
 
   @override
   _ServiceDetailScreenState createState() => _ServiceDetailScreenState();
@@ -95,7 +95,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen>
                     decoration: boxDecorationDefault(
                         color: isSelected ? primaryColor : context.cardColor),
                     child: Text(
-                      '${value.providerAddressMapping!.address.validate()}',
+                      value.providerAddressMapping!.address.validate(),
                       style: boldTextStyle(
                           color: isSelected
                               ? Colors.white
@@ -153,8 +153,9 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen>
   Widget slotsAvailable(
       {required List<SlotData> data, required bool isSlotAvailable}) {
     if (!isSlotAvailable ||
-        data.where((element) => element.slot.validate().isNotEmpty).isEmpty)
+        data.where((element) => element.slot.validate().isNotEmpty).isEmpty) {
       return Offstage();
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +175,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen>
             return Container(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: boxDecorationDefault(color: context.cardColor),
-              child: Text('${value.day.capitalizeFirstLetter()}',
+              child: Text(value.day.capitalizeFirstLetter(),
                   style: secondaryTextStyle(
                       size: LABEL_TEXT_SIZE, color: primaryColor)),
             );
@@ -352,10 +353,10 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen>
                   bookNow(snap.data!);
                 },
                 color: context.primaryColor,
-                child: Text(language.lblBookNow,
-                    style: boldTextStyle(color: white)),
                 width: context.width(),
                 textColor: Colors.white,
+                child: Text(language.lblBookNow,
+                    style: boldTextStyle(color: white)),
               ),
             )
           ],

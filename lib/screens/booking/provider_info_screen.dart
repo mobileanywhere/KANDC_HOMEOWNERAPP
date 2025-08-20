@@ -22,7 +22,7 @@ class ProviderInfoScreen extends StatefulWidget {
   final bool canCustomerContact;
   final VoidCallback? onUpdate;
 
-  ProviderInfoScreen({this.providerId, this.canCustomerContact = false, this.onUpdate});
+  const ProviderInfoScreen({super.key, this.providerId, this.canCustomerContact = false, this.onUpdate});
 
   @override
   ProviderInfoScreenState createState() => ProviderInfoScreenState();
@@ -181,7 +181,7 @@ class ProviderInfoScreenState extends State<ProviderInfoScreen> {
                               TextIcon(
                                 spacing: 10,
                                 onTap: () {
-                                  launchMail("${data.userData!.email.validate()}");
+                                  launchMail(data.userData!.email.validate());
                                 },
                                 prefix: Image.asset(ic_message, width: 16, height: 16, color: appStore.isDarkMode ? Colors.white : context.primaryColor),
                                 text: data.userData!.email.validate(),
@@ -192,7 +192,7 @@ class ProviderInfoScreenState extends State<ProviderInfoScreen> {
                               TextIcon(
                                 spacing: 10,
                                 onTap: () {
-                                  launchCall("${data.userData!.contactNumber.validate()}");
+                                  launchCall(data.userData!.contactNumber.validate());
                                 },
                                 prefix: Image.asset(ic_calling, width: 16, height: 16, color: appStore.isDarkMode ? Colors.white : context.primaryColor),
                                 text: data.userData!.contactNumber.validate(),

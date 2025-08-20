@@ -17,12 +17,12 @@ class BookingListResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    if (this.pagination != null) {
-      data['pagination'] = this.pagination!.toJson();
+    if (pagination != null) {
+      data['pagination'] = pagination!.toJson();
     }
     return data;
   }
@@ -52,15 +52,15 @@ class Handyman {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['booking_id'] = this.bookingId;
-    data['created_at'] = this.createdAt;
-    data['deleted_at'] = this.deletedAt;
-    data['handyman_id'] = this.handymanId;
-    data['id'] = this.id;
-    data['updated_at'] = this.updatedAt;
-    if (this.handyman != null) {
-      data['handyman'] = this.handyman!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['booking_id'] = bookingId;
+    data['created_at'] = createdAt;
+    data['deleted_at'] = deletedAt;
+    data['handyman_id'] = handymanId;
+    data['id'] = id;
+    data['updated_at'] = updatedAt;
+    if (handyman != null) {
+      data['handyman'] = handyman!.toJson();
     }
     return data;
   }

@@ -12,7 +12,7 @@ class CouponWidget extends StatefulWidget {
   final List<CouponData> couponData;
   final CouponData? appliedCouponData;
 
-  CouponWidget({required this.couponData, this.appliedCouponData});
+  const CouponWidget({super.key, required this.couponData, this.appliedCouponData});
 
   @override
   State<CouponWidget> createState() => _CouponWidgetState();

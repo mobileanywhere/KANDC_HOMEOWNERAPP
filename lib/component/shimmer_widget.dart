@@ -10,7 +10,7 @@ class ShimmerWidget extends StatelessWidget {
   final Color? baseColor;
   final Color? highlightColor;
 
-  ShimmerWidget({this.height, this.width, this.child, this.backgroundColor, this.baseColor, this.highlightColor});
+  const ShimmerWidget({super.key, this.height, this.width, this.child, this.backgroundColor, this.baseColor, this.highlightColor});
 
   @override
   Widget build(BuildContext context) {

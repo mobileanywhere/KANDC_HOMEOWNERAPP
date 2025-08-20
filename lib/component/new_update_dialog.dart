@@ -11,6 +11,8 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewUpdateDialog extends StatelessWidget {
+  const NewUpdateDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -43,7 +45,6 @@ class NewUpdateDialog extends StatelessWidget {
               Row(
                 children: [
                   AppButton(
-                    child: Text(remoteConfigDataModel.isForceUpdate! ? language.closeApp : language.close, style: boldTextStyle(color: primaryColor)),
                     shapeBorder: RoundedRectangleBorder(borderRadius: radius(), side: BorderSide(color: primaryColor)),
                     elevation: 0,
                     onTap: () async {
@@ -53,10 +54,10 @@ class NewUpdateDialog extends StatelessWidget {
                         finish(context);
                       }
                     },
+                    child: Text(remoteConfigDataModel.isForceUpdate! ? language.closeApp : language.close, style: boldTextStyle(color: primaryColor)),
                   ).expand(),
                   16.width,
                   AppButton(
-                    child: Text(language.lblUpdate, style: boldTextStyle(color: white)),
                     shapeBorder: RoundedRectangleBorder(borderRadius: radius()),
                     color: primaryColor,
                     elevation: 0,
@@ -77,6 +78,7 @@ class NewUpdateDialog extends StatelessWidget {
                         }
                       });
                     },
+                    child: Text(language.lblUpdate, style: boldTextStyle(color: white)),
                   ).expand(),
                 ],
               ),

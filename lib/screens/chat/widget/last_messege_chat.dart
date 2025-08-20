@@ -9,7 +9,7 @@ import 'package:nb_utils/nb_utils.dart';
 class LastMessageChat extends StatelessWidget {
   final stream;
 
-  LastMessageChat({
+  const LastMessageChat({super.key, 
     required this.stream,
   });
 
@@ -18,7 +18,7 @@ class LastMessageChat extends StatelessWidget {
     switch (type) {
       case TEXT:
         return Text(
-          "${message.message.validate()}",
+          message.message.validate(),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: secondaryTextStyle(size: 14),

@@ -22,13 +22,13 @@ class PriceCommonWidget extends StatelessWidget {
   final BookingPackage? bookingPackage;
 
   const PriceCommonWidget({
-    Key? key,
+    super.key,
     required this.bookingDetail,
     required this.serviceDetail,
     required this.taxes,
     required this.couponData,
     required this.bookingPackage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +239,7 @@ class PriceCommonWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextIcon(
-                      text: '${language.totalAmount}',
+                      text: language.totalAmount,
                       textStyle: secondaryTextStyle(size: 14),
                       edgeInsets: EdgeInsets.zero,
                       expandedText: true,
@@ -296,7 +296,7 @@ class PriceCommonWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TextIcon(
-                            text: '${language.remainingAmount}',
+                            text: language.remainingAmount,
                             textStyle: secondaryTextStyle(size: 14),
                             edgeInsets: EdgeInsets.zero,
                             suffix: Icon(Icons.info_outline_rounded, size: 20, color: context.primaryColor),
