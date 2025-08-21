@@ -26,6 +26,8 @@ import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../component/dropdown_style_helpers.dart';
+
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
 
@@ -330,6 +332,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
               ),
               16.height,
               AppTextField(
+
                 textFieldType: TextFieldType.NAME,
                 controller: fNameCont,
                 focus: fNameFocus,
@@ -337,7 +340,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 nextFocus: lNameFocus,
                 enabled: !isLoginTypeApple,
                 decoration: inputDecoration(context,
-                    labelText: language.hintFirstNameTxt),
+                    labelText: language.hintFirstNameTxt).copyWith(    labelStyle: TextStyle(color:   appStore.isDarkMode ? Colors.white : null),),
                 suffix: ic_profile2.iconImage(size: 10).paddingAll(14),
               ),
               16.height,
@@ -349,7 +352,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 nextFocus: userNameFocus,
                 enabled: !isLoginTypeApple,
                 decoration: inputDecoration(context,
-                    labelText: language.hintLastNameTxt),
+                    labelText: language.hintLastNameTxt).copyWith(    labelStyle: TextStyle(color:   appStore.isDarkMode ? Colors.white : null),),
                 suffix: ic_profile2.iconImage(size: 10).paddingAll(14),
               ),
               16.height,
@@ -361,7 +364,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 errorThisFieldRequired: language.requiredText,
                 nextFocus: emailFocus,
                 decoration: inputDecoration(context,
-                    labelText: language.hintUserNameTxt),
+                    labelText: language.hintUserNameTxt).copyWith(    labelStyle: TextStyle(color:   appStore.isDarkMode ? Colors.white : null),),
                 suffix: ic_profile2.iconImage(size: 10).paddingAll(14),
               ),
               16.height,
@@ -373,7 +376,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 enabled: false,
                 nextFocus: mobileFocus,
                 decoration:
-                    inputDecoration(context, labelText: language.hintEmailTxt),
+                    inputDecoration(context, labelText: language.hintEmailTxt).copyWith(    labelStyle: TextStyle(color:   appStore.isDarkMode ? Colors.white : null),),
                 suffix: ic_message.iconImage(size: 10).paddingAll(14),
               ),
               16.height,
@@ -392,7 +395,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 enabled: !isLoginTypeOTP,
                 errorThisFieldRequired: language.requiredText,
                 decoration: inputDecoration(context,
-                    labelText: language.hintContactNumberTxt),
+                    labelText: language.hintContactNumberTxt).copyWith(    labelStyle: TextStyle(color:   appStore.isDarkMode ? Colors.white : null),),
                 suffix: ic_calling.iconImage(size: 10).paddingAll(14),
                 validator: (mobileCont) {
                   if (mobileCont!.isEmpty) return language.phnRequiredText;
@@ -446,14 +449,18 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                 children: [
                   Expanded(
                     child: DropdownSearch<CountryListResponse>(
-                      popupProps: PopupProps.bottomSheet(
-                        showSearchBox: true,
+                      popupProps: getCommonPopupProps<CountryListResponse>(
+                        appStore.isDarkMode,
+                        'Search country...',
                       ),
-                      dropdownDecoratorProps: DropDownDecoratorProps(
-                        dropdownSearchDecoration: InputDecoration(
-                          labelText: 'Select Country',
-                          border: OutlineInputBorder(),
-                        ),
+                      dropdownDecoratorProps: getCommonDropdownDecoratorProps(
+                        'Select Country',
+                        appStore.isDarkMode,
+                      ),
+                      dropdownBuilder: getCommonDropdownBuilder<CountryListResponse>(
+                        appStore.isDarkMode,
+                        'Select Country',
+                            (item) => item?.name ?? '', // 👈 label extractor here
                       ),
                       items: countryList,
                       itemAsString: (CountryListResponse u) => u.name!,
@@ -473,15 +480,20 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                   if (stateList.isNotEmpty)
                     Expanded(
                       child: DropdownSearch<StateListResponse>(
-                        popupProps: PopupProps.bottomSheet(
-                          showSearchBox: true,
+                        popupProps: getCommonPopupProps<StateListResponse>(
+                          appStore.isDarkMode,
+                          'Select State',
                         ),
-                        dropdownDecoratorProps: DropDownDecoratorProps(
-                          dropdownSearchDecoration: InputDecoration(
-                            labelText: 'Select State',
-                            border: OutlineInputBorder(),
-                          ),
+                        dropdownDecoratorProps: getCommonDropdownDecoratorProps(
+                          'Select State',
+                          appStore.isDarkMode,
                         ),
+                        dropdownBuilder: getCommonDropdownBuilder<StateListResponse>(
+                          appStore.isDarkMode,
+                          'Select State',
+                              (item) => item?.name ?? '', // 👈 label extractor here
+                        ),
+
                         items: stateList,
                         itemAsString: (StateListResponse u) => u.name!,
                         onChanged: (StateListResponse? value) async {
@@ -499,16 +511,20 @@ class EditProfileScreenState extends State<EditProfileScreen> {
               ),
               SizedBox(height: 16),
               if (cityList.isNotEmpty)
-                DropdownSearch<CityListResponse>(
-                  popupProps: PopupProps.bottomSheet(
-                    showSearchBox: true,
+                DropdownSearch<CityListResponse>(     popupProps: getCommonPopupProps<CityListResponse>(
+                  appStore.isDarkMode,
+                  'Select City',
+                ),
+                  dropdownDecoratorProps: getCommonDropdownDecoratorProps(
+                    'Select City',
+                    appStore.isDarkMode,
                   ),
-                  dropdownDecoratorProps: DropDownDecoratorProps(
-                    dropdownSearchDecoration: InputDecoration(
-                      labelText: 'Select City',
-                      border: OutlineInputBorder(),
-                    ),
+                  dropdownBuilder: getCommonDropdownBuilder<CityListResponse>(
+                    appStore.isDarkMode,
+                    'Select City',
+                        (item) => item?.name ?? '', // 👈 label extractor here
                   ),
+
                   items: cityList,
                   itemAsString: (CityListResponse u) => u.name!,
                   onChanged: (CityListResponse? value) async {
