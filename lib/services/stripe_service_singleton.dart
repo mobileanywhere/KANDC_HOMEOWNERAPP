@@ -17,9 +17,7 @@ class StripeService {
   String get publishableKey => isTesting
       ? 'pk_test_LPjdxKFqlCMe3PJaOTqGtIZV'
       : 'pk_live_M8SBRAvXKV6kP2H6PFmYHGxO';
-  String get secretKey => isTesting
-      ? 'sk_test_RSlgCmcPTrrzoHSSlw9EsZ7x'
-      : 'sk_live_t2vJYsL3oSacpM1lmD8ftQ8w';
+//TODO secret key
   String get merchantId =>
       isTesting ? 'merchant.flutter.stripe.test' : 'merchant.kandc';
 
