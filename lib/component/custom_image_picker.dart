@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:homeowner/component/cached_image_widget.dart';
 import 'package:homeowner/main.dart';
+import 'package:homeowner/utils/colors.dart';
 import 'package:homeowner/utils/common.dart';
 import 'package:homeowner/utils/constant.dart';
 import 'package:homeowner/utils/images.dart';
@@ -80,7 +81,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
             await showInDialog(
               context,
               contentPadding: EdgeInsets.symmetric(vertical: 16),
-              title: Text(language.chooseAction, style: boldTextStyle()),
+              title: Text(language.chooseAction, style: boldTextStyle(color: primaryColor)),
               builder: (p0) {
                 return FilePickerDialog(isSelected: (false));
               },
@@ -203,16 +204,16 @@ class FilePickerDialog extends StatelessWidget {
           ).visible(isSelected),
           SettingItemWidget(
             title: 'Camera',
-            titleTextStyle: primaryTextStyle(),
-            leading: Icon(LineIcons.camera, color: context.iconColor),
+            titleTextStyle: primaryTextStyle(color: primaryColor),
+            leading: Icon(LineIcons.camera, color: primaryColor),
             onTap: () {
               finish(context, GalleryFileTypes.CAMERA);
             },
           ).visible(!isWeb),
           SettingItemWidget(
             title: 'Gallery',
-            titleTextStyle: primaryTextStyle(),
-            leading: Icon(LineIcons.image_1, color: context.iconColor),
+            titleTextStyle: primaryTextStyle(color: primaryColor),
+            leading: Icon(LineIcons.image_1, color: context.primaryColor),
             onTap: () {
               finish(context, GalleryFileTypes.GALLERY);
             },

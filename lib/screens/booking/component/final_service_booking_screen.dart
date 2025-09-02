@@ -450,7 +450,7 @@ class _FinalServiceBookingScreenState extends State<FinalServiceBookingScreen> {
                                             style: TextStyle(
                                               color: isButtonClicked
                                                   ? white
-                                                  : null,
+                                                  : Colors.white,
                                             ),
                                           )),
                                         ),

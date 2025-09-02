@@ -43,12 +43,20 @@ class _ReasonDialogState extends State<ReasonDialog> {
                   Form(
                     key: formKey,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: AppTextField(
-                      controller: _textFieldReason,
-                      textFieldType: TextFieldType.MULTILINE,
-                      decoration: inputDecoration(context, labelText: language.enterReason),
-                      minLines: 4,
-                      maxLines: 10,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text( language.enterReason,style: boldTextStyle(
+                            color: primaryColor, size: SMALL_LABEL_TEXT_SIZE),),
+                        5.height,
+                        AppTextField(
+                          controller: _textFieldReason,
+                          textFieldType: TextFieldType.MULTILINE,
+                          decoration: inputDecoration(context, ),
+                          minLines: 4,
+                          maxLines: 10,
+                        ),
+                      ],
                     ),
                   ),
                   24.height,

@@ -11,6 +11,7 @@ const DECIMAL_POINT = 2;
 const PER_PAGE_ITEM = 20;
 const PER_PAGE_CATEGORY_ITEM = 50;
 const LABEL_TEXT_SIZE = 14;
+const SMALL_LABEL_TEXT_SIZE = 12;
 const double SETTING_ICON_SIZE = 18;
 const double CATEGORY_ICON_SIZE = 70;
 const double SUBCATEGORY_ICON_SIZE = 45;
